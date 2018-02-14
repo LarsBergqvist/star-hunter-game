@@ -1,0 +1,138 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Level_1.gd" type="Script" id=1]
+[ext_resource path="res://star.tscn" type="PackedScene" id=2]
+[ext_resource path="res://TileSet.tres" type="TileSet" id=3]
+[ext_resource path="res://alien.tscn" type="PackedScene" id=4]
+[ext_resource path="res://backgrounds/bg_castle.png" type="Texture" id=5]
+[ext_resource path="res://bat.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 166.925, -65.3964, 0, 0, 0, 0, 371.116, -74.6083, 0, 0, 0, 0, 489.52, -79.9904, 0, 0, 0, 0, 541.995, -81.3358, 0, 0, 0, 0, 937.571, 8.81256, 0, 0, 0, 0, 1033.1, 22.2675, 0, 0, 0, 0, 977.936, 505.301, 0, 0, 0, 0, 889.133, 506.647, 0, 0, 0, 0, 781.494, 502.61, 0, 0, 0, 0, -259.922, 505.301, 0, 0, 0, 0, -467.129, 438.027, 0, 0, 0, 0, -481.93, 246.966, 0, 0, 0, 0, -393.127, 170.272, 0, 0, 0, 0, 1156.03, -91.7785, 0, 0, 0, 0, 1359.15, -273.409, 0, 0, 0, 0, 1578.86, -130.839, 0, 0, 0, 0, 1755.61, 316.403, 0, 0, 0, 0, -457.198, -166.947, 0, 0, 0, 0, -385.27, -29.4731, 0, 0, 0, 0, -243.736, -164.627, 0, 0, 0, 0, -109.162, -100.24, 0, 0, 0, 0, 33.5329, -175.068 )
+}
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "fly"
+length = 10.0
+loop = true
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5, 5, 6.7, 8.4, 9.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 184.459, -63.8067 ), Vector2( -113.692, -45.8248 ), Vector2( -80.0483, 159.517 ), Vector2( -80.0483, 159.517 ), Vector2( 190.26, 45.8248 ), Vector2( 165.317, -37.1239 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.5, 5, 6.7, 8.4, 9.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+}
+
+[node name="Level" type="Node2D"]
+
+script = ExtResource( 1 )
+Star = ExtResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="." index="0"]
+
+mode = 0
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 70, 70 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -327665, 2, 0, -327664, 0, 0, -327663, 0, 0, -262130, 2, 0, -262129, 3, 0, -262128, 0, 0, -262127, 0, 0, -196595, 2, 0, -196594, 3, 0, -196589, 0, 0, -65543, 16, 0, -65540, 16, 0, -131072, 8, 0, -131060, 2, 0, -131059, 3, 0, -7, 16, 0, -2, 8, 0, -65525, 2, 0, -65524, 3, 0, -65514, 0, 0, -65513, 0, 0, 65530, 16, 0, 5, 9, 0, 6, 10, 0, 7, 11, 0, 16, 0, 0, 26, 0, 0, 131066, 16, 0, 65544, 8, 0, 65549, 8, 0, 196604, 16, 0, 131074, 2, 0, 131075, 14, 0, 131076, 14, 0, 131077, 14, 0, 131078, 15, 0, 131081, 8, 0, 131097, 0, 0, 262140, 16, 0, 196609, 2, 0, 196610, 3, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196619, 8, 0, 196626, 4, 0, 196627, 14, 0, 196628, 15, 0, 327673, 8, 0, 327676, 16, 0, 262144, 2, 0, 262145, 3, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262157, 16, 0, 262168, 0, 0, 393211, 4, 0, 393212, 14, 0, 393213, 14, 0, 393214, 14, 0, 393215, 14, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327693, 16, 0, 327695, 5, 0, 327696, 14, 0, 327697, 6, 0, 393229, 16, 0, 393239, 0, 0, 524279, 13, 0, 524280, 14, 0, 524281, 15, 0, 458765, 16, 0, 458774, 0, 0, 589818, 4, 0, 589819, 14, 0, 589820, 14, 0, 589821, 14, 0, 589822, 14, 0, 589823, 14, 0, 524288, 14, 0, 524289, 14, 0, 524290, 14, 0, 524291, 14, 0, 524292, 14, 0, 524293, 14, 0, 524294, 14, 0, 524295, 14, 0, 524296, 14, 0, 524297, 14, 0, 524298, 14, 0, 524299, 14, 0, 524300, 14, 0, 524301, 14, 0, 524302, 14, 0, 524303, 15, 0, 524309, 0, 0, 589843, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 0, 720916, 0, 0, 720917, 0, 0, 720918, 0, 0, 720919, 0, 0, 720920, 0, 0, 720921, 0, 0, 720922, 0, 0, 720923, 0, 0 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="KinematicBody2D" parent="." index="1" instance=ExtResource( 4 )]
+
+_sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
+is_player = true
+
+[node name="ItemPositions" type="Path2D" parent="." index="2"]
+
+curve = SubResource( 1 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="3"]
+
+editor/display_folded = true
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = true
+_sections_unfolded = [ "Scroll" ]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+
+z_index = -1
+motion_scale = Vector2( 0.01, 0.01 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 1024, 512 )
+_sections_unfolded = [ "Motion", "Visibility", "Z Index" ]
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1024.0
+margin_bottom = 512.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 5 )
+stretch_mode = 0
+
+[node name="bat" parent="." index="4" instance=ExtResource( 6 )]
+
+position = Vector2( -101.516, 28.4918 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="bat" index="2"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/fly = SubResource( 2 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
+
+
