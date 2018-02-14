@@ -45,7 +45,7 @@ tracks/1/keys = {
 "values": [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
 }
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 Star = ExtResource( 2 )
@@ -74,7 +74,6 @@ _sections_unfolded = [ "Cell" ]
 [node name="KinematicBody2D" parent="." index="1" instance=ExtResource( 4 )]
 
 _sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
-is_player = true
 
 [node name="ItemPositions" type="Path2D" parent="." index="2"]
 
