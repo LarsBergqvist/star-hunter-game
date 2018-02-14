@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://tiles/stoneWall.png" type="Texture" id=1]
 [ext_resource path="res://tiles/stoneCenter.png" type="Texture" id=2]
@@ -17,6 +17,8 @@
 [ext_resource path="res://tiles/stoneMid.png" type="Texture" id=15]
 [ext_resource path="res://tiles/stoneRight.png" type="Texture" id=16]
 [ext_resource path="res://tiles/ladder_mid.png" type="Texture" id=17]
+[ext_resource path="res://tiles/rockHillLeft.png" type="Texture" id=18]
+[ext_resource path="res://tiles/rockHillRight.png" type="Texture" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -203,6 +205,8 @@ polygon = PoolVector2Array( -35.8079, -35.3666, -35.8079, 36.8796, -13.1127, 35.
 
 [node name="stonehalf" type="Sprite" parent="." index="8"]
 
+editor/display_folded = true
+visible = false
 texture = ExtResource( 9 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="stonehalf" index="0"]
@@ -379,5 +383,47 @@ polygon = PoolVector2Array( -35, -35, -35.3035, 4.98032, -35, 36, 13, 36, 35, 35
 
 visible = false
 texture = ExtResource( 17 )
+
+[node name="rockhill_left" type="Sprite" parent="." index="17"]
+
+editor/display_folded = true
+visible = false
+texture = ExtResource( 18 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="rockhill_left" index="0"]
+
+visible = false
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="rockhill_left/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -0.935425, 3.1814, -35, 36, 13, 36, 35, 35, 35, 3, 35.4605, -10.5209, 35, -29, 35.2474, -32.9533 )
+
+[node name="rockhill_right" type="Sprite" parent="." index="18"]
+
+texture = ExtResource( 19 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="rockhill_right" index="0"]
+
+visible = false
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="rockhill_right/StaticBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -35.3375, -34.0376, -34.687, 35.7884, 34.38, 35.4632 )
 
 

@@ -20,10 +20,10 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="GUI" parent="HUD" index="0" instance=ExtResource( 2 )]
 
-margin_left = 8.0
-margin_top = -58.0
-margin_right = 727.0
-margin_bottom = 140.0
+margin_left = 7.0
+margin_top = 10.0
+margin_right = 726.0
+margin_bottom = 208.0
 theme = SubResource( 1 )
 _sections_unfolded = [ "Anchor", "Margin", "Theme", "Visibility" ]
 
