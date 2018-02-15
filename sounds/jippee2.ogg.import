@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/jippee2.ogg-3f1db7bd3fd2b59d24bf6b408723a152.oggstr"
+
+[deps]
+
+source_file="res://sounds/jippee2.ogg"
+source_md5="a4688b79b045847bee042534e30f4f4d"
+
+dest_files=[ "res://.import/jippee2.ogg-3f1db7bd3fd2b59d24bf6b408723a152.oggstr" ]
+dest_md5="d74aadc5a3a07b9311a0415627064297"
+
+[params]
+
+loop=true
+loop_offset=0

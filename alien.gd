@@ -26,7 +26,11 @@ var jumping = false
 var on_ladder = false
 
 var prev_jump_pressed = false
+var last_olala_play_position = 0
 
+	
+func _ready():
+	pass
 
 func _physics_process(delta):
 	
@@ -49,8 +53,13 @@ func _physics_process(delta):
 		climb_up = Input.is_action_pressed("ui_up")
 	var climb_down = Input.is_action_pressed("ui_down")
 	var jump = Input.is_action_pressed("jump")
-	if jump:
-		pass
+	
+	var active = walk_left or walk_right or climb_up or climb_down or jump
+	if active or on_ladder:
+		$WaitAfterIdle.stop()
+	else:
+		if $WaitAfterIdle.is_stopped():
+			$WaitAfterIdle.start()
 	
 	var stop = true
 	
@@ -113,7 +122,6 @@ func _physics_process(delta):
 	else:
 		$AnimatedSprite.play()
 		$AnimatedSprite.animation = "stop"
-#		$AnimatedSprite.stop()
 		
 	if velocity.x != 0:
     	$AnimatedSprite.animation = "right"
@@ -123,6 +131,22 @@ func _physics_process(delta):
     	$AnimatedSprite.animation = "climb"
 	elif (jumping):	
     	$AnimatedSprite.animation = "jump"
+	
+	if $ooooh.playing or $jippee.playing or $hmmm.playing or $ehhh.playing:
+		$AnimatedSprite.animation = "oh"
 		
 	on_air_time += delta
 	prev_jump_pressed = jump
+
+
+func _on_WaitAfterIdle_timeout():
+	$WaitAfterIdle.stop()
+	var sound = randi() % 4
+	if sound == 0:
+		$ooooh.play()
+	elif sound == 1:
+		$jippee.play()
+	elif sound == 2:
+		$hmmm.play()
+	elif sound == 3:
+		$ehhh.play()

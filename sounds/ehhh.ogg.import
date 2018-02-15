@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ehhh.ogg-c012a2bdfb167f3d1f19f446b6434e31.oggstr"
+
+[deps]
+
+source_file="res://sounds/ehhh.ogg"
+source_md5="f529f23a798238e26f66dfa90c3c5056"
+
+dest_files=[ "res://.import/ehhh.ogg-c012a2bdfb167f3d1f19f446b6434e31.oggstr" ]
+dest_md5="cfb8365599b3630f19ad68b3e61ff277"
+
+[params]
+
+loop=false
+loop_offset=0

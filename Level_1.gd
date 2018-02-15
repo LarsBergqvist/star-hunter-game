@@ -18,6 +18,8 @@ func _ready():
 		star.position = pos_curve.get_point_position(i)
 		star.connect("star_taken", self, "on_star_taken")
 
+	$bg_music.play()
+	
 func on_star_taken():
 	stars_found += 1
 	emit_signal("star_was_taken")

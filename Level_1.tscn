@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Level_1.gd" type="Script" id=1]
 [ext_resource path="res://star.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://alien.tscn" type="PackedScene" id=4]
 [ext_resource path="res://backgrounds/bg_castle.png" type="Texture" id=5]
 [ext_resource path="res://bat.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sounds/star_hunter.ogg" type="AudioStream" id=7]
+[ext_resource path="res://sounds/jippee1.ogg" type="AudioStream" id=8]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -45,7 +47,7 @@ tracks/1/keys = {
 "values": [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
 }
 
-[node name="Level" type="Node2D" index="0"]
+[node name="Level" type="Node2D"]
 
 script = ExtResource( 1 )
 Star = ExtResource( 2 )
@@ -136,5 +138,21 @@ playback_speed = 1.0
 anims/fly = SubResource( 2 )
 blend_times = [  ]
 _sections_unfolded = [ "Playback Options" ]
+
+[node name="bg_music" type="AudioStreamPlayer" parent="." index="5"]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "bg_music"
+
+[node name="talk" type="AudioStreamPlayer" parent="." index="6"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 

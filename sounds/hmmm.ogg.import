@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/hmmm.ogg-f32d37af4b49e0dc14d7c08b92551455.oggstr"
+
+[deps]
+
+source_file="res://sounds/hmmm.ogg"
+source_md5="87f2bf6edaf357bf57eee78caf06a250"
+
+dest_files=[ "res://.import/hmmm.ogg-f32d37af4b49e0dc14d7c08b92551455.oggstr" ]
+dest_md5="4e0c3ba2606dc5a8cf2bb28d4cc3bf7e"
+
+[params]
+
+loop=false
+loop_offset=0

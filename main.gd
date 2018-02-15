@@ -24,6 +24,7 @@ func _ready():
 	pass
 
 func on_star_was_taken():
+	$ping.play()
 	score = score + 10
 	total_stars = current_level.total_stars
 	stars_found = current_level.stars_found
