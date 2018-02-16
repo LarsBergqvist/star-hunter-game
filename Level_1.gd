@@ -34,6 +34,7 @@ func _physics_process(delta):
 		
 	
 func on_player_hit():
+	$player.was_hit = true
 	emit_signal("player_was_hit")
 	
 func on_star_taken():

@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 export (bool) var is_player = true
+export (bool) var was_hit = false
 
 const GRAVITY = 1000.0 # pixels/second/second
 
@@ -29,9 +30,17 @@ var last_olala_play_position = 0
 	
 func _ready():
 	pass
-
-func _physics_process(delta):
 	
+func _physics_process(delta):
+	if was_hit:
+		$AnimatedSprite.animation = "hit"
+		$AnimatedSprite/trail.emitting = true
+		if $RecoverTimer.is_stopped():
+			$RecoverTimer.start()
+		return
+	else:
+		$AnimatedSprite/trail.emitting = false
+		
 	var tilemap = get_parent().get_node("TileMap")
 	if not tilemap == null:
 		var map_pos = tilemap.world_to_map(position)
@@ -147,3 +156,8 @@ func _on_WaitAfterIdle_timeout():
 		$hmmm.play()
 	elif sound == 3:
 		$ehhh.play()
+
+
+func _on_RecoverTimer_timeout():
+	was_hit = false
+	$WaitAfterIdle.stop()
