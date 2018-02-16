@@ -1,9 +1,7 @@
 extends KinematicBody2D
 
 export (bool) var is_player = true
-# This demo shows how to build a kinematic controller.
 
-# Member variables
 const GRAVITY = 1000.0 # pixels/second/second
 
 # Angle in degrees towards either side that the player can consider "floor"
@@ -137,7 +135,6 @@ func _physics_process(delta):
 		
 	on_air_time += delta
 	prev_jump_pressed = jump
-
 
 func _on_WaitAfterIdle_timeout():
 	$WaitAfterIdle.stop()

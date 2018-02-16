@@ -1,8 +1,10 @@
 extends Node2D
 
 export (PackedScene) var Star
+export (PackedScene) var Bat
 
 signal star_was_taken
+signal player_was_hit
 
 export (int) var total_stars = 0
 export (int) var stars_found = 0
@@ -18,7 +20,21 @@ func _ready():
 		star.position = pos_curve.get_point_position(i)
 		star.connect("star_taken", self, "on_star_taken")
 
+	for i in range(0,10):
+		var bat = Bat.instance()
+		bat.path = $BatPath/PathFollow2D
+		bat.connect("player_hit", self, "on_player_hit")
+		add_child(bat)
+
 	$bg_music.play()
+
+func _physics_process(delta):
+	if $player.position.y > 1000:
+		emit_signal("player_was_hit")
+		
+	
+func on_player_hit():
+	emit_signal("player_was_hit")
 	
 func on_star_taken():
 	stars_found += 1
