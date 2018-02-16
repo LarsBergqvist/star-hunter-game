@@ -65,7 +65,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 split_offset = 0
 collapsed = false
-dragger_visibility = 0
+dragger_visibility = 1
 
 [node name="Score" type="Label" parent="HBox/VSplit" index="0"]
 
@@ -103,7 +103,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 split_offset = 0
 collapsed = false
-dragger_visibility = 0
+dragger_visibility = 1
 
 [node name="VSplitL" type="VSplitContainer" parent="HBox/VSplit/HSplit" index="0"]
 
@@ -181,7 +181,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 split_offset = 0
 collapsed = false
-dragger_visibility = 0
+dragger_visibility = 1
 
 [node name="Title" type="Label" parent="HBox/VSplit/HSplit/VSplitR" index="0"]
 

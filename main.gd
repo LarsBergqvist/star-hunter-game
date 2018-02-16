@@ -5,30 +5,42 @@ var stars_found = 0
 var total_stars = 0
 var current_level
 var max_health = 100
-var health = 100
+var health = 10
 
-
-func _ready():
+func init():
+	stars_found = 0
+	total_stars = 0
+	max_health = 100
+	health = 10
 	$Messages/GameOver.hide()
 	$Messages/LevelComplete.hide()
+	$Messages/PlayAgain.hide()
+
+func init2():
+	$HUD/GUI.score = score
+	$HUD/GUI.stars_remaining = total_stars - stars_found
+	$HUD/GUI.total_stars = total_stars
+	$HUD/GUI.stars_found = stars_found
+	$HUD/GUI.health = health
+	$HUD/GUI.max_health = max_health
+		
+func init_from_current_level():
+	total_stars = current_level.total_stars
+	stars_found = current_level.stars_found
+	
+func _ready():
+	init()
 	
 	var levelscene = load("res://Level_1.tscn")
 	var level = levelscene.instance()
 	current_level = level
 	add_child(level)
 	
-	total_stars = current_level.total_stars
-	stars_found = current_level.stars_found
+	init_from_current_level()
 	
-	$HUD/GUI.score = score
-	$HUD/GUI.stars_remaining = total_stars - stars_found
-	$HUD/GUI.total_stars = total_stars
-	$HUD/GUI.stars_found = stars_found
-	
+	init2()
+		
 	level.connect("star_was_taken", self, "on_star_was_taken")
-
-	$HUD/GUI.health = health
-	$HUD/GUI.max_health = max_health
 
 	level.connect("player_was_hit", self, "on_player_was_hit")
 
@@ -51,8 +63,20 @@ func on_star_was_taken():
 func _process(delta):
 	if health <= 0:
 		$Messages/GameOver.show()
+		$Messages/PlayAgain.show()
 		get_tree().paused = true
 		
 	if stars_found == total_stars:
 		$Messages/LevelComplete.show()
+		$Messages/PlayAgain.show()
 		get_tree().paused = true
+
+
+func _on_PlayAgainButton_pressed():
+	get_tree().reload_current_scene()
+	get_tree().paused = false
+	init()
+#	init_from_current_level()
+#	init2()
+
+
