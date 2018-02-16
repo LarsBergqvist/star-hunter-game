@@ -8,7 +8,7 @@
 [sub_resource type="Theme" id=1]
 
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 
 size = 50
 use_mipmaps = false
@@ -16,7 +16,7 @@ use_filter = false
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 
 size = 100
 use_mipmaps = false
@@ -78,7 +78,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -103,7 +103,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "GAME OVER"
 percent_visible = 1.0
 lines_skipped = 0
@@ -125,7 +125,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "Level complete"
 percent_visible = 1.0
 lines_skipped = 0

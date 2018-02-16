@@ -5,13 +5,13 @@ var stars_found = 0
 var total_stars = 0
 var current_level
 var max_health = 100
-var health = 10
+var health = 100
 
 func init():
 	stars_found = 0
 	total_stars = 0
 	max_health = 100
-	health = 10
+	health = 100
 	$Messages/GameOver.hide()
 	$Messages/LevelComplete.hide()
 	$Messages/PlayAgain.hide()
