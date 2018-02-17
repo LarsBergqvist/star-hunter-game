@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://bat.gd" type="Script" id=1]
+[ext_resource path="res://enemies/bat.gd" type="Script" id=1]
 [ext_resource path="res://enemies/bat.png" type="Texture" id=2]
 [ext_resource path="res://enemies/bat_fly.png" type="Texture" id=3]
 
@@ -37,6 +37,7 @@ shape = SubResource( 1 )
 
 frames = SubResource( 2 )
 animation = "default"
+frame = 1
 playing = true
 
 [connection signal="body_entered" from="." to="." method="_on_Bat_body_entered"]

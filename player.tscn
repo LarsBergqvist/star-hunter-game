@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://alien.gd" type="Script" id=1]
+[ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://alien/alienGreen_walk1.png" type="Texture" id=2]
 [ext_resource path="res://alien/alienGreen_walk2.png" type="Texture" id=3]
 [ext_resource path="res://alien/alienGreen_stand.png" type="Texture" id=4]
@@ -100,7 +100,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color" ]
 
-[node name="alien" type="KinematicBody2D"]
+[node name="player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -139,7 +139,6 @@ _sections_unfolded = [ "Drawing", "Material", "Pause", "Process Material", "Text
 
 [node name="Camera2D" type="Camera2D" parent="." index="1"]
 
-visible = false
 anchor_mode = 1
 rotating = true
 current = true
@@ -166,7 +165,6 @@ _sections_unfolded = [ "Smoothing" ]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
 
-visible = false
 build_mode = 0
 polygon = PoolVector2Array( 10.9984, 46.7545, 14.0915, 39.303, 22.9484, 29.7427, 23.3702, 12.5903, 29.4157, 4.43583, 35.3207, -9.62353, 29.8375, -32.6809, 14.3722, -46.1779, -1.65544, -47.865, -15.1524, -44.7719, -28.9306, -31.8373, -34.2731, -11.4512, -27.1029, 6.26355, -22.3227, 14.5586, -21.7603, 27.6338, -17.9643, 33.6793, -4.74805, 46.6139 )
 

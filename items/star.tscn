@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://star.gd" type="Script" id=1]
-[ext_resource path="res://star.png" type="Texture" id=2]
+[ext_resource path="res://items/star.gd" type="Script" id=1]
+[ext_resource path="res://items/star.png" type="Texture" id=2]
 
 [node name="star" type="Area2D"]
 
