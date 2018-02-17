@@ -30,13 +30,25 @@ var last_olala_play_position = 0
 	
 func _ready():
 	pass
-	
+
+var hit_num = 0
+func play_hit_sound():
+	hit_num += 1
+	if hit_num == 1:
+		$aj1.play()
+	elif hit_num == 2:
+		$aj2.play()
+	elif hit_num == 3:
+		hit_num = 0
+		$aj3.play()
+		
 func _physics_process(delta):
 	if was_hit:
 		$AnimatedSprite.animation = "hit"
 		$AnimatedSprite/trail.emitting = true
 		if $RecoverTimer.is_stopped():
 			$RecoverTimer.start()
+			play_hit_sound()
 		return
 	else:
 		$AnimatedSprite/trail.emitting = false
@@ -164,4 +176,4 @@ func _on_WaitAfterIdle_timeout():
 
 func _on_RecoverTimer_timeout():
 	was_hit = false
-	$WaitAfterIdle.stop()
+	$RecoverTimer.stop()

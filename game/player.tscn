@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://alien/alienGreen_walk1.png" type="Texture" id=2]
@@ -14,6 +14,9 @@
 [ext_resource path="res://sounds/ooooooh.ogg" type="AudioStream" id=12]
 [ext_resource path="res://sounds/ehhh.ogg" type="AudioStream" id=13]
 [ext_resource path="res://sounds/hmmm.ogg" type="AudioStream" id=14]
+[ext_resource path="res://sounds/aj1.ogg" type="AudioStream" id=15]
+[ext_resource path="res://sounds/aj2.ogg" type="AudioStream" id=16]
+[ext_resource path="res://sounds/aj3.ogg" type="AudioStream" id=17]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -213,6 +216,30 @@ process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
+
+[node name="aj1" type="AudioStreamPlayer" parent="." index="9"]
+
+stream = ExtResource( 15 )
+volume_db = -5.0
+autoplay = false
+mix_target = 0
+bus = "talk"
+
+[node name="aj2" type="AudioStreamPlayer" parent="." index="10"]
+
+stream = ExtResource( 16 )
+volume_db = -5.0
+autoplay = false
+mix_target = 0
+bus = "talk"
+
+[node name="aj3" type="AudioStreamPlayer" parent="." index="11"]
+
+stream = ExtResource( 17 )
+volume_db = -5.0
+autoplay = false
+mix_target = 0
+bus = "talk"
 
 [connection signal="timeout" from="WaitAfterIdle" to="." method="_on_WaitAfterIdle_timeout"]
 
