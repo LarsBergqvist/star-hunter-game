@@ -5,6 +5,7 @@ export (PackedScene) var Bat
 
 signal star_was_taken
 signal player_was_hit
+signal enemy_was_hit
 
 export (int) var total_stars = 0
 export (int) var stars_found = 0
@@ -24,6 +25,7 @@ func _ready():
 		var bat = Bat.instance()
 		bat.path = $BatPath/PathFollow2D
 		bat.connect("player_hit", self, "on_player_hit")
+		bat.connect("enemy_hit", self, "on_enemy_hit")
 		add_child(bat)
 
 	$bg_music.play()
@@ -40,4 +42,7 @@ func on_player_hit():
 func on_star_taken():
 	stars_found += 1
 	emit_signal("star_was_taken")
+	
+func on_enemy_hit():
+	emit_signal("enemy_was_hit")
 

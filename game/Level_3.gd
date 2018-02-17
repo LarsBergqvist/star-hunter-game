@@ -5,6 +5,7 @@ export (PackedScene) var Ghost
 
 signal star_was_taken
 signal player_was_hit
+signal enemy_was_hit
 
 export (int) var total_stars = 0
 export (int) var stars_found = 0
@@ -20,10 +21,11 @@ func _ready():
 		star.position = pos_curve.get_point_position(i)
 		star.connect("star_taken", self, "on_star_taken")
 
-	for i in range(0,10):
+	for i in range(0,15):
 		var ghost = Ghost.instance()
 		ghost.path = $GhostPath/PathFollow2D
 		ghost.connect("player_hit", self, "on_player_hit")
+		ghost.connect("enemy_hit", self, "on_enemy_hit")
 		add_child(ghost)
 
 	$bg_music.play()
@@ -40,4 +42,7 @@ func on_player_hit():
 func on_star_taken():
 	stars_found += 1
 	emit_signal("star_was_taken")
+
+func on_enemy_hit():
+	emit_signal("enemy_was_hit")
 

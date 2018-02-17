@@ -36,6 +36,11 @@ func init_from_current_level():
 func _ready():
 	init_level(current_level_number)
 
+func on_enemy_was_hit():
+	$enemy_hit_sound.play()
+	score = score + 5
+	$HUD/GUI.score = score
+	
 func on_player_was_hit():
 	health = max(0,health-10)
 	$HUD/GUI.health = health
@@ -93,6 +98,7 @@ func init_level(level_number):
 	level.connect("star_was_taken", self, "on_star_was_taken")
 
 	level.connect("player_was_hit", self, "on_player_was_hit")
+	level.connect("enemy_was_hit", self, "on_enemy_was_hit")
 
 
 func _on_GoToNextLevel_pressed():

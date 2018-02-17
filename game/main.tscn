@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://GUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sounds/ping.ogg" type="AudioStream" id=3]
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://sounds/pock.ogg" type="AudioStream" id=5]
 
 [sub_resource type="Theme" id=1]
 
@@ -185,6 +186,14 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
+
+[node name="enemy_hit_sound" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 5 )
+volume_db = 10.0
+autoplay = false
+mix_target = 0
+bus = "fx"
 
 [connection signal="button_down" from="Messages/PlayAgain" to="." method="_on_PlayAgain_button_down"]
 
