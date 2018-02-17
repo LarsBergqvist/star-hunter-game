@@ -61,6 +61,10 @@ func _physics_process(delta):
 	var climb_down = Input.is_action_pressed("ui_down")
 	var jump = Input.is_action_pressed("jump")
 	
+	if abs(velocity.y) > 0 and on_ladder == false:
+		climb_up = false
+		climb_down = false
+	
 	var active = walk_left or walk_right or climb_up or climb_down or jump
 	if active or on_ladder:
 		$WaitAfterIdle.stop()
