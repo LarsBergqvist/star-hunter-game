@@ -33,6 +33,7 @@ total_stars = 0
 stars_found = 0
 max_health = 0
 health = 0
+level = 1
 
 [node name="HBox" type="HBoxContainer" parent="." index="0"]
 
@@ -67,7 +68,7 @@ split_offset = 0
 collapsed = false
 dragger_visibility = 1
 
-[node name="Score" type="Label" parent="HBox/VSplit" index="0"]
+[node name="HSplit2" type="HSplitContainer" parent="HBox/VSplit" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -76,12 +77,50 @@ anchor_bottom = 0.0
 margin_right = 352.0
 margin_bottom = 37.0
 rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+split_offset = 0
+collapsed = false
+dragger_visibility = 0
+
+[node name="Score" type="Label" parent="HBox/VSplit/HSplit2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 172.0
+margin_bottom = 37.0
+rect_pivot_offset = Vector2( 0, 0 )
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
 text = "Score: 100"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "custom_fonts" ]
+
+[node name="Level" type="Label" parent="HBox/VSplit/HSplit2" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 184.0
+margin_right = 352.0
+margin_bottom = 37.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Level: 1"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1

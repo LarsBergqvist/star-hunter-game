@@ -6,6 +6,8 @@ var total_stars = 0
 var current_level
 var max_health = 100
 var health = 100
+var current_level_number = 1
+const total_levels = 2
 
 func init():
 	stars_found = 0
@@ -25,19 +27,16 @@ func init2():
 	$HUD/GUI.stars_found = stars_found
 	$HUD/GUI.health = health
 	$HUD/GUI.max_health = max_health
+	$HUD/GUI.level = current_level_number
 		
 func init_from_current_level():
 	total_stars = current_level.total_stars
 	stars_found = current_level.stars_found
-
-var current_level_id = 1
-const total_levels = 2
 	
 func _ready():
-	init_level(current_level_id)
+	init_level(current_level_number)
 
 func on_player_was_hit():
-#	$ping.play()
 	health = max(0,health-10)
 	$HUD/GUI.health = health
 	$HUD/GUI.max_health = max_health
@@ -58,8 +57,8 @@ func _process(delta):
 		$Messages/PlayAgain.show()
 		get_tree().paused = true
 		
-	if stars_found == 2:#total_stars:
-		if (current_level_id == total_levels):
+	if stars_found == total_stars:
+		if (current_level_number == total_levels):
 			$Messages/GameComplete.show()
 			$Messages/PlayAgain.show()
 		else:
@@ -76,13 +75,13 @@ func _on_PlayAgainButton_pressed():
 func next_level():
 	current_level.queue_free()
 	get_tree().paused = false
-	current_level_id += 1
-	init_level(current_level_id)
+	current_level_number += 1
+	init_level(current_level_number)
 	
-func init_level(level_id):
+func init_level(level_number):
 	init()
 	
-	var levelscene = load("res://Level_" + str(current_level_id) + ".tscn")
+	var levelscene = load("res://Level_" + str(level_number) + ".tscn")
 	var level = levelscene.instance()
 	current_level = level
 	add_child(level)
