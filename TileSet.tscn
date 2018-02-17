@@ -32,7 +32,6 @@ _sections_unfolded = [ "Material", "Visibility" ]
 
 [node name="stone_rounded" type="Sprite" parent="." index="0"]
 
-editor/display_folded = true
 visible = false
 texture = ExtResource( 1 )
 
