@@ -15,6 +15,8 @@ func init():
 	$Messages/GameOver.hide()
 	$Messages/LevelComplete.hide()
 	$Messages/PlayAgain.hide()
+	$Messages/GoToNextLevel.hide()
+	$Messages/GameComplete.hide()
 
 func init2():
 	$HUD/GUI.score = score
@@ -27,22 +29,12 @@ func init2():
 func init_from_current_level():
 	total_stars = current_level.total_stars
 	stars_found = current_level.stars_found
+
+var current_level_id = 1
+const total_levels = 2
 	
 func _ready():
-	init()
-	
-	var levelscene = load("res://Level_1.tscn")
-	var level = levelscene.instance()
-	current_level = level
-	add_child(level)
-	
-	init_from_current_level()
-	
-	init2()
-		
-	level.connect("star_was_taken", self, "on_star_was_taken")
-
-	level.connect("player_was_hit", self, "on_player_was_hit")
+	init_level(current_level_id)
 
 func on_player_was_hit():
 #	$ping.play()
@@ -66,9 +58,13 @@ func _process(delta):
 		$Messages/PlayAgain.show()
 		get_tree().paused = true
 		
-	if stars_found == total_stars:
-		$Messages/LevelComplete.show()
-		$Messages/PlayAgain.show()
+	if stars_found == 2:#total_stars:
+		if (current_level_id == total_levels):
+			$Messages/GameComplete.show()
+			$Messages/PlayAgain.show()
+		else:
+			$Messages/LevelComplete.show()
+			$Messages/GoToNextLevel.show()
 		get_tree().paused = true
 
 
@@ -76,7 +72,29 @@ func _on_PlayAgainButton_pressed():
 	get_tree().reload_current_scene()
 	get_tree().paused = false
 	init()
-#	init_from_current_level()
-#	init2()
+
+func next_level():
+	current_level.queue_free()
+	get_tree().paused = false
+	current_level_id += 1
+	init_level(current_level_id)
+	
+func init_level(level_id):
+	init()
+	
+	var levelscene = load("res://Level_" + str(current_level_id) + ".tscn")
+	var level = levelscene.instance()
+	current_level = level
+	add_child(level)
+	
+	init_from_current_level()
+	
+	init2()
+		
+	level.connect("star_was_taken", self, "on_star_was_taken")
+
+	level.connect("player_was_hit", self, "on_player_was_hit")
 
 
+func _on_GoToNextLevel_pressed():
+	next_level()

@@ -10,7 +10,7 @@ config_version=3
 
 [application]
 
-config/name="New Game Project"
+config/name="Star Hunter"
 run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
 

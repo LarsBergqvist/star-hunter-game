@@ -24,7 +24,7 @@ use_filter = false
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="main" type="Node2D"]
+[node name="main" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -64,6 +64,7 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 [node name="PlayAgain" type="Button" parent="Messages" index="0"]
 
 pause_mode = 2
+visible = false
 anchor_left = 0.0
 anchor_top = 0.5
 anchor_right = 1.0
@@ -88,8 +89,37 @@ flat = false
 align = 1
 _sections_unfolded = [ "Anchor", "Focus", "Hint", "Margin", "Material", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants", "custom_fonts" ]
 
-[node name="GameOver" type="Label" parent="Messages" index="1"]
+[node name="GoToNextLevel" type="Button" parent="Messages" index="1"]
 
+pause_mode = 2
+visible = false
+anchor_left = 0.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 1.0
+margin_top = 103.0
+margin_right = 1.0
+margin_bottom = 170.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Go to next level"
+flat = false
+align = 1
+_sections_unfolded = [ "Anchor", "Focus", "Hint", "Margin", "Material", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants", "custom_fonts" ]
+
+[node name="GameOver" type="Label" parent="Messages" index="2"]
+
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -110,8 +140,9 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
 
-[node name="LevelComplete" type="Label" parent="Messages" index="2"]
+[node name="LevelComplete" type="Label" parent="Messages" index="3"]
 
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -132,8 +163,33 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
+[node name="GameComplete" type="Label" parent="Messages" index="4"]
+
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -409.0
+margin_top = -77.0
+margin_right = 400.0
+margin_bottom = 43.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "Game complete"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
 [connection signal="button_down" from="Messages/PlayAgain" to="." method="_on_PlayAgain_button_down"]
 
 [connection signal="pressed" from="Messages/PlayAgain" to="." method="_on_PlayAgainButton_pressed"]
+
+[connection signal="pressed" from="Messages/GoToNextLevel" to="." method="_on_GoToNextLevel_pressed"]
 
 

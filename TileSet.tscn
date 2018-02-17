@@ -381,7 +381,6 @@ polygon = PoolVector2Array( -35, -35, -35.3035, 4.98032, -35, 36, 13, 36, 35, 35
 
 [node name="ladder" type="Sprite" parent="." index="16"]
 
-visible = false
 texture = ExtResource( 17 )
 
 [node name="rockhill_left" type="Sprite" parent="." index="17"]
@@ -408,6 +407,7 @@ polygon = PoolVector2Array( -0.935425, 3.1814, -35, 36, 13, 36, 35, 35, 35, 3, 3
 
 [node name="rockhill_right" type="Sprite" parent="." index="18"]
 
+visible = false
 texture = ExtResource( 19 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="rockhill_right" index="0"]
