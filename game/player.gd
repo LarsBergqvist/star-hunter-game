@@ -6,18 +6,13 @@ export (bool) var was_hit = false
 const GRAVITY = 1000.0 # pixels/second/second
 
 # Angle in degrees towards either side that the player can consider "floor"
-const SCALE = 1
-const FLOOR_ANGLE_TOLERANCE = 40
-const WALK_FORCE = 600*SCALE
-const WALK_MIN_SPEED = 10*SCALE
-const WALK_MAX_SPEED = 200*SCALE
-const STOP_FORCE = 1300*SCALE
+const WALK_FORCE = 600
+const WALK_MIN_SPEED = 10
+const WALK_MAX_SPEED = 200
+const STOP_FORCE = 1300
 const JUMP_SPEED = 600
 const JUMP_MAX_AIRBORNE_TIME = 0.2
 const CLIMB_SPEED = 2
-
-const SLIDE_STOP_VELOCITY = 1.0 # one pixel/second
-const SLIDE_STOP_MIN_TRAVEL = 1.0 # one pixel
 
 var velocity = Vector2()
 var on_air_time = 100
@@ -25,22 +20,10 @@ var jumping = false
 var on_ladder = false
 
 var prev_jump_pressed = false
-var last_olala_play_position = 0
 
 	
 func _ready():
 	pass
-
-var hit_num = 0
-func play_hit_sound():
-	hit_num += 1
-	if hit_num == 1:
-		$aj1.play()
-	elif hit_num == 2:
-		$aj2.play()
-	elif hit_num == 3:
-		hit_num = 0
-		$aj3.play()
 		
 func _physics_process(delta):
 	if was_hit:
@@ -52,15 +35,8 @@ func _physics_process(delta):
 		return
 	else:
 		$AnimatedSprite/trail.emitting = false
-		
-	var tilemap = get_parent().get_node("TileMap")
-	if not tilemap == null:
-		var map_pos = tilemap.world_to_map(position)
-		var id = tilemap.get_cellv(map_pos)
-		if (id == 16):
-			on_ladder = true
-		else:
-			on_ladder = false
+	
+	on_ladder = get_tile_on_position(position.x, position.y+35) == "ladder"
 	
 	# Create forces
 	var force = Vector2(0, GRAVITY)
@@ -163,17 +139,27 @@ func _physics_process(delta):
 
 func _on_WaitAfterIdle_timeout():
 	$WaitAfterIdle.stop()
-	var sound = randi() % 4
-	if sound == 0:
-		$ooooh.play()
-	elif sound == 1:
-		$jippee.play()
-	elif sound == 2:
-		$hmmm.play()
-	elif sound == 3:
-		$ehhh.play()
-
+	play_idle_sound()
 
 func _on_RecoverTimer_timeout():
 	was_hit = false
 	$RecoverTimer.stop()
+
+const idle_sounds = ["ooooh","jippee","hmmm","ehhh"]
+func play_idle_sound():
+	get_node(idle_sounds[randi() % 4]).play()
+
+const hit_sounds = ["aj1","aj2","aj3"]
+func play_hit_sound():
+	get_node(hit_sounds[randi() % 3]).play()
+
+func get_tile_on_position(x,y):
+	var tilemap = get_parent().get_node("TileMap")
+	if not tilemap == null:
+		var map_pos = tilemap.world_to_map(Vector2(x,y))
+		var id = tilemap.get_cellv(map_pos)
+		if id > -1:
+			var tilename = tilemap.get_tileset().tile_get_name(id)
+			return tilename
+		else:
+			return ""
