@@ -6,7 +6,7 @@ var total_stars = 0
 var current_level
 var max_health = 100
 var health = 100
-var current_level_number = 1
+var current_level_number = 3
 const total_levels = 3
 
 func init():

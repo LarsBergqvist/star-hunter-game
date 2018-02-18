@@ -29,6 +29,7 @@ script = ExtResource( 1 )
 Star = ExtResource( 2 )
 Bat = ExtResource( 3 )
 Gem = ExtResource( 4 )
+Ghost = null
 total_stars = 0
 stars_found = 0
 
