@@ -43,6 +43,7 @@ shape = SubResource( 1 )
 
 frames = SubResource( 2 )
 animation = "default"
+frame = 1
 playing = true
 
 [connection signal="body_entered" from="." to="." method="_on_Bat_body_entered"]

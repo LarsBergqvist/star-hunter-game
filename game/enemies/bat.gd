@@ -13,7 +13,7 @@ const fall_dead_speed = 4
 
 func _ready():
 	pathIdx = randi() % 10000
-	speed = randi() % 3 + 1
+	speed = (randi() % 3 + 1)*50
 	direction = randi() % 2
 
 func _process(delta):
@@ -33,9 +33,9 @@ func _process(delta):
 			path.set_offset(pathIdx)
 			position = path.position
 			if direction == 0:
-				pathIdx += speed
+				pathIdx += speed*delta	
 			else:
-				pathIdx -= speed
+				pathIdx -= speed*delta
 
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
