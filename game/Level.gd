@@ -57,6 +57,7 @@ func on_gem_taken():
 	
 func _physics_process(delta):
 	if $player.position.y > 1000:
+		$player.was_hit = true
 		emit_signal("player_was_hit")
 		
 func on_player_hit():
