@@ -28,7 +28,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 34.9252, 34.7361 )
 
-[sub_resource type="RectangleShape2D" id=44]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 35.1778, 34.9646 )
@@ -128,8 +128,6 @@ polygon = PoolVector2Array( -35.3506, -16.2473, -18.0771, -33.6469, 36.5081, -34
 
 [node name="stonecliff_left" type="Sprite" parent="." index="4"]
 
-editor/display_folded = true
-visible = false
 texture = ExtResource( 5 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="stonecliff_left" index="0"]
@@ -146,7 +144,7 @@ bounce = 0.0
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="stonecliff_left/StaticBody2D" index="0"]
 
 build_mode = 0
-polygon = PoolVector2Array( -35.8081, -16.2018, -33.0343, 2.96302, -23.578, 15.3193, -9.96092, 24.7756, 3.53007, 30.4493, 18.2819, 33.7275, 35.9337, 36.2492, 36, -34, -35, -34 )
+polygon = PoolVector2Array( -35.8081, -16.2018, -33.0343, 2.96302, -23.578, 15.3193, -9.96092, 24.7756, 3.53007, 30.4493, 18.2819, 33.7275, 35.9337, 36.2492, 35.8148, -34.6775, -35.0887, -34.6775 )
 
 [node name="stonecliff_left_alt" type="Sprite" parent="." index="5"]
 
@@ -458,6 +456,7 @@ polygon = PoolVector2Array( -34.4421, -33.552, 11.1716, -33.9019, 34.5035, -11.0
 
 [node name="gem_red" type="Sprite" parent="." index="20"]
 
+visible = false
 texture = ExtResource( 21 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="gem_red" index="0"]
@@ -477,6 +476,7 @@ polygon = PoolVector2Array( -23.4627, -20.4655, 6.44678, -23.144, 25.196, -10.19
 
 [node name="box" type="Sprite" parent="." index="21"]
 
+visible = false
 texture = ExtResource( 22 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="box" index="0"]
@@ -491,6 +491,6 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="box/StaticBody2D" index="0"]
 
-shape = SubResource( 44 )
+shape = SubResource( 2 )
 
 

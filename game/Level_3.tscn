@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Level.gd" type="Script" id=1]
 [ext_resource path="res://items/star.tscn" type="PackedScene" id=2]
-[ext_resource path="res://enemies/Ghost.tscn" type="PackedScene" id=3]
-[ext_resource path="res://TileSet_snow.tres" type="TileSet" id=4]
-[ext_resource path="res://player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://backgrounds/bg_castle.png" type="Texture" id=6]
-[ext_resource path="res://sounds/star_hunter3.ogg" type="AudioStream" id=7]
+[ext_resource path="res://enemies/bat.tscn" type="PackedScene" id=3]
+[ext_resource path="res://items/Gem.tscn" type="PackedScene" id=4]
+[ext_resource path="res://enemies/Ghost.tscn" type="PackedScene" id=5]
+[ext_resource path="res://TileSet_snow.tres" type="TileSet" id=6]
+[ext_resource path="res://player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://backgrounds/bg_castle.png" type="Texture" id=8]
+[ext_resource path="res://sounds/star_hunter3.ogg" type="AudioStream" id=9]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -26,14 +28,16 @@ _data = {
 
 script = ExtResource( 1 )
 Star = ExtResource( 2 )
-Ghost = ExtResource( 3 )
+Bat = ExtResource( 3 )
+Gem = ExtResource( 4 )
+Ghost = ExtResource( 5 )
 total_stars = 0
 stars_found = 0
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
 mode = 0
-tile_set = ExtResource( 4 )
+tile_set = ExtResource( 6 )
 cell_size = Vector2( 70, 70 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -48,10 +52,10 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( -65549, 14, 0, -65548, 18, 0, -65543, 3, 0, -65542, 4, 0, -65541, 4, 0, -65540, 4, 0, -65539, 4, 0, -65538, 5, 0, -12, 19, 0, -11, 18, 0, 1, 0, 0, 51, 0, 0, 65540, 0, 0, 65583, 0, 0, 196615, 3, 0, 196616, 4, 0, 196617, 4, 0, 196618, 4, 0, 196619, 4, 0, 196620, 5, 0, 196652, 0, 0, 262159, 0, 0, 262185, 0, 0, 458746, 8, 0, 458747, 8, 0, 458748, 8, 0, 458749, 8, 0, 458750, 8, 0, 458751, 8, 0, 393216, 8, 0, 393217, 8, 0, 393218, 8, 0, 393219, 8, 0, 393220, 8, 0, 393221, 8, 0, 393222, 8, 0, 393223, 8, 0, 393224, 8, 0, 393225, 8, 0, 393226, 8, 0, 393227, 8, 0, 393228, 8, 0, 393229, 8, 0, 393230, 8, 0, 393231, 8, 0, 393232, 8, 0, 393233, 8, 0, 393234, 8, 0, 393235, 8, 0, 393236, 8, 0, 393237, 8, 0, 393238, 8, 0, 393239, 8, 0, 393240, 8, 0, 393241, 8, 0, 393242, 8, 0, 393243, 8, 0, 393244, 8, 0, 393245, 8, 0, 393246, 8, 0, 393247, 9, 0, 393251, 7, 0, 393252, 8, 0, 393253, 8, 0, 393254, 8, 0, 393255, 8, 0, 393256, 8, 0, 393257, 8, 0, 393258, 8, 0, 393259, 8, 0, 393260, 8, 0, 393261, 8, 0, 393262, 8, 0, 393263, 8, 0, 393264, 8, 0, 393265, 8, 0, 393266, 8, 0, 393267, 8, 0, 393268, 8, 0, 393269, 9, 0, 393273, 7, 0, 393274, 8, 0, 393275, 8, 0, 393276, 8, 0, 393277, 8, 0, 393278, 8, 0, 393279, 8, 0, 393280, 8, 0, 393281, 8, 0, 393282, 8, 0, 393283, 8, 0, 393284, 8, 0, 393285, 8, 0, 393286, 8, 0, 393287, 8, 0, 393288, 9, 0 )
+tile_data = PoolIntArray( -393206, 11, 0, -393205, 11, 0, -262150, 11, 0, -262149, 11, 0, -262148, 11, 0, -262147, 11, 0, -327670, 11, 0, -327669, 11, 0, -131081, 10, 0, -196597, 10, 0, -65549, 14, 0, -65548, 18, 0, -65545, 10, 0, -65543, 3, 0, -65542, 4, 0, -65541, 4, 0, -65540, 4, 0, -65539, 4, 0, -65538, 5, 0, -131061, 10, 0, -12, 19, 0, -11, 18, 0, -9, 10, 0, -65527, 10, 0, 65527, 10, 0, 1, 0, 0, 9, 10, 0, 51, 0, 0, 131063, 10, 0, 65540, 0, 0, 65583, 0, 0, 196599, 10, 0, 262135, 10, 0, 196615, 3, 0, 196616, 4, 0, 196617, 4, 0, 196618, 4, 0, 196619, 4, 0, 196620, 5, 0, 196652, 0, 0, 327672, 0, 0, 262159, 0, 0, 262185, 0, 0, 393209, 0, 0, 458746, 8, 0, 458747, 8, 0, 458748, 8, 0, 458749, 8, 0, 458750, 8, 0, 458751, 8, 0, 393216, 8, 0, 393217, 8, 0, 393218, 8, 0, 393219, 8, 0, 393220, 8, 0, 393221, 8, 0, 393222, 8, 0, 393223, 8, 0, 393224, 8, 0, 393225, 8, 0, 393226, 8, 0, 393227, 8, 0, 393228, 8, 0, 393229, 8, 0, 393230, 8, 0, 393231, 8, 0, 393232, 8, 0, 393233, 8, 0, 393234, 8, 0, 393235, 8, 0, 393236, 8, 0, 393237, 8, 0, 393238, 8, 0, 393239, 8, 0, 393240, 8, 0, 393241, 8, 0, 393242, 8, 0, 393243, 8, 0, 393244, 8, 0, 393245, 8, 0, 393246, 8, 0, 393247, 9, 0, 393251, 7, 0, 393252, 8, 0, 393253, 8, 0, 393254, 8, 0, 393255, 8, 0, 393256, 8, 0, 393257, 8, 0, 393258, 8, 0, 393259, 8, 0, 393260, 8, 0, 393261, 8, 0, 393262, 8, 0, 393263, 8, 0, 393264, 8, 0, 393265, 8, 0, 393266, 8, 0, 393267, 8, 0, 393268, 8, 0, 393269, 9, 0, 393273, 7, 0, 393274, 8, 0, 393275, 8, 0, 393276, 8, 0, 393277, 8, 0, 393278, 8, 0, 393279, 8, 0, 393280, 8, 0, 393281, 8, 0, 393282, 8, 0, 393283, 8, 0, 393284, 8, 0, 393285, 8, 0, 393286, 8, 0, 393287, 8, 0, 393288, 9, 0 )
 _sections_unfolded = [ "Cell" ]
 
-[node name="player" parent="." index="1" instance=ExtResource( 5 )]
+[node name="player" parent="." index="1" instance=ExtResource( 7 )]
 
 position = Vector2( -115.52, 180.5 )
 _sections_unfolded = [ "Collision", "Material", "Pause", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
@@ -99,14 +103,14 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 expand = true
 stretch_mode = 2
 _sections_unfolded = [ "Rect" ]
 
 [node name="bg_music" type="AudioStreamPlayer" parent="." index="4"]
 
-stream = ExtResource( 7 )
+stream = ExtResource( 9 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
