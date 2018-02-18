@@ -24,7 +24,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Ghost" type="Area2D" index="0"]
+[node name="Ghost" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -43,7 +43,6 @@ shape = SubResource( 1 )
 
 frames = SubResource( 2 )
 animation = "fly"
-frame = 1
 playing = true
 
 [connection signal="body_shape_entered" from="." to="." method="_on_Ghost_body_shape_entered"]

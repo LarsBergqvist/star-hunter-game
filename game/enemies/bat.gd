@@ -9,7 +9,7 @@ var pathIdx = 0
 var speed = 0
 var direction = 0
 var is_dead = false
-const fall_dead_speed = 4
+const fall_dead_speed = 4*50
 
 func _ready():
 	pathIdx = randi() % 10000
@@ -19,7 +19,7 @@ func _ready():
 func _process(delta):
 	if is_dead:
 		$AnimatedSprite.animation = "dead"
-		position.y += fall_dead_speed
+		position.y += fall_dead_speed*delta
 		if position.y > 1500:
 			queue_free()
 	else:
@@ -36,11 +36,6 @@ func _process(delta):
 				pathIdx += speed*delta	
 			else:
 				pathIdx -= speed*delta
-
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
-
 	
 
 func _on_Bat_body_entered( body ):
