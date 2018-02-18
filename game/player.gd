@@ -37,6 +37,7 @@ func _physics_process(delta):
 		$AnimatedSprite/trail.emitting = false
 	
 	on_ladder = get_tile_on_position(position.x, position.y+35) == "ladder"
+	check_collision_with_stone_rounded()
 	
 	# Create forces
 	var force = Vector2(0, GRAVITY)
@@ -163,3 +164,20 @@ func get_tile_on_position(x,y):
 			return tilename
 		else:
 			return ""
+
+func check_collision_with_stone_rounded():
+	var x = position.x
+	var y = position.y - 50
+	var tilename = get_tile_on_position(x,y)
+	if tilename == "stone_rounded": # or tilename == "gem_red":
+		var tilemap = get_parent().get_node("TileMap")
+		if not tilemap == null:
+			var map_pos = tilemap.world_to_map(Vector2(x,y))
+			var id = tilemap.get_cellv(map_pos)
+			if id > -1:
+				if not tilename == "gem_red":
+					var gem_id = tilemap.get_tileset().find_tile_by_name("gem_red")
+					tilemap.set_cellv(map_pos, gem_id)
+				else:
+					pass
+#					tilemap.set_cellv(map_pos, -1)

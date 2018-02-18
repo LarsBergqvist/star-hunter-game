@@ -115,6 +115,7 @@ was_hit = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
+editor/display_folded = true
 frames = SubResource( 1 )
 animation = "right"
 
