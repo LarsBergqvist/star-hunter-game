@@ -103,19 +103,19 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color" ]
 
-[node name="player" type="KinematicBody2D" index="0"]
+[node name="player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Pickable", "collision" ]
 is_player = true
 was_hit = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
-editor/display_folded = true
 frames = SubResource( 1 )
 animation = "right"
 

@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=65 format=2]
+[gd_resource type="TileSet" load_steps=67 format=2]
 
 [ext_resource path="res://tiles/stoneWall.png" type="Texture" id=1]
 [ext_resource path="res://tiles/stoneCenter.png" type="Texture" id=2]
@@ -14,13 +14,14 @@
 [ext_resource path="res://tiles/stoneHillRight2.png" type="Texture" id=12]
 [ext_resource path="res://tiles/sandHillLeft.png" type="Texture" id=13]
 [ext_resource path="res://tiles/gemRed.png" type="Texture" id=14]
-[ext_resource path="res://tiles/sandHillLeft2.png" type="Texture" id=15]
-[ext_resource path="res://tiles/stoneCliffLeft.png" type="Texture" id=16]
-[ext_resource path="res://tiles/stoneCliffLeftAlt.png" type="Texture" id=17]
-[ext_resource path="res://tiles/stoneCliffRight.png" type="Texture" id=18]
-[ext_resource path="res://tiles/stoneCliffRightAlt.png" type="Texture" id=19]
-[ext_resource path="res://tiles/stoneHalf.png" type="Texture" id=20]
-[ext_resource path="res://tiles/stoneHalfLeft.png" type="Texture" id=21]
+[ext_resource path="res://tiles/box.png" type="Texture" id=15]
+[ext_resource path="res://tiles/sandHillLeft2.png" type="Texture" id=16]
+[ext_resource path="res://tiles/stoneCliffLeft.png" type="Texture" id=17]
+[ext_resource path="res://tiles/stoneCliffLeftAlt.png" type="Texture" id=18]
+[ext_resource path="res://tiles/stoneCliffRight.png" type="Texture" id=19]
+[ext_resource path="res://tiles/stoneCliffRightAlt.png" type="Texture" id=20]
+[ext_resource path="res://tiles/stoneHalf.png" type="Texture" id=21]
+[ext_resource path="res://tiles/stoneHalfLeft.png" type="Texture" id=22]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 
@@ -162,6 +163,11 @@ points = PoolVector2Array( -1, 1, 35, -35, 35, -31, 35, 35, 31.5139, 35.6817, 26
 custom_solver_bias = 0.0
 points = PoolVector2Array( -23.4627, -20.4655, 6.44678, -23.144, 25.196, -10.1981, 16.7142, 18.8186, -20.3378, 13.908 )
 
+[sub_resource type="RectangleShape2D" id=44]
+
+custom_solver_bias = 0.0
+extents = Vector2( 35.1778, 34.9646 )
+
 [sub_resource type="ConvexPolygonShape2D" id=29]
 
 custom_solver_bias = 0.0
@@ -282,7 +288,7 @@ points = PoolVector2Array( 37.1948, -29.1884, 37.447, -10.6541, 35.4296, 2.58472
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
 3/name = "sandhill_left2"
-3/texture = ExtResource( 15 )
+3/texture = ExtResource( 16 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 0, 0, 70, 70 )
@@ -296,7 +302,7 @@ points = PoolVector2Array( 37.1948, -29.1884, 37.447, -10.6541, 35.4296, 2.58472
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
 4/name = "stonecliff_left"
-4/texture = ExtResource( 16 )
+4/texture = ExtResource( 17 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 0, 0, 70, 70 )
@@ -310,7 +316,7 @@ points = PoolVector2Array( 37.1948, -29.1884, 37.447, -10.6541, 35.4296, 2.58472
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
 5/name = "stonecliff_left_alt"
-5/texture = ExtResource( 17 )
+5/texture = ExtResource( 18 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 0, 0, 70, 70 )
@@ -339,7 +345,7 @@ points = PoolVector2Array( 37.1948, -29.1884, 37.447, -10.6541, 35.4296, 2.58472
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
 6/name = "stonecliff_right"
-6/texture = ExtResource( 18 )
+6/texture = ExtResource( 19 )
 6/tex_offset = Vector2( 0, 0 )
 6/modulate = Color( 1, 1, 1, 1 )
 6/region = Rect2( 0, 0, 70, 70 )
@@ -353,7 +359,7 @@ points = PoolVector2Array( 37.1948, -29.1884, 37.447, -10.6541, 35.4296, 2.58472
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
 7/name = "stonecliff_right_alt"
-7/texture = ExtResource( 19 )
+7/texture = ExtResource( 20 )
 7/tex_offset = Vector2( 0, 0 )
 7/modulate = Color( 1, 1, 1, 1 )
 7/region = Rect2( 0, 0, 70, 70 )
@@ -382,7 +388,7 @@ points = PoolVector2Array( 37.1948, -29.1884, 37.447, -10.6541, 35.4296, 2.58472
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
 8/name = "stonehalf"
-8/texture = ExtResource( 20 )
+8/texture = ExtResource( 21 )
 8/tex_offset = Vector2( 0, 0 )
 8/modulate = Color( 1, 1, 1, 1 )
 8/region = Rect2( 0, 0, 70, 70 )
@@ -401,7 +407,7 @@ points = PoolVector2Array( 37.1948, -29.1884, 37.447, -10.6541, 35.4296, 2.58472
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
 9/name = "stonehalf_left"
-9/texture = ExtResource( 21 )
+9/texture = ExtResource( 22 )
 9/tex_offset = Vector2( 0, 0 )
 9/modulate = Color( 1, 1, 1, 1 )
 9/region = Rect2( 0, 0, 70, 70 )
@@ -641,6 +647,20 @@ points = PoolVector2Array( 37.1948, -29.1884, 37.447, -10.6541, 35.4296, 2.58472
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "shape": SubResource( 28 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
+} ]
+21/name = "box"
+21/texture = ExtResource( 15 )
+21/tex_offset = Vector2( 0, 0 )
+21/modulate = Color( 1, 1, 1, 1 )
+21/region = Rect2( 0, 0, 70, 70 )
+21/is_autotile = false
+21/occluder_offset = Vector2( 35, 35 )
+21/navigation_offset = Vector2( 35, 35 )
+21/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 44 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
 

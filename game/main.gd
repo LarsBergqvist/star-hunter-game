@@ -55,6 +55,11 @@ func on_star_was_taken():
 	$HUD/GUI.stars_remaining = total_stars - stars_found
 	$HUD/GUI.total_stars = total_stars
 	$HUD/GUI.stars_found = stars_found
+
+func on_gem_was_taken():
+	$ping.play()
+	score = score + 5
+	$HUD/GUI.score = score
 	
 func _process(delta):
 	if health <= 0:
@@ -99,7 +104,7 @@ func init_level(level_number):
 
 	level.connect("player_was_hit", self, "on_player_was_hit")
 	level.connect("enemy_was_hit", self, "on_enemy_was_hit")
-
+	level.connect("gem_was_taken", self, "on_gem_was_taken")
 
 func _on_GoToNextLevel_pressed():
 	next_level()

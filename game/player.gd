@@ -3,6 +3,8 @@ extends KinematicBody2D
 export (bool) var is_player = true
 export (bool) var was_hit = false
 
+signal box_opened
+
 const GRAVITY = 1000.0 # pixels/second/second
 
 # Angle in degrees towards either side that the player can consider "floor"
@@ -168,16 +170,9 @@ func get_tile_on_position(x,y):
 func check_collision_with_stone_rounded():
 	var x = position.x
 	var y = position.y - 50
-	var tilename = get_tile_on_position(x,y)
-	if tilename == "stone_rounded": # or tilename == "gem_red":
+	if get_tile_on_position(x,y) == "box":
 		var tilemap = get_parent().get_node("TileMap")
 		if not tilemap == null:
 			var map_pos = tilemap.world_to_map(Vector2(x,y))
-			var id = tilemap.get_cellv(map_pos)
-			if id > -1:
-				if not tilename == "gem_red":
-					var gem_id = tilemap.get_tileset().find_tile_by_name("gem_red")
-					tilemap.set_cellv(map_pos, gem_id)
-				else:
-					pass
-#					tilemap.set_cellv(map_pos, -1)
+			tilemap.set_cellv(map_pos, -1)
+			emit_signal("box_opened", Vector2(x,y), map_pos)

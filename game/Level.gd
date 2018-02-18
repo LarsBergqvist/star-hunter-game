@@ -2,10 +2,12 @@ extends Node2D
 
 export (PackedScene) var Star
 export (PackedScene) var Bat
+export (PackedScene) var Gem
 
 signal star_was_taken
 signal player_was_hit
 signal enemy_was_hit
+signal gem_was_taken
 
 export (int) var total_stars = 0
 export (int) var stars_found = 0
@@ -28,8 +30,21 @@ func _ready():
 		bat.connect("enemy_hit", self, "on_enemy_hit")
 		add_child(bat)
 
+	$player.connect("box_opened", self, "on_box_opened")
+	
 	$bg_music.play()
 
+func on_box_opened(player_pos, tile_pos):
+	var gem = Gem.instance()
+	gem.position = $TileMap.map_to_world(tile_pos)
+	gem.position.x += 35
+	gem.position.y += 35
+	gem.connect("gem_taken", self, "on_gem_taken")
+	add_child(gem)
+
+func on_gem_taken():
+	emit_signal("gem_was_taken")
+	
 func _physics_process(delta):
 	if $player.position.y > 1000:
 		emit_signal("player_was_hit")
