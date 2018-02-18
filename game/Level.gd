@@ -12,6 +12,8 @@ signal gem_was_taken
 
 export (int) var total_stars = 0
 export (int) var stars_found = 0
+export (int) var num_bats = 0
+export (int) var num_ghosts = 0
 
 func _ready():
 	var pos_curve = $ItemPositions.get_curve()
@@ -23,7 +25,7 @@ func _ready():
 		star.connect("star_taken", self, "on_star_taken")
 
 	if not $BatPath == null:
-		for i in range(0,10):
+		for i in range(0,num_bats):
 			var bat = Bat.instance()
 			bat.path = $BatPath/PathFollow2D
 			bat.connect("player_hit", self, "on_player_hit")
@@ -31,7 +33,7 @@ func _ready():
 			add_child(bat)
 
 	if not $GhostPath == null:
-		for i in range(0,15):
+		for i in range(0,num_ghosts):
 			var ghost = Ghost.instance()
 			ghost.path = $GhostPath/PathFollow2D
 			ghost.connect("player_hit", self, "on_player_hit")
