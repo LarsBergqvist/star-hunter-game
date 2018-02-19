@@ -1,6 +1,6 @@
 # star_hunter_game
 My first Godot game for learning Godot and GDScript
-<
+
 ![Alt text](https://github.com/LarsBergqvist/star_hunter_game/blob/master/screenshot.png?raw=true "Screenshot")
 
 
