@@ -2,8 +2,8 @@
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://GUI.tscn" type="PackedScene" id=2]
-[ext_resource path="res://sounds/ping.ogg" type="AudioStream" id=3]
-[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://sounds/ping.ogg" type="AudioStream" id=4]
 [ext_resource path="res://sounds/pock.ogg" type="AudioStream" id=5]
 
 [sub_resource type="Theme" id=1]
@@ -14,15 +14,15 @@
 size = 50
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 4 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=3]
 
-size = 100
+size = 40
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 4 )
+font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="main" type="Node2D" index="0"]
@@ -31,7 +31,7 @@ script = ExtResource( 1 )
 
 [node name="HUD" type="CanvasLayer" parent="." index="0"]
 
-layer = 1
+layer = 10
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
@@ -46,149 +46,77 @@ margin_bottom = 208.0
 theme = SubResource( 1 )
 _sections_unfolded = [ "Anchor", "Margin", "Pause", "Theme", "Visibility" ]
 
+[node name="VBox" type="VBoxContainer" parent="HUD" index="1"]
+
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -31.5
+margin_top = -58.5
+margin_right = 31.5
+margin_bottom = 58.5
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Pause" ]
+
+[node name="Message" type="Label" parent="HUD/VBox" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 63.0
+margin_bottom = 61.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 2 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Visibility", "custom_colors", "custom_fonts" ]
+
+[node name="Menu" type="PopupMenu" parent="HUD/VBox" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 65.0
+margin_right = 154.0
+margin_bottom = 187.0
+rect_pivot_offset = Vector2( 0, 0 )
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 3 )
+popup_exclusive = true
+items = [ "Item 0", null, false, false, false, -1, 0, null, "", false, "Item 1", null, false, false, false, -1, 0, null, "", false ]
+hide_on_item_selection = false
+hide_on_checkable_item_selection = false
+hide_on_state_item_selection = false
+_sections_unfolded = [ "Anchor", "Margin", "Popup", "custom_fonts" ]
+
 [node name="ping" type="AudioStreamPlayer" parent="." index="1"]
 
-stream = ExtResource( 3 )
+stream = ExtResource( 4 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
 bus = "fx"
 
-[node name="Messages" type="CanvasLayer" parent="." index="2"]
-
-editor/display_folded = true
-layer = 1
-offset = Vector2( 0, 0 )
-rotation = 0.0
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-
-[node name="PlayAgain" type="Button" parent="Messages" index="0"]
-
-pause_mode = 2
-visible = false
-anchor_left = 0.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = 1.0
-margin_top = 103.0
-margin_right = 1.0
-margin_bottom = 170.0
-rect_pivot_offset = Vector2( 0, 0 )
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_fonts/font = SubResource( 2 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Play again"
-flat = false
-align = 1
-_sections_unfolded = [ "Anchor", "Focus", "Hint", "Margin", "Material", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants", "custom_fonts" ]
-
-[node name="GoToNextLevel" type="Button" parent="Messages" index="1"]
-
-pause_mode = 2
-visible = false
-anchor_left = 0.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = 1.0
-margin_top = 103.0
-margin_right = 1.0
-margin_bottom = 170.0
-rect_pivot_offset = Vector2( 0, 0 )
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_fonts/font = SubResource( 2 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Go to next level"
-flat = false
-align = 1
-_sections_unfolded = [ "Anchor", "Focus", "Hint", "Margin", "Material", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants", "custom_fonts" ]
-
-[node name="GameOver" type="Label" parent="Messages" index="2"]
-
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -324.0
-margin_top = -73.0
-margin_right = 360.0
-margin_bottom = 47.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
-text = "GAME OVER"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_colors", "custom_constants", "custom_fonts", "custom_styles" ]
-
-[node name="LevelComplete" type="Label" parent="Messages" index="3"]
-
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -409.0
-margin_top = -77.0
-margin_right = 400.0
-margin_bottom = 43.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
-text = "Level complete"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
-
-[node name="GameComplete" type="Label" parent="Messages" index="4"]
-
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -409.0
-margin_top = -77.0
-margin_right = 400.0
-margin_bottom = 43.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
-text = "Game complete"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "custom_fonts" ]
-
-[node name="enemy_hit_sound" type="AudioStreamPlayer" parent="." index="3"]
+[node name="enemy_hit_sound" type="AudioStreamPlayer" parent="." index="2"]
 
 stream = ExtResource( 5 )
 volume_db = 10.0
@@ -196,10 +124,6 @@ autoplay = false
 mix_target = 0
 bus = "fx"
 
-[connection signal="button_down" from="Messages/PlayAgain" to="." method="_on_PlayAgain_button_down"]
-
-[connection signal="pressed" from="Messages/PlayAgain" to="." method="_on_PlayAgainButton_pressed"]
-
-[connection signal="pressed" from="Messages/GoToNextLevel" to="." method="_on_GoToNextLevel_pressed"]
+[connection signal="id_pressed" from="HUD/VBox/Menu" to="." method="_on_Menu_id_pressed"]
 
 

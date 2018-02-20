@@ -17,7 +17,7 @@ export (int) var num_ghosts = 0
 
 func _ready():
 	var pos_curve = $ItemPositions.get_curve()
-	total_stars = pos_curve.get_point_count()
+	total_stars = 1#pos_curve.get_point_count()
 	for i in range(0, total_stars):
 		var star = Star.instance()
 		add_child(star)
