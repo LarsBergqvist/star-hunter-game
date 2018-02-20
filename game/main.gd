@@ -18,7 +18,7 @@ const level_config = {
 			
 func _ready():
 	init_level(current_level_number)
-	
+
 func _process(delta):
 	if Input.is_action_pressed("pause"):
 		show_game_paused_menu()
@@ -37,12 +37,12 @@ func _process(delta):
 
 
 func restart_game(start_level_number):
+	current_level.do_physics_process = false
 	current_level.queue_free()
 	current_level_number = start_level_number
 	score = 0
 	health = 100
 	stars_found = 0
-#	get_tree().reload_current_scene()
 	init_level(current_level_number)
 	init_game_state()
 	get_tree().paused = false

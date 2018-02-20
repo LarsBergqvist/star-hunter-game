@@ -15,9 +15,11 @@ export (int) var stars_found = 0
 export (int) var num_bats = 0
 export (int) var num_ghosts = 0
 
+export (bool) var do_physics_process = false
 func _ready():
+	do_physics_process = true
 	var pos_curve = $ItemPositions.get_curve()
-	total_stars = 1#pos_curve.get_point_count()
+	total_stars = pos_curve.get_point_count()
 	for i in range(0, total_stars):
 		var star = Star.instance()
 		add_child(star)
@@ -54,8 +56,11 @@ func on_box_opened(player_pos, tile_pos):
 
 func on_gem_taken():
 	emit_signal("gem_was_taken")
-	
+
 func _physics_process(delta):
+	if not do_physics_process:
+		return
+		
 	if $player.position.y > 1000:
 		$player.was_hit = true
 		emit_signal("player_was_hit")
