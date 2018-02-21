@@ -4,6 +4,8 @@ export (PackedScene) var Star
 export (PackedScene) var Bat
 export (PackedScene) var Gem
 export (PackedScene) var Ghost
+export (PackedScene) var Bee
+export (PackedScene) var Fly
 
 signal star_was_taken
 signal player_was_hit
@@ -14,6 +16,8 @@ export (int) var total_stars = 0
 export (int) var stars_found = 0
 export (int) var num_bats = 0
 export (int) var num_ghosts = 0
+export (int) var num_bees = 0
+export (int) var num_flies = 0
 
 export (bool) var do_physics_process = false
 func _ready():
@@ -41,6 +45,22 @@ func _ready():
 			ghost.connect("player_hit", self, "on_player_hit")
 			ghost.connect("enemy_hit", self, "on_enemy_hit")
 			add_child(ghost)
+
+	if not $BeePath == null:
+		for i in range(0,num_bees):
+			var bee = Bee.instance()
+			bee.path = $BeePath/PathFollow2D
+			bee.connect("player_hit", self, "on_player_hit")
+			bee.connect("enemy_hit", self, "on_enemy_hit")
+			add_child(bee)
+
+	if not $FlyPath == null:
+		for i in range(0,num_flies):
+			var fly = Fly.instance()
+			fly.path = $FlyPath/PathFollow2D
+			fly.connect("player_hit", self, "on_player_hit")
+			fly.connect("enemy_hit", self, "on_enemy_hit")
+			add_child(fly)
 
 	$player.connect("box_opened", self, "on_box_opened")
 	

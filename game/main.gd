@@ -10,10 +10,10 @@ var current_level_number = 1
 const total_levels = 4
 
 const level_config = { 
-	1: { "num_bats": 10, "num_ghosts": 0 },
-	2: { "num_bats": 15, "num_ghosts": 0 },
-	3: { "num_bats": 5, "num_ghosts": 15 },
-	4: { "num_bats": 5, "num_ghosts": 15 }
+	1: { "num_bats": 10, "num_ghosts": 0, "num_bees": 0, "num_flies": 0 },
+	2: { "num_bats": 15, "num_ghosts": 0, "num_bees": 0, "num_flies": 0  },
+	3: { "num_bats": 5, "num_ghosts": 15, "num_bees": 0, "num_flies": 0  },
+	4: { "num_bats": 0, "num_ghosts": 0, "num_bees": 10, "num_flies": 20  }
 	}
 
 			
@@ -65,6 +65,9 @@ func init_level(level_number):
 	current_level = level
 	level.num_bats = level_config[level_number].num_bats
 	level.num_ghosts = level_config[level_number].num_ghosts
+	level.num_bees = level_config[level_number].num_bees
+	level.num_flies = level_config[level_number].num_flies
+	
 	add_child(level)
 	
 	init_from_current_level()
