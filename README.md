@@ -5,7 +5,7 @@ My first Godot game for learning Godot and GDScript
 
 
 <p>
-Use arrow keys to move and space to jump. The goal is to gather all stars on each level.
+Use arrow keys to move and space to jump. ESC to pause. The goal is to gather all stars on each level.
 <p>
 Graphics by Kenney (www.kenney.nl)
 <p>
