@@ -81,7 +81,7 @@ func _physics_process(delta):
 	if not do_physics_process:
 		return
 		
-	if $player.position.y > 1000:
+	if $player.position.y > 1500:
 		$player.was_hit = true
 		emit_signal("player_was_hit")
 		
