@@ -1,0 +1,316 @@
+[gd_resource type="TileSet" load_steps=25 format=2]
+
+[ext_resource path="res://tiles_candy/lollipopRed.png" type="Texture" id=1]
+[ext_resource path="res://tiles_candy/lollipopWhiteGreen.png" type="Texture" id=2]
+[ext_resource path="res://tiles_candy/cakeHalf.png" type="Texture" id=3]
+[ext_resource path="res://tiles_candy/cakeHalfAlt.png" type="Texture" id=4]
+[ext_resource path="res://tiles_candy/cakeHalfAltLeft.png" type="Texture" id=5]
+[ext_resource path="res://tiles_candy/cakeHalfAltMid.png" type="Texture" id=6]
+[ext_resource path="res://tiles_candy/cakeHalfAltRight.png" type="Texture" id=7]
+[ext_resource path="res://tiles_candy/cakeHalfLeft.png" type="Texture" id=8]
+[ext_resource path="res://tiles_candy/cakeHalfMid.png" type="Texture" id=9]
+[ext_resource path="res://tiles_candy/cakeHalfRight.png" type="Texture" id=10]
+[ext_resource path="res://tiles/ladder_mid.png" type="Texture" id=11]
+[ext_resource path="res://tiles/box.png" type="Texture" id=12]
+[ext_resource path="res://tiles_candy/lollipopWhiteRed.png" type="Texture" id=13]
+[ext_resource path="res://tiles_candy/lollipopBaseBrown.png" type="Texture" id=14]
+[ext_resource path="res://tiles_candy/cake.png" type="Texture" id=15]
+[ext_resource path="res://tiles_candy/cakeCenter.png" type="Texture" id=16]
+[ext_resource path="res://tiles_candy/cakeCenter_rounded.png" type="Texture" id=17]
+[ext_resource path="res://tiles_candy/cakeLeft.png" type="Texture" id=18]
+[ext_resource path="res://tiles_candy/cakeMid.png" type="Texture" id=19]
+[ext_resource path="res://tiles_candy/cakeRight.png" type="Texture" id=20]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 36.3447
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 35.0095, 20.1279 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 35.1104, 35.0599 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 35.1967, 35.0558 )
+
+[resource]
+
+0/name = "LollipopRed"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 70, 70 )
+0/is_autotile = false
+0/occluder_offset = Vector2( 35, 35 )
+0/navigation_offset = Vector2( 35, 35 )
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
+} ]
+1/name = "LollipopWhiteGreen"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 70, 70 )
+1/is_autotile = false
+1/occluder_offset = Vector2( 35, 35 )
+1/navigation_offset = Vector2( 35, 35 )
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
+} ]
+2/name = "LollipopWhiteRed"
+2/texture = ExtResource( 13 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 70, 70 )
+2/is_autotile = false
+2/occluder_offset = Vector2( 35, 35 )
+2/navigation_offset = Vector2( 35, 35 )
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
+} ]
+3/name = "LollipopBaseBrown"
+3/texture = ExtResource( 14 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 0, 0, 70, 70 )
+3/is_autotile = false
+3/occluder_offset = Vector2( 35, 35 )
+3/navigation_offset = Vector2( 35, 35 )
+3/shapes = [  ]
+4/name = "cake"
+4/texture = ExtResource( 15 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 0, 0, 70, 70 )
+4/is_autotile = false
+4/occluder_offset = Vector2( 35, 35 )
+4/navigation_offset = Vector2( 35, 35 )
+4/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
+} ]
+5/name = "cakeCenter"
+5/texture = ExtResource( 16 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 0, 0, 70, 70 )
+5/is_autotile = false
+5/occluder_offset = Vector2( 35, 35 )
+5/navigation_offset = Vector2( 35, 35 )
+5/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
+} ]
+6/name = "cakeCenterRound"
+6/texture = ExtResource( 17 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 0, 0, 70, 70 )
+6/is_autotile = false
+6/occluder_offset = Vector2( 35, 35 )
+6/navigation_offset = Vector2( 35, 35 )
+6/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
+} ]
+7/name = "cakeLeft"
+7/texture = ExtResource( 18 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 0, 0, 70, 70 )
+7/is_autotile = false
+7/occluder_offset = Vector2( 35, 35 )
+7/navigation_offset = Vector2( 35, 35 )
+7/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
+} ]
+8/name = "cakeMid"
+8/texture = ExtResource( 19 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 0, 0, 70, 70 )
+8/is_autotile = false
+8/occluder_offset = Vector2( 35, 35 )
+8/navigation_offset = Vector2( 35, 35 )
+8/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
+} ]
+9/name = "cakeRight"
+9/texture = ExtResource( 20 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 0, 0, 70, 70 )
+9/is_autotile = false
+9/occluder_offset = Vector2( 35, 35 )
+9/navigation_offset = Vector2( 35, 35 )
+9/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
+} ]
+10/name = "cakeHalf"
+10/texture = ExtResource( 3 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 0, 0, 70, 70 )
+10/is_autotile = false
+10/occluder_offset = Vector2( 35, 35 )
+10/navigation_offset = Vector2( 35, 35 )
+10/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 34.8991, 20.1689 )
+} ]
+11/name = "cakeHalfAlt"
+11/texture = ExtResource( 4 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 0, 0, 70, 70 )
+11/is_autotile = false
+11/occluder_offset = Vector2( 35, 35 )
+11/navigation_offset = Vector2( 35, 35 )
+11/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 34.8991, 20.1689 )
+} ]
+12/name = "cakeHalfAltLeft"
+12/texture = ExtResource( 5 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 0, 0, 70, 70 )
+12/is_autotile = false
+12/occluder_offset = Vector2( 35, 35 )
+12/navigation_offset = Vector2( 35, 35 )
+12/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 34.8991, 20.1689 )
+} ]
+13/name = "cakeHalfAltMid"
+13/texture = ExtResource( 6 )
+13/tex_offset = Vector2( 0, 0 )
+13/modulate = Color( 1, 1, 1, 1 )
+13/region = Rect2( 0, 0, 70, 70 )
+13/is_autotile = false
+13/occluder_offset = Vector2( 35, 35 )
+13/navigation_offset = Vector2( 35, 35 )
+13/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 34.8991, 20.1689 )
+} ]
+14/name = "cakeHalfAltRight"
+14/texture = ExtResource( 7 )
+14/tex_offset = Vector2( 0, 0 )
+14/modulate = Color( 1, 1, 1, 1 )
+14/region = Rect2( 0, 0, 70, 70 )
+14/is_autotile = false
+14/occluder_offset = Vector2( 35, 35 )
+14/navigation_offset = Vector2( 35, 35 )
+14/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 34.8991, 20.1689 )
+} ]
+15/name = "cakeHalfLeft"
+15/texture = ExtResource( 8 )
+15/tex_offset = Vector2( 0, 0 )
+15/modulate = Color( 1, 1, 1, 1 )
+15/region = Rect2( 0, 0, 70, 70 )
+15/is_autotile = false
+15/occluder_offset = Vector2( 35, 35 )
+15/navigation_offset = Vector2( 35, 35 )
+15/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 34.8991, 20.1689 )
+} ]
+16/name = "cakeHalfMid"
+16/texture = ExtResource( 9 )
+16/tex_offset = Vector2( 0, 0 )
+16/modulate = Color( 1, 1, 1, 1 )
+16/region = Rect2( 0, 0, 70, 70 )
+16/is_autotile = false
+16/occluder_offset = Vector2( 35, 35 )
+16/navigation_offset = Vector2( 35, 35 )
+16/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 34.8991, 20.1689 )
+} ]
+17/name = "cakeHalfRight"
+17/texture = ExtResource( 10 )
+17/tex_offset = Vector2( 0, 0 )
+17/modulate = Color( 1, 1, 1, 1 )
+17/region = Rect2( 0, 0, 70, 70 )
+17/is_autotile = false
+17/occluder_offset = Vector2( 35, 35 )
+17/navigation_offset = Vector2( 35, 35 )
+17/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 34.8991, 20.1689 )
+} ]
+18/name = "ladder"
+18/texture = ExtResource( 11 )
+18/tex_offset = Vector2( 0, 0 )
+18/modulate = Color( 1, 1, 1, 1 )
+18/region = Rect2( 0, 0, 70, 70 )
+18/is_autotile = false
+18/occluder_offset = Vector2( 35, 35 )
+18/navigation_offset = Vector2( 35, 35 )
+18/shapes = [  ]
+19/name = "box"
+19/texture = ExtResource( 12 )
+19/tex_offset = Vector2( 0, 0 )
+19/modulate = Color( 1, 1, 1, 1 )
+19/region = Rect2( 0, 0, 70, 70 )
+19/is_autotile = false
+19/occluder_offset = Vector2( 35, 35 )
+19/navigation_offset = Vector2( 35, 35 )
+19/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
+} ]
+

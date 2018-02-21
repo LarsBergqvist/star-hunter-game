@@ -7,12 +7,13 @@ var current_level
 var max_health = 100
 var health = 100
 var current_level_number = 1
-const total_levels = 3
+const total_levels = 4
 
 const level_config = { 
 	1: { "num_bats": 10, "num_ghosts": 0 },
 	2: { "num_bats": 15, "num_ghosts": 0 },
-	3: { "num_bats": 5, "num_ghosts": 15 }
+	3: { "num_bats": 5, "num_ghosts": 15 },
+	4: { "num_bats": 5, "num_ghosts": 15 }
 	}
 
 			
