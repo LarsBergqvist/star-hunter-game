@@ -15,6 +15,7 @@ func _ready():
 	pathIdx = randi() % 10000
 	speed = (randi() % 3 + 1)*50
 	direction = randi() % 2
+	connect("body_entered", self, "_on_body_entered")
 
 func _process(delta):
 	if is_dead:
@@ -38,7 +39,7 @@ func _process(delta):
 				pathIdx -= speed*delta
 	
 
-func _on_Bat_body_entered( body ):
+func _on_body_entered( body ):
 	if is_dead:
 		return
 		

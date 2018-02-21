@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://enemies/Ghost.gd" type="Script" id=1]
+[ext_resource path="res://enemies/enemy.gd" type="Script" id=1]
 [ext_resource path="res://enemies/ghost.png" type="Texture" id=2]
 [ext_resource path="res://enemies/ghost_normal.png" type="Texture" id=3]
 [ext_resource path="res://enemies/ghost_dead.png" type="Texture" id=4]
@@ -44,7 +44,5 @@ shape = SubResource( 1 )
 frames = SubResource( 2 )
 animation = "fly"
 playing = true
-
-[connection signal="body_shape_entered" from="." to="." method="_on_Ghost_body_shape_entered"]
 
 
