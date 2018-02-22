@@ -38,10 +38,14 @@ Star = ExtResource( 2 )
 Bat = ExtResource( 3 )
 Gem = ExtResource( 4 )
 Ghost = ExtResource( 5 )
+Bee = null
+Fly = null
 total_stars = 0
 stars_found = 0
 num_bats = 0
 num_ghosts = 0
+num_bees = 0
+num_flies = 0
 do_physics_process = false
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
