@@ -10,7 +10,7 @@
 [ext_resource path="res://TileSet_candy.tres" type="TileSet" id=8]
 [ext_resource path="res://player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://backgrounds/bg_castle.png" type="Texture" id=10]
-[ext_resource path="res://sounds/star_hunter3.ogg" type="AudioStream" id=11]
+[ext_resource path="res://sounds/star_hunter4.ogg" type="AudioStream" id=11]
 
 [sub_resource type="Curve2D" id=1]
 
