@@ -35,12 +35,12 @@ extents = Vector2( 35.1778, 34.9646 )
 
 [node name="Node2D" type="Node2D"]
 
-_sections_unfolded = [ "Material", "Visibility" ]
+_sections_unfolded = [ "Material", "Transform", "Visibility" ]
 
 [node name="stone_rounded" type="Sprite" parent="." index="0"]
 
 editor/display_folded = true
-visible = false
+position = Vector2( -280, 0 )
 texture = ExtResource( 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="stone_rounded" index="0"]
@@ -62,7 +62,7 @@ polygon = PoolVector2Array( -35, -34, 30.271, -34.0018, 35, -34, 35, 30, 31.5139
 [node name="stone" type="Sprite" parent="." index="1"]
 
 editor/display_folded = true
-visible = false
+position = Vector2( -210, 0 )
 texture = ExtResource( 2 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="stone" index="0"]
@@ -83,7 +83,7 @@ shape = SubResource( 1 )
 [node name="sandhill_left" type="Sprite" parent="." index="2"]
 
 editor/display_folded = true
-visible = false
+position = Vector2( -140, 0 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Offset" ]
 
@@ -107,7 +107,7 @@ polygon = PoolVector2Array( -1, 1, 35, -35, 35, -31, 35, 35, 31.5139, 35.6817, 2
 [node name="sandhill_left2" type="Sprite" parent="." index="3"]
 
 editor/display_folded = true
-visible = false
+position = Vector2( -70, 0 )
 texture = ExtResource( 4 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="sandhill_left2" index="0"]
@@ -128,6 +128,8 @@ polygon = PoolVector2Array( -35.3506, -16.2473, -18.0771, -33.6469, 36.5081, -34
 
 [node name="stonecliff_left" type="Sprite" parent="." index="4"]
 
+editor/display_folded = true
+position = Vector2( -280, 70 )
 texture = ExtResource( 5 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="stonecliff_left" index="0"]
@@ -149,11 +151,12 @@ polygon = PoolVector2Array( -35.8081, -16.2018, -33.0343, 2.96302, -23.578, 15.3
 [node name="stonecliff_left_alt" type="Sprite" parent="." index="5"]
 
 editor/display_folded = true
-visible = false
+position = Vector2( 70, 0 )
 texture = ExtResource( 6 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="stonecliff_left_alt" index="0"]
 
+visible = false
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -164,17 +167,19 @@ bounce = 0.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="stonecliff_left_alt/StaticBody2D" index="0"]
 
+visible = false
 build_mode = 0
 polygon = PoolVector2Array( -35.8081, -16.2018, -34.6734, -9.64538, -20.2998, -0.567333, -6.30449, 12.5454, 8.57343, 31.3319, 11.0951, 35.4927, 35.9337, 36.2492, 35.9337, -35.2404, -33.1604, -35.1144, -35.1777, -32.2144, -36.5647, -27.045 )
 
 [node name="stonecliff_right" type="Sprite" parent="." index="6"]
 
 editor/display_folded = true
-visible = false
+position = Vector2( 140, 0 )
 texture = ExtResource( 7 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="stonecliff_right" index="0"]
 
+visible = false
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -185,17 +190,19 @@ bounce = 0.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="stonecliff_right/StaticBody2D" index="0"]
 
+visible = false
 build_mode = 0
 polygon = PoolVector2Array( -36.0603, 36.3753, -35.9342, -34.9883, 32.4033, -35.1144, 36.0597, -30.8275, 36.3119, -14.5627, 34.5467, 2.45868, 25.5948, 15.5714, 11.2212, 25.6581, -18.1564, 35.3666 )
 
 [node name="stonecliff_right_alt" type="Sprite" parent="." index="7"]
 
 editor/display_folded = true
-visible = false
+position = Vector2( 210, 0 )
 texture = ExtResource( 8 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="stonecliff_right_alt" index="0"]
 
+visible = false
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -206,17 +213,19 @@ bounce = 0.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="stonecliff_right_alt/StaticBody2D" index="0"]
 
+visible = false
 build_mode = 0
 polygon = PoolVector2Array( -35.8079, -35.3666, -35.8079, 36.8796, -13.1127, 35.8709, -8.06938, 33.7275, -1.51301, 20.8669, 22.0647, -1.07172, 37.447, -10.6541, 37.1948, -29.1884, 35.5557, -33.3492, 31.521, -36.2492 )
 
 [node name="stonehalf" type="Sprite" parent="." index="8"]
 
 editor/display_folded = true
-visible = false
+position = Vector2( -280, 140 )
 texture = ExtResource( 9 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="stonehalf" index="0"]
 
+visible = false
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -227,17 +236,19 @@ bounce = 0.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="stonehalf/StaticBody2D" index="0"]
 
+visible = false
 build_mode = 0
 polygon = PoolVector2Array( -35.8079, -35.3666, -35.3035, 4.98032, -22.1908, 6.11507, -4.53902, 5.86291, 32.4036, 5.86291, 35.4296, 2.58472, 37.447, -10.6541, 37.1948, -29.1884, 35.5557, -33.3492, 31.521, -35.6187 )
 
 [node name="stonehalf_left" type="Sprite" parent="." index="9"]
 
 editor/display_folded = true
-visible = false
+position = Vector2( -210, 70 )
 texture = ExtResource( 10 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="stonehalf_left" index="0"]
 
+visible = false
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -248,13 +259,14 @@ bounce = 0.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="stonehalf_left/StaticBody2D" index="0"]
 
+visible = false
 build_mode = 0
 polygon = PoolVector2Array( -35.8079, -35.3666, -35.3035, 4.98032, -22.1908, 6.11507, -4.53902, 5.86291, 32.4036, 5.86291, 35.4296, 2.58472, 37.447, -10.6541, 37.1948, -29.1884, 35.5557, -33.3492, 31.521, -35.6187 )
 
 [node name="stonehalf_mid" type="Sprite" parent="." index="10"]
 
 editor/display_folded = true
-visible = false
+position = Vector2( -140, 70 )
 texture = ExtResource( 11 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="stonehalf_mid" index="0"]
@@ -276,7 +288,7 @@ polygon = PoolVector2Array( -35, -35, -35.3035, 4.98032, -22, 6, -4.53902, 5.862
 [node name="stonehalf_right" type="Sprite" parent="." index="11"]
 
 editor/display_folded = true
-visible = false
+position = Vector2( -70, 70 )
 texture = ExtResource( 12 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="stonehalf_right" index="0"]
@@ -298,7 +310,7 @@ polygon = PoolVector2Array( -35, -35, -35.3035, 4.98032, -22, 6, -4.53902, 5.862
 [node name="stonehill_left2" type="Sprite" parent="." index="12"]
 
 editor/display_folded = true
-visible = false
+position = Vector2( 0, 70 )
 texture = ExtResource( 13 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="stonehill_left2" index="0"]
@@ -321,7 +333,7 @@ polygon = PoolVector2Array( -35, -35, -35.3035, 4.98032, -35, 36, 13, 36, 35, 35
 [node name="stone_left" type="Sprite" parent="." index="13"]
 
 editor/display_folded = true
-visible = false
+position = Vector2( 70, 70 )
 texture = ExtResource( 14 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="stone_left" index="0"]
@@ -343,7 +355,7 @@ polygon = PoolVector2Array( -35, -35, -35.3035, 4.98032, -35, 36, 13, 36, 35, 35
 [node name="stone_mid" type="Sprite" parent="." index="14"]
 
 editor/display_folded = true
-visible = false
+position = Vector2( 140, 70 )
 texture = ExtResource( 15 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="stone_mid" index="0"]
@@ -365,7 +377,7 @@ polygon = PoolVector2Array( -35, -35, -35.3035, 4.98032, -35, 36, 13, 36, 35, 35
 [node name="stone_right" type="Sprite" parent="." index="15"]
 
 editor/display_folded = true
-visible = false
+position = Vector2( 210, 70 )
 texture = ExtResource( 16 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="stone_right" index="0"]
@@ -387,13 +399,13 @@ polygon = PoolVector2Array( -35, -35, -35.3035, 4.98032, -35, 36, 13, 36, 35, 35
 
 [node name="ladder" type="Sprite" parent="." index="16"]
 
-visible = false
+position = Vector2( -210, 140 )
 texture = ExtResource( 17 )
 
 [node name="rockhill_left" type="Sprite" parent="." index="17"]
 
 editor/display_folded = true
-visible = false
+position = Vector2( -140, 140 )
 texture = ExtResource( 18 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="rockhill_left" index="0"]
@@ -415,7 +427,7 @@ polygon = PoolVector2Array( -0.935425, 3.1814, -35, 36, 13, 36, 35, 35, 35, 3, 3
 [node name="rockhill_right" type="Sprite" parent="." index="18"]
 
 editor/display_folded = true
-visible = false
+position = Vector2( -70, 140 )
 texture = ExtResource( 19 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="rockhill_right" index="0"]
@@ -436,11 +448,13 @@ polygon = PoolVector2Array( -35.3375, -34.0376, -34.687, 35.7884, 34.38, 35.4632
 
 [node name="stonehill_right2" type="Sprite" parent="." index="19"]
 
-visible = false
+editor/display_folded = true
+position = Vector2( 0, 140 )
 texture = ExtResource( 20 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="stonehill_right2" index="0"]
 
+visible = false
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -451,16 +465,19 @@ bounce = 0.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="stonehill_right2/StaticBody2D" index="0"]
 
+visible = false
 build_mode = 0
 polygon = PoolVector2Array( -34.4421, -33.552, 11.1716, -33.9019, 34.5035, -11.0368, 35.0868, 35.1603, -34.9087, 35.0436 )
 
 [node name="gem_red" type="Sprite" parent="." index="20"]
 
-visible = false
+editor/display_folded = true
+position = Vector2( 70, 140 )
 texture = ExtResource( 21 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="gem_red" index="0"]
 
+visible = false
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -471,16 +488,18 @@ bounce = 0.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="gem_red/StaticBody2D" index="0"]
 
+visible = false
 build_mode = 0
 polygon = PoolVector2Array( -23.4627, -20.4655, 6.44678, -23.144, 25.196, -10.1981, 16.7142, 18.8186, -20.3378, 13.908 )
 
 [node name="box" type="Sprite" parent="." index="21"]
 
-visible = false
+position = Vector2( 140, 140 )
 texture = ExtResource( 22 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="box" index="0"]
 
+visible = false
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -491,6 +510,7 @@ bounce = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="box/StaticBody2D" index="0"]
 
+visible = false
 shape = SubResource( 2 )
 
 
