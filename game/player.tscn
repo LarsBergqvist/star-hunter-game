@@ -1,14 +1,14 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://alien/alienGreen_walk1.png" type="Texture" id=2]
 [ext_resource path="res://alien/alienGreen_walk2.png" type="Texture" id=3]
 [ext_resource path="res://alien/alienGreen_stand.png" type="Texture" id=4]
-[ext_resource path="res://alien/alienGreen_jump.png" type="Texture" id=5]
-[ext_resource path="res://alien/alienGreen_climb1.png" type="Texture" id=6]
-[ext_resource path="res://alien/alienGreen_climb2.png" type="Texture" id=7]
-[ext_resource path="res://alien/alienGreen_hurt.png" type="Texture" id=8]
-[ext_resource path="res://alien/alienGreen_stand_oh.png" type="Texture" id=9]
+[ext_resource path="res://alien/alienGreen_climb1.png" type="Texture" id=5]
+[ext_resource path="res://alien/alienGreen_climb2.png" type="Texture" id=6]
+[ext_resource path="res://alien/alienGreen_hurt.png" type="Texture" id=7]
+[ext_resource path="res://alien/alienGreen_stand_oh.png" type="Texture" id=8]
+[ext_resource path="res://alien/alienGreen_jump.png" type="Texture" id=9]
 [ext_resource path="res://alien/alienGreen_duck.png" type="Texture" id=10]
 [ext_resource path="res://sounds/jippee1.ogg" type="AudioStream" id=11]
 [ext_resource path="res://sounds/ooooooh.ogg" type="AudioStream" id=12]
@@ -31,24 +31,24 @@ animations = [ {
 "name": "stop",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "climb",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "hit",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "oh",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "jump",
 "speed": 5.0
 } ]
 
@@ -64,7 +64,20 @@ flags = 4
 gradient = SubResource( 2 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=4]
+[sub_resource type="Curve" id=4]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.379395 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+
+flags = 4
+width = 2048
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
 
 render_priority = 0
 trail_divisor = 1
@@ -93,6 +106,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 1.0
 scale_random = 0.0
+scale_curve = SubResource( 5 )
 color_ramp = SubResource( 3 )
 hue_variation = 0.0
 hue_variation_random = 0.0
@@ -101,7 +115,7 @@ anim_speed_random = 0.0
 anim_offset = 0.0
 anim_offset_random = 0.0
 anim_loop = false
-_sections_unfolded = [ "Color" ]
+_sections_unfolded = [ "Color", "Emission Shape", "Scale", "Spread" ]
 
 [node name="player" type="KinematicBody2D"]
 
@@ -124,7 +138,7 @@ animation = "right"
 emitting = false
 amount = 6
 lifetime = 1.0
-one_shot = false
+one_shot = true
 preprocess = 0.0
 speed_scale = 1.15
 explosiveness = 1.0
@@ -134,7 +148,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = true
 draw_order = 0
-process_material = SubResource( 4 )
+process_material = SubResource( 6 )
 texture = ExtResource( 10 )
 normal_map = null
 h_frames = 1
