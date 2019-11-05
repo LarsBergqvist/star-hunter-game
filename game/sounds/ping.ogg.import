@@ -7,10 +7,7 @@ path="res://.import/ping.ogg-ee2f99789130d96464da949bd8411240.oggstr"
 [deps]
 
 source_file="res://sounds/ping.ogg"
-source_md5="b7b16d9d20fb56dcfde3fbf483f31872"
-
 dest_files=[ "res://.import/ping.ogg-ee2f99789130d96464da949bd8411240.oggstr" ]
-dest_md5="4cf6a8e741ecfdf23eb2b8dbac1f04bf"
 
 [params]
 

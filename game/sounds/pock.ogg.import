@@ -7,10 +7,7 @@ path="res://.import/pock.ogg-3596692c5554b1883f07ec18e387bc31.oggstr"
 [deps]
 
 source_file="res://sounds/pock.ogg"
-source_md5="cc93f437be3bdb4d11b0e4cde61a60e4"
-
 dest_files=[ "res://.import/pock.ogg-3596692c5554b1883f07ec18e387bc31.oggstr" ]
-dest_md5="1fc770ba69d9bc1fbc1c7815b314f058"
 
 [params]
 

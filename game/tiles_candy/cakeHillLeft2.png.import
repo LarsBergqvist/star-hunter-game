@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/cakeHillLeft2.png-0e2d99fdb0eb427ea97c50af631ed6bb.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://tiles_candy/cakeHillLeft2.png"
-source_md5="962ab209ec49e59c091a5b0b09e93f88"
-
 dest_files=[ "res://.import/cakeHillLeft2.png-0e2d99fdb0eb427ea97c50af631ed6bb.stex" ]
-dest_md5="0cd151e40366e8bdf1c90a2a776b79d8"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

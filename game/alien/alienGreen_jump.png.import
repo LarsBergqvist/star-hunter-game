@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/alienGreen_jump.png-9dd50abcbd58f68d548a1ab82293b5ed.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://alien/alienGreen_jump.png"
-source_md5="b261f5295c15fca9ece7550dd830d7ea"
-
 dest_files=[ "res://.import/alienGreen_jump.png-9dd50abcbd58f68d548a1ab82293b5ed.stex" ]
-dest_md5="53ccca6468b3638fc7b5bb7eac11f351"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

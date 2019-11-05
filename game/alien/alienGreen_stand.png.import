@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/alienGreen_stand.png-0037b69d68b9cb8ac590558a4fc04b2c.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://alien/alienGreen_stand.png"
-source_md5="221d0e5b97a361197f35d4c9ad2da8c0"
-
 dest_files=[ "res://.import/alienGreen_stand.png-0037b69d68b9cb8ac590558a4fc04b2c.stex" ]
-dest_md5="b81104fb7e109bee97cba6b716b13abe"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/alienGreen_walk2.png-905110860ccbaeee0c07bcf9c89d0c08.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://alien/alienGreen_walk2.png"
-source_md5="8c2506c57815b57b7685cc122bab7ced"
-
 dest_files=[ "res://.import/alienGreen_walk2.png-905110860ccbaeee0c07bcf9c89d0c08.stex" ]
-dest_md5="0e66f735ef46575e2d0ca79f75932231"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

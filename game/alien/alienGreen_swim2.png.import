@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/alienGreen_swim2.png-aa2e4dc93be4cdac3105aa292dd592f7.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://alien/alienGreen_swim2.png"
-source_md5="6294633c2e12d724fbec9c1fedd56c08"
-
 dest_files=[ "res://.import/alienGreen_swim2.png-aa2e4dc93be4cdac3105aa292dd592f7.stex" ]
-dest_md5="b498cf767b26efc20b5d2fbc7ae61da4"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

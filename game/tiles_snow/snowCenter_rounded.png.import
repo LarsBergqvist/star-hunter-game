@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/snowCenter_rounded.png-b127ee61577d5e3c91131bf59fe09f8f.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://tiles_snow/snowCenter_rounded.png"
-source_md5="9fac047579d11bef71873faf772051a1"
-
 dest_files=[ "res://.import/snowCenter_rounded.png-b127ee61577d5e3c91131bf59fe09f8f.stex" ]
-dest_md5="5beec7f670e2c67d1612bd0dd3ed8f45"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

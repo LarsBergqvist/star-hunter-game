@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/ghost_dead.png-4a9fb04b397e2cacfc3500c443af427e.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://enemies/ghost_dead.png"
-source_md5="4d275501baf84fde0ca17d15844f02ff"
-
 dest_files=[ "res://.import/ghost_dead.png-4a9fb04b397e2cacfc3500c443af427e.stex" ]
-dest_md5="b094f3ebda9c77a86c4abb17cd37e8fc"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

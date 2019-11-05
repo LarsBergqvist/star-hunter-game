@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/stoneHillRight2.png-eb575dea17c0fe227b43e5d554d31fb9.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://tiles/stoneHillRight2.png"
-source_md5="de381b5d7c25cb94279280b1abe0f797"
-
 dest_files=[ "res://.import/stoneHillRight2.png-eb575dea17c0fe227b43e5d554d31fb9.stex" ]
-dest_md5="0aad42e6d941e1afa9ccd9aff6d59b3c"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/cakeHalfMid.png-bc56f459a63a9e743f15aa19098aa93e.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://tiles_candy/cakeHalfMid.png"
-source_md5="65251df856697f168a7e719423eea494"
-
 dest_files=[ "res://.import/cakeHalfMid.png-bc56f459a63a9e743f15aa19098aa93e.stex" ]
-dest_md5="d2ad0a9eb42de6b43a5cb774cf94259a"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

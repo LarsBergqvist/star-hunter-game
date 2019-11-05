@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/fly_dead.png-84bbd0fa1613817e0baaa7a37cbb281b.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://enemies/fly_dead.png"
-source_md5="c041ffd2276a0847ef339377ea69dc77"
-
 dest_files=[ "res://.import/fly_dead.png-84bbd0fa1613817e0baaa7a37cbb281b.stex" ]
-dest_md5="ed9e8ffdabf217508398dd9184e54753"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

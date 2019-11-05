@@ -7,10 +7,7 @@ path="res://.import/star_hunter2.ogg-3582fe8fccffd490c47068650f0913e3.oggstr"
 [deps]
 
 source_file="res://sounds/star_hunter2.ogg"
-source_md5="fccfd374d2a9dd52919905df1690a3f8"
-
 dest_files=[ "res://.import/star_hunter2.ogg-3582fe8fccffd490c47068650f0913e3.oggstr" ]
-dest_md5="50c7e744aa70a021da1366d4af9b9262"
 
 [params]
 

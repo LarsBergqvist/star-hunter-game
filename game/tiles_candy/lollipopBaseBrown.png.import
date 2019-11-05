@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/lollipopBaseBrown.png-e4b49454e4a6ca4b7959187a6ceb8017.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://tiles_candy/lollipopBaseBrown.png"
-source_md5="8e64745f49507d88583dbe1cd67382f9"
-
 dest_files=[ "res://.import/lollipopBaseBrown.png-e4b49454e4a6ca4b7959187a6ceb8017.stex" ]
-dest_md5="6aa088c2661f7260d3ac6d2f5a7eda8f"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

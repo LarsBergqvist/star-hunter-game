@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/alienGreen_climb1.png-6ecbd292cf83beef2761723dda47c328.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://alien/alienGreen_climb1.png"
-source_md5="72cc400a6f22d6eea80d86089b1037c4"
-
 dest_files=[ "res://.import/alienGreen_climb1.png-6ecbd292cf83beef2761723dda47c328.stex" ]
-dest_md5="6ba26f35dc616dec97773d8a955c54bc"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

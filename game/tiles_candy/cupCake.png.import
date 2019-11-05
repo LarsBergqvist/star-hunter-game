@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/cupCake.png-4d6ab09c78e290511c49af50c9107b8b.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://tiles_candy/cupCake.png"
-source_md5="f93e47a095359b15e4b0bd13794c612c"
-
 dest_files=[ "res://.import/cupCake.png-4d6ab09c78e290511c49af50c9107b8b.stex" ]
-dest_md5="42eee5a6929495d368ec3797ccc95338"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

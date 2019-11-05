@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/snowHillRight2.png-01bc65877b0d7152403ffba19b2551eb.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://tiles_snow/snowHillRight2.png"
-source_md5="79aa330bc7b50aa6f51fa6ef08579ab7"
-
 dest_files=[ "res://.import/snowHillRight2.png-01bc65877b0d7152403ffba19b2551eb.stex" ]
-dest_md5="b624f5c171027c1978fef32ebc41fc44"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

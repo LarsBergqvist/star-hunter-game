@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/box.png-1cabcaf687e9fcb6ef9a705936f5b277.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://tiles/box.png"
-source_md5="dc6073e0b9cdf1936080cac948f7cac0"
-
 dest_files=[ "res://.import/box.png-1cabcaf687e9fcb6ef9a705936f5b277.stex" ]
-dest_md5="72025a395426b7bcd2e23c6ad279fb91"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

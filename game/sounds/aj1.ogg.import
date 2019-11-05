@@ -7,10 +7,7 @@ path="res://.import/aj1.ogg-dc5e393e836fff813b29da5d760f846e.oggstr"
 [deps]
 
 source_file="res://sounds/aj1.ogg"
-source_md5="ffb7e0a0574cfc43cb3f03568f53b926"
-
 dest_files=[ "res://.import/aj1.ogg-dc5e393e836fff813b29da5d760f846e.oggstr" ]
-dest_md5="8f01d6feb0415fcd60b7fa23a8c8a3e0"
 
 [params]
 

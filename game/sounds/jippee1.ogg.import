@@ -7,10 +7,7 @@ path="res://.import/jippee1.ogg-47b2b06a43ad1b2f1dcfedde319b0c41.oggstr"
 [deps]
 
 source_file="res://sounds/jippee1.ogg"
-source_md5="7b1d1256647a3e6aa9300955e1d6f5f3"
-
 dest_files=[ "res://.import/jippee1.ogg-47b2b06a43ad1b2f1dcfedde319b0c41.oggstr" ]
-dest_md5="6330b1b1ec461600a91d3b852e8131ca"
 
 [params]
 

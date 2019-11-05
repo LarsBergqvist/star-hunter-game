@@ -3,20 +3,21 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/snowCliffLeft.png-d11f7b84286941917f948bbcef4760e6.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://tiles_snow/snowCliffLeft.png"
-source_md5="85d661040d3ace13496dbe48223b2b54"
-
 dest_files=[ "res://.import/snowCliffLeft.png-d11f7b84286941917f948bbcef4760e6.stex" ]
-dest_md5="62629e0a69263fcf215db55138203d63"
 
 [params]
 
 compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
+compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
@@ -26,6 +27,7 @@ flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
+process/invert_color=false
 stream=false
 size_limit=0
 detect_3d=true

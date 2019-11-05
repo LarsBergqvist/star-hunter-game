@@ -49,7 +49,7 @@ func restart_game(start_level_number):
 	get_tree().paused = false
 	
 func _on_PlayAgainButton_pressed():
-	restart_game()
+	restart_game(1)
 
 func next_level():
 	current_level.queue_free()
