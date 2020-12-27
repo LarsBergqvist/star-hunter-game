@@ -126,13 +126,13 @@ func _physics_process(delta):
 		$AnimatedSprite.animation = "stop"
 		
 	if velocity.x != 0:
-    	$AnimatedSprite.animation = "right"
-    	$AnimatedSprite.flip_v = false
-    	$AnimatedSprite.flip_h = velocity.x < 0
+		$AnimatedSprite.animation = "right"
+		$AnimatedSprite.flip_v = false
+		$AnimatedSprite.flip_h = velocity.x < 0
 	elif (on_ladder):
-    	$AnimatedSprite.animation = "climb"
+		$AnimatedSprite.animation = "climb"
 	elif (jumping):	
-    	$AnimatedSprite.animation = "jump"
+		$AnimatedSprite.animation = "jump"
 	
 	if $ooooh.playing or $jippee.playing or $hmmm.playing or $ehhh.playing:
 		$AnimatedSprite.animation = "oh"
