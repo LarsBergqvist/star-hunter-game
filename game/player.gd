@@ -143,9 +143,16 @@ func _physics_process(delta):
 	elif (duck):
 		$AnimatedSprite.animation = "duck"
 	
-	if $ooooh.playing or $jippee.playing or $hmmm.playing or $ehhh.playing:
+	if not duck and ($ooooh.playing or $jippee.playing or $hmmm.playing or $ehhh.playing):
 		$AnimatedSprite.animation = "oh"
-		
+
+	if ($AnimatedSprite.animation == "duck"):
+		$CollisionPolygon2D.disabled = true
+		$CollisionPolygon2DDuck.disabled = false
+	else:
+		$CollisionPolygon2D.disabled = false
+		$CollisionPolygon2DDuck.disabled = true		
+
 	on_air_time += delta
 	prev_jump_pressed = jump
 
