@@ -63,4 +63,5 @@ bus = "fx"
 stream = ExtResource( 5 )
 volume_db = 10.0
 bus = "fx"
+
 [connection signal="id_pressed" from="HUD/VBox/Menu" to="." method="_on_Menu_id_pressed"]
