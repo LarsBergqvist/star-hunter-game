@@ -120,6 +120,7 @@ func on_star_was_taken():
 func on_gem_was_taken():
 	$ping.play()
 	score = score + 5
+	health = min(100,health+10)
 	update_HUD()
 
 
