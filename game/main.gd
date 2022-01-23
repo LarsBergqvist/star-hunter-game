@@ -126,7 +126,6 @@ func on_gem_was_taken():
 
 const RESUME_GAME = 1
 const START_NEW_GAME = 2
-const QUIT_GAME = 3
 const GO_TO_NEXT_LEVEL = 4
 const REPLAY_FROM_CURRENT_LEVEL = 5
 
@@ -135,7 +134,6 @@ func show_game_paused_menu():
 	$HUD/VBox/Menu.clear()
 	$HUD/VBox/Menu.add_item("Resume game", RESUME_GAME)	
 	$HUD/VBox/Menu.add_item("Start a new game", START_NEW_GAME)
-	$HUD/VBox/Menu.add_item("Quit game", QUIT_GAME)
 	$HUD/VBox/Menu.popup()
 	$HUD/VBox.show()
 
@@ -144,7 +142,6 @@ func show_game_over_menu():
 	$HUD/VBox/Menu.clear()
 	$HUD/VBox/Menu.add_item("Replay from current level", REPLAY_FROM_CURRENT_LEVEL)	
 	$HUD/VBox/Menu.add_item("Start a new game", START_NEW_GAME)
-	$HUD/VBox/Menu.add_item("Quit game", QUIT_GAME)
 	$HUD/VBox/Menu.popup()
 	$HUD/VBox.show()
 
@@ -153,7 +150,6 @@ func show_level_complete_menu():
 	$HUD/VBox/Menu.clear()
 	$HUD/VBox/Menu.add_item("Go to next level", GO_TO_NEXT_LEVEL)
 	$HUD/VBox/Menu.add_item("Replay from current level", REPLAY_FROM_CURRENT_LEVEL)	
-	$HUD/VBox/Menu.add_item("Quit game", QUIT_GAME)
 	$HUD/VBox/Menu.popup()
 	$HUD/VBox.show()
 
@@ -162,7 +158,6 @@ func show_game_complete_menu():
 	$HUD/VBox/Menu.clear()
 	$HUD/VBox/Menu.add_item("Replay from current level", REPLAY_FROM_CURRENT_LEVEL)	
 	$HUD/VBox/Menu.add_item("Start a new game", START_NEW_GAME)
-	$HUD/VBox/Menu.add_item("Quit game", QUIT_GAME)
 	$HUD/VBox/Menu.popup()
 	$HUD/VBox.show()
 
@@ -171,8 +166,6 @@ func _on_Menu_id_pressed( ID ):
 		get_tree().paused = false
 		$HUD/VBox/Menu.hide()
 		$HUD/VBox.hide()
-	elif ID == QUIT_GAME:
-		get_tree().quit()
 	elif ID == START_NEW_GAME:
 		restart_game(1)
 		$HUD/VBox/Menu.hide()
