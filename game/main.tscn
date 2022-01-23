@@ -33,7 +33,6 @@ layer = 10
 margin_left = 7.0
 margin_top = 10.0
 margin_right = 726.0
-margin_bottom = 208.0
 theme = SubResource( 1 )
 
 [node name="VBox" type="VBoxContainer" parent="HUD"]
@@ -74,12 +73,15 @@ __meta__ = {
 }
 
 [node name="GamePad" parent="HUD/ViewportContainer" instance=ExtResource( 6 )]
-position = Vector2( 127.634, 463.196 )
-scale = Vector2( 1.5, 1.5 )
+modulate = Color( 0.835294, 0.823529, 0.823529, 0.337255 )
+self_modulate = Color( 0.164706, 0.0117647, 0.0117647, 1 )
+position = Vector2( 212.522, 387.935 )
+scale = Vector2( 2.5, 2.5 )
 leftPadStyle = "JoyStick"
 
 [node name="JumpButton" type="TouchScreenButton" parent="HUD/ViewportContainer"]
-position = Vector2( 773.323, 345.053 )
+modulate = Color( 1, 1, 1, 0.243137 )
+position = Vector2( 743.033, 261.309 )
 scale = Vector2( 1.5, 1.5 )
 normal = ExtResource( 7 )
 shape = SubResource( 4 )

@@ -7,7 +7,6 @@ signal box_opened
 
 const GRAVITY = 1000.0 # pixels/second/second
 
-# Angle in degrees towards either side that the player can consider "floor"
 const WALK_FORCE = 600
 const WALK_MIN_SPEED = 10
 const WALK_MAX_SPEED = 200
@@ -63,7 +62,7 @@ func _physics_process(delta):
 		climb_up = false
 		climb_down = false
 	
-	var active = walk_left or walk_right or climb_up or climb_down or jump
+	var active = walk_left or walk_right or climb_up or climb_down or jump or duck
 	if active or on_ladder:
 		$WaitAfterIdle.stop()
 	else:

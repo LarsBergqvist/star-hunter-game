@@ -4,265 +4,84 @@
 [ext_resource path="res://fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]
-
 size = 30
-use_mipmaps = false
-use_filter = false
 font_data = ExtResource( 2 )
-_sections_unfolded = [ "Font", "Settings" ]
 
 [node name="GUI" type="MarginContainer"]
-
 pause_mode = 2
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_right = 719.0
-margin_bottom = 198.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
+margin_bottom = 150.0
 script = ExtResource( 1 )
-_sections_unfolded = [ "Pause" ]
-score = 0
-stars_remaining = 0
-total_stars = 0
-stars_found = 0
-max_health = 0
-health = 0
-level = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="HBox" type="HBoxContainer" parent="." index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 8.0
+[node name="HBox" type="HBoxContainer" parent="."]
 margin_right = 719.0
-margin_bottom = 198.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 1
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-alignment = 0
+margin_bottom = 150.0
 
-[node name="VSplit" type="VSplitContainer" parent="HBox" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="VSplit" type="VSplitContainer" parent="HBox"]
 margin_right = 352.0
-margin_bottom = 198.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-split_offset = 0
-collapsed = false
+margin_bottom = 150.0
 dragger_visibility = 1
 
-[node name="HSplit2" type="HSplitContainer" parent="HBox/VSplit" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="HSplit2" type="HSplitContainer" parent="HBox/VSplit"]
 margin_right = 352.0
 margin_bottom = 37.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-split_offset = 0
-collapsed = false
-dragger_visibility = 0
 
-[node name="Score" type="Label" parent="HBox/VSplit/HSplit2" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Score" type="Label" parent="HBox/VSplit/HSplit2"]
 margin_right = 172.0
 margin_bottom = 37.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
 text = "Score: 100"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Anchor", "Margin", "Rect", "custom_fonts" ]
 
-[node name="Level" type="Label" parent="HBox/VSplit/HSplit2" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Level" type="Label" parent="HBox/VSplit/HSplit2"]
 margin_left = 184.0
 margin_right = 352.0
 margin_bottom = 37.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
 text = "Level: 1"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Anchor", "Margin", "Rect", "custom_fonts" ]
 
-[node name="HSplit" type="HSplitContainer" parent="HBox/VSplit" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="HSplit" type="HSplitContainer" parent="HBox/VSplit"]
 margin_top = 49.0
 margin_right = 352.0
-margin_bottom = 198.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-split_offset = 0
-collapsed = false
+margin_bottom = 150.0
 dragger_visibility = 1
 
-[node name="VSplitL" type="VSplitContainer" parent="HBox/VSplit/HSplit" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="VSplitL" type="VSplitContainer" parent="HBox/VSplit/HSplit"]
 margin_right = 238.0
-margin_bottom = 149.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-split_offset = 0
-collapsed = false
-dragger_visibility = 0
+margin_bottom = 101.0
 
-[node name="Title" type="Label" parent="HBox/VSplit/HSplit/VSplitL" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Title" type="Label" parent="HBox/VSplit/HSplit/VSplitL"]
 margin_right = 238.0
 margin_bottom = 37.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
 text = "Level complete"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Anchor", "Margin", "Rect", "custom_fonts" ]
 
-[node name="LevelComplete" type="ProgressBar" parent="HBox/VSplit/HSplit/VSplitL" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="LevelComplete" type="ProgressBar" parent="HBox/VSplit/HSplit/VSplitL"]
+modulate = Color( 1, 1, 1, 0.462745 )
 margin_top = 49.0
 margin_right = 238.0
-margin_bottom = 65.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 0
-min_value = 0.0
-max_value = 100.0
+margin_bottom = 101.0
+size_flags_vertical = 1
 step = 1.0
-page = 0.0
-value = 0.0
-exp_edit = false
-rounded = false
-percent_visible = true
 
-[node name="VSplitR" type="VSplitContainer" parent="HBox/VSplit/HSplit" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="VSplitR" type="VSplitContainer" parent="HBox/VSplit/HSplit"]
 margin_left = 250.0
 margin_right = 352.0
-margin_bottom = 149.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-split_offset = 0
-collapsed = false
+margin_bottom = 101.0
 dragger_visibility = 1
 
-[node name="Title" type="Label" parent="HBox/VSplit/HSplit/VSplitR" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Title" type="Label" parent="HBox/VSplit/HSplit/VSplitR"]
 margin_right = 102.0
 margin_bottom = 37.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 2
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
 text = "Health"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-_sections_unfolded = [ "Anchor", "Margin", "Rect", "custom_fonts" ]
 
-[node name="Health" type="ProgressBar" parent="HBox/VSplit/HSplit/VSplitR" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="Health" type="ProgressBar" parent="HBox/VSplit/HSplit/VSplitR"]
+modulate = Color( 1, 1, 1, 0.462745 )
 margin_top = 49.0
 margin_right = 102.0
-margin_bottom = 65.0
-rect_pivot_offset = Vector2( 0, 0 )
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 0
-min_value = 0.0
-max_value = 100.0
+margin_bottom = 101.0
+size_flags_vertical = 1
 step = 1.0
-page = 0.0
-value = 0.0
-exp_edit = false
-rounded = false
-percent_visible = true
-
-
