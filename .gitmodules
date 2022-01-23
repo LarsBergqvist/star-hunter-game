@@ -1,0 +1,3 @@
+[submodule "game/plugins/touchJoyPad"]
+	path = game/plugins/touchJoyPad
+	url = https://github.com/shinneider/godot_touchJoyPad.git
