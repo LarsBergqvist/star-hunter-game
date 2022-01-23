@@ -33,7 +33,6 @@ layer = 10
 margin_left = 7.0
 margin_top = 10.0
 margin_right = 726.0
-margin_bottom = 208.0
 theme = SubResource( 1 )
 
 [node name="VBox" type="VBoxContainer" parent="HUD"]
@@ -74,18 +73,20 @@ __meta__ = {
 }
 
 [node name="GamePad" parent="HUD/ViewportContainer" instance=ExtResource( 6 )]
-position = Vector2( 127.634, 463.196 )
-scale = Vector2( 1.5, 1.5 )
+modulate = Color( 1, 1, 1, 0.462745 )
+position = Vector2( 171.634, 428.696 )
+scale = Vector2( 2, 2 )
 leftPadStyle = "JoyStick"
+visibleOnlyTouchscreen = false
 
 [node name="JumpButton" type="TouchScreenButton" parent="HUD/ViewportContainer"]
-position = Vector2( 773.323, 345.053 )
-scale = Vector2( 1.5, 1.5 )
+modulate = Color( 1, 1, 1, 0.462745 )
+position = Vector2( 697.323, 266.053 )
+scale = Vector2( 2, 2 )
 normal = ExtResource( 7 )
 shape = SubResource( 4 )
 passby_press = true
 action = "jump"
-visibility_mode = 1
 
 [node name="ping" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )

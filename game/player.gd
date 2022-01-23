@@ -7,7 +7,6 @@ signal box_opened
 
 const GRAVITY = 1000.0 # pixels/second/second
 
-# Angle in degrees towards either side that the player can consider "floor"
 const WALK_FORCE = 600
 const WALK_MIN_SPEED = 10
 const WALK_MAX_SPEED = 200
@@ -44,12 +43,25 @@ func _physics_process(delta):
 	# Create forces
 	var force = Vector2(0, GRAVITY)
 	
-	var walk_left = Input.is_action_pressed("ui_left")
-	var walk_right = Input.is_action_pressed("ui_right")
+	var ui_left = false
+	var ui_right = false
+	var ui_up = false
+	var ui_down = false
+	if Input.is_action_pressed("ui_left"):
+		ui_left = true
+	elif Input.is_action_pressed("ui_right"):
+		ui_right = true
+	elif Input.is_action_pressed("ui_up"):
+		ui_up = true
+	elif Input.is_action_pressed("ui_down"):
+		ui_down = true
+		
+	var walk_left = ui_left
+	var walk_right = ui_right
 	var climb_up = false
 	if not jumping:
-		climb_up = Input.is_action_pressed("ui_up")
-	var down = Input.is_action_pressed("ui_down")
+		climb_up = ui_up
+	var down = ui_down
 	var jump = Input.is_action_pressed("jump")
 	
 	var climb_down = false
@@ -63,7 +75,7 @@ func _physics_process(delta):
 		climb_up = false
 		climb_down = false
 	
-	var active = walk_left or walk_right or climb_up or climb_down or jump
+	var active = walk_left or walk_right or climb_up or climb_down or jump or duck
 	if active or on_ladder:
 		$WaitAfterIdle.stop()
 	else:
