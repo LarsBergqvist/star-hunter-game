@@ -77,7 +77,6 @@ modulate = Color( 1, 1, 1, 0.462745 )
 position = Vector2( 171.634, 428.696 )
 scale = Vector2( 2, 2 )
 leftPadStyle = "JoyStick"
-visibleOnlyTouchscreen = false
 
 [node name="JumpButton" type="TouchScreenButton" parent="HUD/ViewportContainer"]
 modulate = Color( 1, 1, 1, 0.462745 )
@@ -87,6 +86,7 @@ normal = ExtResource( 7 )
 shape = SubResource( 4 )
 passby_press = true
 action = "jump"
+visibility_mode = 1
 
 [node name="ping" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
