@@ -49,8 +49,15 @@ func _physics_process(delta):
 	var climb_up = false
 	if not jumping:
 		climb_up = Input.is_action_pressed("ui_up")
-	var climb_down = Input.is_action_pressed("ui_down")
+	var down = Input.is_action_pressed("ui_down")
 	var jump = Input.is_action_pressed("jump")
+	
+	var climb_down = false
+	var duck = false
+	if on_ladder:
+		climb_down = down
+	else:
+		duck = down
 	
 	if abs(velocity.y) > 0 and on_ladder == false:
 		climb_up = false
@@ -133,10 +140,19 @@ func _physics_process(delta):
 		$AnimatedSprite.animation = "climb"
 	elif (jumping):	
 		$AnimatedSprite.animation = "jump"
+	elif (duck):
+		$AnimatedSprite.animation = "duck"
 	
-	if $ooooh.playing or $jippee.playing or $hmmm.playing or $ehhh.playing:
+	if not duck and ($ooooh.playing or $jippee.playing or $hmmm.playing or $ehhh.playing):
 		$AnimatedSprite.animation = "oh"
-		
+
+	if ($AnimatedSprite.animation == "duck"):
+		$CollisionPolygon2D.disabled = true
+		$CollisionPolygon2DDuck.disabled = false
+	else:
+		$CollisionPolygon2D.disabled = false
+		$CollisionPolygon2DDuck.disabled = true		
+
 	on_air_time += delta
 	prev_jump_pressed = jump
 
