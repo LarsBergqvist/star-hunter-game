@@ -14,7 +14,7 @@ Then, import game/project.godot in Godot 3.*
 
 <p>
 Use arrow- or WASD-keys to move and space to jump. ESC to pause. The goal is to gather all stars on each level.
-When using a touch-screen, a an on-screen-DPad joystick + a jump button is used for movements.  
+When using a touch-screen, an on-screen DPad joystick + a jump button is used for movements.  
 The DPad implementation is an excellent plugin from https://github.com/shinneider/godot_touchJoyPad  
 <p>
 Graphics by Kenney (www.kenney.nl)
