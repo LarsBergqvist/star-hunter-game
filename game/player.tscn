@@ -28,16 +28,11 @@ animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "right",
-"speed": 5.0
+"speed": 8.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
-"name": "duck",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "oh",
+"name": "climb",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
@@ -45,9 +40,14 @@ animations = [ {
 "name": "hit",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "climb",
+"name": "oh",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "duck",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],

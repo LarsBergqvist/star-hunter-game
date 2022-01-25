@@ -45,7 +45,6 @@ func _on_body_entered( body ):
 		
 	if (not body.get("is_player") == null):
 		if (body.velocity.y > 200):
-			print(body.velocity.y)
 			is_dead = true
 			emit_signal("enemy_hit")
 		else:

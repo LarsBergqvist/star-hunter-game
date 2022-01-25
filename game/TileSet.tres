@@ -24,643 +24,728 @@
 [ext_resource path="res://tiles/stoneHalfLeft.png" type="Texture" id=22]
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -35, -34, 30.271, -34.0018, 35, -34, 35, 30, 31.5139, 35.6817, 26.7031, 36.2018, -29.9858, 36.3318, -35.5767, 31.131 )
 
 [sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
 extents = Vector2( 34.9252, 34.7361 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( 35.4605, -10.5209, 35, 6, 32.4036, 5.86291, 32, -35, 35, -29 )
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( 32, -35, 35, -35, 35, -29 )
 
 [sub_resource type="ConvexPolygonShape2D" id=6]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -22, 6, -35.3035, 4.98032, -35, -35, 32, -35, -4.53902, 5.86291 )
 
 [sub_resource type="ConvexPolygonShape2D" id=7]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( 32.4036, 5.86291, -4.53902, 5.86291, 32, -35 )
 
 [sub_resource type="ConvexPolygonShape2D" id=8]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( 32, -35, 33, -33, 35, -29, 35.4605, -10.5209, 34, 3, 32, 5, -4.53902, 5.86291, -22, 6, -35.3035, 4.98032, -35, -35 )
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( 32, -35, 35, -35, 35, -29, -35.3035, 4.98032 )
 
 [sub_resource type="ConvexPolygonShape2D" id=10]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -35.3035, 4.98032, -35, -35, 32, -35 )
 
 [sub_resource type="ConvexPolygonShape2D" id=11]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -35.3035, 4.98032, 35, -29, 35.4605, -10.5209, 35, 3 )
 
 [sub_resource type="ConvexPolygonShape2D" id=12]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -35.3035, 4.98032, 35, 3, 35, 35, 13, 36, -35, 36 )
 
 [sub_resource type="ConvexPolygonShape2D" id=13]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( 32, -35, 35, -35, 35, -29, -35.3035, 4.98032 )
 
 [sub_resource type="ConvexPolygonShape2D" id=14]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -35.3035, 4.98032, -35, -35, 32, -35 )
 
 [sub_resource type="ConvexPolygonShape2D" id=15]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -35.3035, 4.98032, 35, -29, 35.4605, -10.5209, 35, 3 )
 
 [sub_resource type="ConvexPolygonShape2D" id=16]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -35.3035, 4.98032, 35, 3, 35, 35, 13, 36, -35, 36 )
 
 [sub_resource type="ConvexPolygonShape2D" id=17]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( 32, -35, 35, -35, 35, -29, -35.3035, 4.98032 )
 
 [sub_resource type="ConvexPolygonShape2D" id=18]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -35.3035, 4.98032, -35, -35, 32, -35 )
 
 [sub_resource type="ConvexPolygonShape2D" id=19]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -35.3035, 4.98032, 35, -29, 35.4605, -10.5209, 35, 3 )
 
 [sub_resource type="ConvexPolygonShape2D" id=20]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -35.3035, 4.98032, 35, 3, 35, 35, 13, 36, -35, 36 )
 
 [sub_resource type="ConvexPolygonShape2D" id=21]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( 13, 36, -35, 36, -35.3035, 4.98032, -35, -35, 32, -35, 34, -33, 35, -29, 35.4605, -10.5209, 35, 3 )
 
 [sub_resource type="ConvexPolygonShape2D" id=22]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( 13, 36, 35, 3, 35, 35 )
 
 [sub_resource type="ConvexPolygonShape2D" id=23]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -0.935425, 3.1814, 35.2474, -32.9533, 35, -29 )
 
 [sub_resource type="ConvexPolygonShape2D" id=24]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( 35.4605, -10.5209, 35, 3, 13, 36, -35, 36, -0.935425, 3.1814, 35, -29 )
 
 [sub_resource type="ConvexPolygonShape2D" id=25]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( 13, 36, 35, 3, 35, 35 )
 
 [sub_resource type="ConvexPolygonShape2D" id=26]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( 34.38, 35.4632, -34.687, 35.7884, -35.3375, -34.0376 )
 
 [sub_resource type="ConvexPolygonShape2D" id=27]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -34.4421, -33.552, 11.1716, -33.9019, 34.5035, -11.0368, 35.0868, 35.1603, -34.9087, 35.0436 )
 
 [sub_resource type="ConvexPolygonShape2D" id=28]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -1, 1, 35, -35, 35, -31, 35, 35, 31.5139, 35.6817, 26.7031, 36.2018, -34, 35 )
 
 [sub_resource type="ConvexPolygonShape2D" id=29]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -23.4627, -20.4655, 6.44678, -23.144, 25.196, -10.1981, 16.7142, 18.8186, -20.3378, 13.908 )
 
 [sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
 extents = Vector2( 35.1778, 34.9646 )
 
 [sub_resource type="ConvexPolygonShape2D" id=30]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -35.3506, -16.2473, -18.0771, -33.6469, 36.5081, -34.0615, 36.1946, 30.2209, 31.5139, 35.6817, 26.7031, 36.2018, -29.9858, 36.3318, -35.5767, 31.131 )
 
 [sub_resource type="ConvexPolygonShape2D" id=31]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -35.0887, -34.6775, 35.8148, -34.6775, 35.9337, 36.2492, 18.2819, 33.7275, 3.53007, 30.4493, -9.96092, 24.7756, -23.578, 15.3193, -33.0343, 2.96302, -35.8081, -16.2018 )
 
 [sub_resource type="ConvexPolygonShape2D" id=32]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( 35.9337, -35.2404, 35.9337, 36.2492, 11.0951, 35.4927, 8.57343, 31.3319 )
 
 [sub_resource type="ConvexPolygonShape2D" id=33]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( 35.9337, -35.2404, 8.57343, 31.3319, -6.30449, 12.5454, -33.1604, -35.1144 )
 
 [sub_resource type="ConvexPolygonShape2D" id=34]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -33.1604, -35.1144, -6.30449, 12.5454, -20.2998, -0.567333 )
 
 [sub_resource type="ConvexPolygonShape2D" id=35]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -33.1604, -35.1144, -20.2998, -0.567333, -34.6734, -9.64538, -35.8081, -16.2018, -36.5647, -27.045, -35.1777, -32.2144 )
 
 [sub_resource type="ConvexPolygonShape2D" id=36]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -36.0603, 36.3753, -35.9342, -34.9883, 32.4033, -35.1144, 36.0597, -30.8275, 36.3119, -14.5627, 34.5467, 2.45868, 25.5948, 15.5714, 11.2212, 25.6581, -18.1564, 35.3666 )
 
 [sub_resource type="ConvexPolygonShape2D" id=37]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -13.1127, 35.8709, -35.8079, 36.8796, -35.8079, -35.3666, 31.521, -36.2492, 35.5557, -33.3492, -1.51301, 20.8669 )
 
 [sub_resource type="ConvexPolygonShape2D" id=38]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( 37.1948, -29.1884, 37.447, -10.6541, 22.0647, -1.07172, 35.5557, -33.3492 )
 
 [sub_resource type="ConvexPolygonShape2D" id=39]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -1.51301, 20.8669, -8.06938, 33.7275, -13.1127, 35.8709 )
 
 [sub_resource type="ConvexPolygonShape2D" id=40]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -1.51301, 20.8669, 35.5557, -33.3492, 22.0647, -1.07172 )
 
 [sub_resource type="ConvexPolygonShape2D" id=41]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -22.1908, 6.11507, -35.3035, 4.98032, -35.8079, -35.3666, 31.521, -35.6187, -4.53902, 5.86291 )
 
 [sub_resource type="ConvexPolygonShape2D" id=42]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( 37.1948, -29.1884, 37.447, -10.6541, 35.4296, 2.58472, 32.4036, 5.86291, -4.53902, 5.86291, 31.521, -35.6187, 35.5557, -33.3492 )
 
 [sub_resource type="ConvexPolygonShape2D" id=43]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( -22.1908, 6.11507, -35.3035, 4.98032, -35.8079, -35.3666, 31.521, -35.6187, -4.53902, 5.86291 )
 
 [sub_resource type="ConvexPolygonShape2D" id=44]
-
-custom_solver_bias = 0.0
 points = PoolVector2Array( 37.1948, -29.1884, 37.447, -10.6541, 35.4296, 2.58472, 32.4036, 5.86291, -4.53902, 5.86291, 31.521, -35.6187, 35.5557, -33.3492 )
 
 [resource]
-
 0/name = "stone_rounded"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 70, 70 )
-0/is_autotile = false
+0/tile_mode = 0
 0/occluder_offset = Vector2( 35, 35 )
 0/navigation_offset = Vector2( 35, 35 )
+0/shape_offset = Vector2( 35, 35 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 35, 35 )
+0/shape = SubResource( 3 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
+0/z_index = 0
 1/name = "stone"
 1/texture = ExtResource( 2 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 0, 0, 70, 70 )
-1/is_autotile = false
+1/tile_mode = 0
 1/occluder_offset = Vector2( 35, 35 )
 1/navigation_offset = Vector2( 35, 35 )
+1/shape_offset = Vector2( 35, 35 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 35, 35 )
+1/shape = SubResource( 1 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
 1/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
+1/z_index = 0
 2/name = "sandhill_left"
 2/texture = ExtResource( 13 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 0, 0, 70, 70 )
-2/is_autotile = false
+2/tile_mode = 0
 2/occluder_offset = Vector2( 35, 35 )
 2/navigation_offset = Vector2( 35, 35 )
+2/shape_offset = Vector2( 35, 35 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 35, 35 )
+2/shape = SubResource( 28 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
 2/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 28 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
+2/z_index = 0
 3/name = "sandhill_left2"
 3/texture = ExtResource( 16 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 0, 0, 70, 70 )
-3/is_autotile = false
+3/tile_mode = 0
 3/occluder_offset = Vector2( 35, 35 )
 3/navigation_offset = Vector2( 35, 35 )
+3/shape_offset = Vector2( 35, 35 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 35, 35 )
+3/shape = SubResource( 30 )
+3/shape_one_way = false
+3/shape_one_way_margin = 1.0
 3/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 30 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
+3/z_index = 0
 4/name = "stonecliff_left"
 4/texture = ExtResource( 17 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 0, 0, 70, 70 )
-4/is_autotile = false
+4/tile_mode = 0
 4/occluder_offset = Vector2( 35, 35 )
 4/navigation_offset = Vector2( 35, 35 )
+4/shape_offset = Vector2( 35, 35 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 35, 35 )
+4/shape = SubResource( 31 )
+4/shape_one_way = false
+4/shape_one_way_margin = 1.0
 4/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 31 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
+4/z_index = 0
 5/name = "stonecliff_left_alt"
 5/texture = ExtResource( 18 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 0, 0, 70, 70 )
-5/is_autotile = false
+5/tile_mode = 0
 5/occluder_offset = Vector2( 35, 35 )
 5/navigation_offset = Vector2( 35, 35 )
+5/shape_offset = Vector2( 35, 35 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 35, 35 )
+5/shape = SubResource( 32 )
+5/shape_one_way = false
+5/shape_one_way_margin = 1.0
 5/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 32 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 33 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 34 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 35 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
+5/z_index = 0
 6/name = "stonecliff_right"
 6/texture = ExtResource( 19 )
 6/tex_offset = Vector2( 0, 0 )
 6/modulate = Color( 1, 1, 1, 1 )
 6/region = Rect2( 0, 0, 70, 70 )
-6/is_autotile = false
+6/tile_mode = 0
 6/occluder_offset = Vector2( 35, 35 )
 6/navigation_offset = Vector2( 35, 35 )
+6/shape_offset = Vector2( 35, 35 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 35, 35 )
+6/shape = SubResource( 36 )
+6/shape_one_way = false
+6/shape_one_way_margin = 1.0
 6/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 36 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
+6/z_index = 0
 7/name = "stonecliff_right_alt"
 7/texture = ExtResource( 20 )
 7/tex_offset = Vector2( 0, 0 )
 7/modulate = Color( 1, 1, 1, 1 )
 7/region = Rect2( 0, 0, 70, 70 )
-7/is_autotile = false
+7/tile_mode = 0
 7/occluder_offset = Vector2( 35, 35 )
 7/navigation_offset = Vector2( 35, 35 )
+7/shape_offset = Vector2( 35, 35 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 35, 35 )
+7/shape = SubResource( 37 )
+7/shape_one_way = false
+7/shape_one_way_margin = 1.0
 7/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 37 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 38 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 39 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 40 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
+7/z_index = 0
 8/name = "stonehalf"
 8/texture = ExtResource( 21 )
 8/tex_offset = Vector2( 0, 0 )
 8/modulate = Color( 1, 1, 1, 1 )
 8/region = Rect2( 0, 0, 70, 70 )
-8/is_autotile = false
+8/tile_mode = 0
 8/occluder_offset = Vector2( 35, 35 )
 8/navigation_offset = Vector2( 35, 35 )
+8/shape_offset = Vector2( 35, 35 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 35, 35 )
+8/shape = SubResource( 41 )
+8/shape_one_way = false
+8/shape_one_way_margin = 1.0
 8/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 41 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 42 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
+8/z_index = 0
 9/name = "stonehalf_left"
 9/texture = ExtResource( 22 )
 9/tex_offset = Vector2( 0, 0 )
 9/modulate = Color( 1, 1, 1, 1 )
 9/region = Rect2( 0, 0, 70, 70 )
-9/is_autotile = false
+9/tile_mode = 0
 9/occluder_offset = Vector2( 35, 35 )
 9/navigation_offset = Vector2( 35, 35 )
+9/shape_offset = Vector2( 35, 35 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 35, 35 )
+9/shape = SubResource( 43 )
+9/shape_one_way = false
+9/shape_one_way_margin = 1.0
 9/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 43 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 44 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
+9/z_index = 0
 10/name = "stonehalf_mid"
 10/texture = ExtResource( 3 )
 10/tex_offset = Vector2( 0, 0 )
 10/modulate = Color( 1, 1, 1, 1 )
 10/region = Rect2( 0, 0, 70, 70 )
-10/is_autotile = false
+10/tile_mode = 0
 10/occluder_offset = Vector2( 35, 35 )
 10/navigation_offset = Vector2( 35, 35 )
+10/shape_offset = Vector2( 35, 35 )
+10/shape_transform = Transform2D( 1, 0, 0, 1, 35, 35 )
+10/shape = SubResource( 4 )
+10/shape_one_way = false
+10/shape_one_way_margin = 1.0
 10/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 4 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 5 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 6 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 7 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
+10/z_index = 0
 11/name = "stonehalf_right"
 11/texture = ExtResource( 4 )
 11/tex_offset = Vector2( 0, 0 )
 11/modulate = Color( 1, 1, 1, 1 )
 11/region = Rect2( 0, 0, 70, 70 )
-11/is_autotile = false
+11/tile_mode = 0
 11/occluder_offset = Vector2( 35, 35 )
 11/navigation_offset = Vector2( 35, 35 )
+11/shape_offset = Vector2( 35, 35 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 35, 35 )
+11/shape = SubResource( 8 )
+11/shape_one_way = false
+11/shape_one_way_margin = 1.0
 11/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 8 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
+11/z_index = 0
 12/name = "stonehill_left2"
 12/texture = ExtResource( 5 )
 12/tex_offset = Vector2( 0, 0 )
 12/modulate = Color( 1, 1, 1, 1 )
 12/region = Rect2( 0, 0, 70, 70 )
-12/is_autotile = false
+12/tile_mode = 0
 12/occluder_offset = Vector2( 35, 35 )
 12/navigation_offset = Vector2( 35, 35 )
+12/shape_offset = Vector2( 35, 35 )
+12/shape_transform = Transform2D( 1, 0, 0, 1, 35, 35 )
+12/shape = SubResource( 9 )
+12/shape_one_way = false
+12/shape_one_way_margin = 1.0
 12/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 9 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 10 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 11 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 12 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
+12/z_index = 0
 13/name = "stone_left"
 13/texture = ExtResource( 6 )
 13/tex_offset = Vector2( 0, 0 )
 13/modulate = Color( 1, 1, 1, 1 )
 13/region = Rect2( 0, 0, 70, 70 )
-13/is_autotile = false
+13/tile_mode = 0
 13/occluder_offset = Vector2( 35, 35 )
 13/navigation_offset = Vector2( 35, 35 )
+13/shape_offset = Vector2( 35, 35 )
+13/shape_transform = Transform2D( 1, 0, 0, 1, 35, 35 )
+13/shape = SubResource( 13 )
+13/shape_one_way = false
+13/shape_one_way_margin = 1.0
 13/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 13 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 14 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 15 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 16 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
+13/z_index = 0
 14/name = "stone_mid"
 14/texture = ExtResource( 7 )
 14/tex_offset = Vector2( 0, 0 )
 14/modulate = Color( 1, 1, 1, 1 )
 14/region = Rect2( 0, 0, 70, 70 )
-14/is_autotile = false
+14/tile_mode = 0
 14/occluder_offset = Vector2( 35, 35 )
 14/navigation_offset = Vector2( 35, 35 )
+14/shape_offset = Vector2( 35, 35 )
+14/shape_transform = Transform2D( 1, 0, 0, 1, 35, 35 )
+14/shape = SubResource( 17 )
+14/shape_one_way = false
+14/shape_one_way_margin = 1.0
 14/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 17 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 18 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 19 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 20 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
+14/z_index = 0
 15/name = "stone_right"
 15/texture = ExtResource( 8 )
 15/tex_offset = Vector2( 0, 0 )
 15/modulate = Color( 1, 1, 1, 1 )
 15/region = Rect2( 0, 0, 70, 70 )
-15/is_autotile = false
+15/tile_mode = 0
 15/occluder_offset = Vector2( 35, 35 )
 15/navigation_offset = Vector2( 35, 35 )
+15/shape_offset = Vector2( 35, 35 )
+15/shape_transform = Transform2D( 1, 0, 0, 1, 35, 35 )
+15/shape = SubResource( 21 )
+15/shape_one_way = false
+15/shape_one_way_margin = 1.0
 15/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 21 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 22 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
+15/z_index = 0
 16/name = "ladder"
 16/texture = ExtResource( 9 )
 16/tex_offset = Vector2( 0, 0 )
 16/modulate = Color( 1, 1, 1, 1 )
 16/region = Rect2( 0, 0, 70, 70 )
-16/is_autotile = false
+16/tile_mode = 0
 16/occluder_offset = Vector2( 35, 35 )
 16/navigation_offset = Vector2( 35, 35 )
+16/shape_offset = Vector2( 0, 0 )
+16/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+16/shape_one_way = false
+16/shape_one_way_margin = 0.0
 16/shapes = [  ]
+16/z_index = 0
 17/name = "rockhill_left"
 17/texture = ExtResource( 10 )
 17/tex_offset = Vector2( 0, 0 )
 17/modulate = Color( 1, 1, 1, 1 )
 17/region = Rect2( 0, 0, 70, 70 )
-17/is_autotile = false
+17/tile_mode = 0
 17/occluder_offset = Vector2( 35, 35 )
 17/navigation_offset = Vector2( 35, 35 )
+17/shape_offset = Vector2( 35, 35 )
+17/shape_transform = Transform2D( 1, 0, 0, 1, 35, 35 )
+17/shape = SubResource( 23 )
+17/shape_one_way = false
+17/shape_one_way_margin = 1.0
 17/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 23 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 24 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 }, {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 25 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
+17/z_index = 0
 18/name = "rockhill_right"
 18/texture = ExtResource( 11 )
 18/tex_offset = Vector2( 0, 0 )
 18/modulate = Color( 1, 1, 1, 1 )
 18/region = Rect2( 0, 0, 70, 70 )
-18/is_autotile = false
+18/tile_mode = 0
 18/occluder_offset = Vector2( 35, 35 )
 18/navigation_offset = Vector2( 35, 35 )
+18/shape_offset = Vector2( 35, 35 )
+18/shape_transform = Transform2D( 1, 0, 0, 1, 35, 35 )
+18/shape = SubResource( 26 )
+18/shape_one_way = false
+18/shape_one_way_margin = 1.0
 18/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 26 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
+18/z_index = 0
 19/name = "stonehill_right2"
 19/texture = ExtResource( 12 )
 19/tex_offset = Vector2( 0, 0 )
 19/modulate = Color( 1, 1, 1, 1 )
 19/region = Rect2( 0, 0, 70, 70 )
-19/is_autotile = false
+19/tile_mode = 0
 19/occluder_offset = Vector2( 35, 35 )
 19/navigation_offset = Vector2( 35, 35 )
+19/shape_offset = Vector2( 35, 35 )
+19/shape_transform = Transform2D( 1, 0, 0, 1, 35, 35 )
+19/shape = SubResource( 27 )
+19/shape_one_way = false
+19/shape_one_way_margin = 1.0
 19/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 27 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
+19/z_index = 0
 20/name = "gem_red"
 20/texture = ExtResource( 14 )
 20/tex_offset = Vector2( 0, 0 )
 20/modulate = Color( 1, 1, 1, 1 )
 20/region = Rect2( 0, 0, 70, 70 )
-20/is_autotile = false
+20/tile_mode = 0
 20/occluder_offset = Vector2( 35, 35 )
 20/navigation_offset = Vector2( 35, 35 )
+20/shape_offset = Vector2( 35, 35 )
+20/shape_transform = Transform2D( 1, 0, 0, 1, 35, 35 )
+20/shape = SubResource( 29 )
+20/shape_one_way = false
+20/shape_one_way_margin = 1.0
 20/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 29 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
+20/z_index = 0
 21/name = "box"
 21/texture = ExtResource( 15 )
 21/tex_offset = Vector2( 0, 0 )
 21/modulate = Color( 1, 1, 1, 1 )
 21/region = Rect2( 0, 0, 70, 70 )
-21/is_autotile = false
+21/tile_mode = 0
 21/occluder_offset = Vector2( 35, 35 )
 21/navigation_offset = Vector2( 35, 35 )
+21/shape_offset = Vector2( 35, 35 )
+21/shape_transform = Transform2D( 1, 0, 0, 1, 35, 35 )
+21/shape = SubResource( 2 )
+21/shape_one_way = false
+21/shape_one_way_margin = 1.0
 21/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
+"one_way_margin": 1.0,
 "shape": SubResource( 2 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 35, 35 )
 } ]
-
+21/z_index = 0

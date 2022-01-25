@@ -8,19 +8,16 @@ signal box_opened
 const GRAVITY = 1000.0 # pixels/second/second
 
 const WALK_FORCE = 600
-const WALK_MIN_SPEED = 10
-const WALK_MAX_SPEED = 200
+const WALK_MIN_SPEED = 1 # 10
+const WALK_MAX_SPEED = 300 # 200
 const STOP_FORCE = 1300
 const JUMP_SPEED = 600
 const JUMP_MAX_AIRBORNE_TIME = 0.2
-const CLIMB_SPEED = 2
+const CLIMB_SPEED = 3 # 2
 
 var velocity = Vector2()
-var on_air_time = 100
-var jumping = false
-var on_ladder = false
-
-var prev_jump_pressed = false
+var _total_air_time = 100
+var _is_jump_state = false
 
 	
 func _ready():
@@ -28,21 +25,40 @@ func _ready():
 		
 func _physics_process(delta):
 	if was_hit:
-		$AnimatedSprite.animation = "hit"
-		$AnimatedSprite/trail.emitting = true
-		if $RecoverTimer.is_stopped():
-			$RecoverTimer.start()
-			play_hit_sound()
+		_handle_hit_player()
 		return
 	else:
 		$AnimatedSprite/trail.emitting = false
 	
-	on_ladder = get_tile_on_position(position.x, position.y+35) == "ladder"
-	check_collision_with_stone_rounded()
+	var on_ladder = _get_tile_on_position(position.x, position.y+35) == "ladder"
+	_check_collision_with_box()
+			
+	var cmd = _get_movement_commands(on_ladder)
+
+	_handle_idle_timer(cmd, on_ladder)
 	
-	# Create forces
-	var force = Vector2(0, GRAVITY)
+	_apply_movement(cmd, on_ladder, delta)	
+		
+	_animate_sprite(cmd.duck, on_ladder)
+
+
+func _handle_hit_player():
+	$AnimatedSprite.animation = "hit"
+	$AnimatedSprite/trail.emitting = true
+	if $RecoverTimer.is_stopped():
+		$RecoverTimer.start()
+		_play_hit_sound()
+
 	
+func _handle_idle_timer(cmd, on_ladder):
+	var active = cmd.walk_left or cmd.walk_right or cmd.climb_up or cmd.climb_down or cmd.jump or cmd.duck
+	if active or on_ladder:
+		$WaitAfterIdle.stop()
+	else:
+		if $WaitAfterIdle.is_stopped():
+			$WaitAfterIdle.start()
+	
+func _get_movement_commands(on_ladder):
 	var ui_left = false
 	var ui_right = false
 	var ui_up = false
@@ -59,7 +75,7 @@ func _physics_process(delta):
 	var walk_left = ui_left
 	var walk_right = ui_right
 	var climb_up = false
-	if not jumping:
+	if !_is_jump_state:
 		climb_up = ui_up
 	var down = ui_down
 	var jump = Input.is_action_pressed("jump")
@@ -74,14 +90,63 @@ func _physics_process(delta):
 	if abs(velocity.y) > 0 and on_ladder == false:
 		climb_up = false
 		climb_down = false
+
+	return {"walk_left": walk_left,
+			"walk_right":walk_right,
+			"climb_up": climb_up,
+			"climb_down": climb_down,
+			"jump": jump,
+			"duck": duck}
 	
-	var active = walk_left or walk_right or climb_up or climb_down or jump or duck
-	if active or on_ladder:
-		$WaitAfterIdle.stop()
+	
+func _apply_movement(cmd, on_ladder, delta):
+	var force = Vector2(0, GRAVITY)
+	force = _get_horizontal_force(cmd.walk_left, cmd.walk_right, force, delta)
+	velocity += force * delta	
+	
+	if on_ladder:
+		_handle_ladder_movements(cmd.climb_up, cmd.climb_down)
 	else:
-		if $WaitAfterIdle.is_stopped():
-			$WaitAfterIdle.start()
+		velocity = move_and_slide(velocity, Vector2(0, -1))
+
+	_handle_jumping(on_ladder, cmd.jump, delta)
 	
+	
+func _handle_jumping(on_ladder, jump, delta):
+	if is_on_floor() or on_ladder:
+		_total_air_time = 0
+	else:
+		_total_air_time += delta
+		
+	if _is_jump_state and velocity.y > 0:
+		# If falling, no longer jumping
+		_is_jump_state = false
+	
+	if _total_air_time < JUMP_MAX_AIRBORNE_TIME and jump and !_is_jump_state:
+		# Jump must also be allowed to happen if the character left the floor a little while ago.
+		# Makes controls more snappy.
+		velocity.y = -JUMP_SPEED
+		_is_jump_state = true
+
+	
+func _handle_ladder_movements(climb_up, climb_down):
+		if climb_up:
+			var pos = get_position()
+			pos.y = pos.y - CLIMB_SPEED
+			set_position(pos)
+		elif climb_down and not is_on_floor():
+			var pos = get_position()
+			pos.y = pos.y + CLIMB_SPEED
+			set_position(pos)
+		elif !_is_jump_state:
+			var v = velocity
+			v.y = 0
+			velocity = move_and_slide(v, Vector2(0, 0))
+		else:
+			velocity = move_and_slide(velocity, Vector2(0, -1))
+
+	
+func _get_horizontal_force(walk_left, walk_right, force, delta):
 	var stop = true
 	
 	if walk_left:
@@ -102,43 +167,13 @@ func _physics_process(delta):
 			vlen = 0
 		
 		velocity.x = vlen * vsign
-	
-	# Integrate forces to velocity
-	#if (on_ladder == false):
-	velocity += force * delta	
-	# Integrate velocity into motion and move
-	if climb_up:
-		if (on_ladder):
-			var pos = get_position()
-			pos.y = pos.y - CLIMB_SPEED
-			set_position(pos)
-	elif climb_down and not is_on_floor():
-		if (on_ladder):
-			var pos = get_position()
-			pos.y = pos.y + CLIMB_SPEED
-			set_position(pos)
-	elif (on_ladder and not jumping):
-		var v = velocity
-		v.y = 0
-		velocity = move_and_slide(v, Vector2(0, 0))
-	else:
-		velocity = move_and_slide(velocity, Vector2(0, -1))
-	
-	if is_on_floor() or on_ladder:
-		on_air_time = 0
-		
-	if jumping and velocity.y > 0:
-		# If falling, no longer jumping
-		jumping = false
-	
-#	if (on_ladder == false):
-	if on_air_time < JUMP_MAX_AIRBORNE_TIME and jump and not prev_jump_pressed and not jumping:
-		# Jump must also be allowed to happen if the character left the floor a little bit ago.
-		# Makes controls more snappy.
-		velocity.y = -JUMP_SPEED
-		jumping = true
-	
-	if velocity.length() > 0:
+
+	return force
+
+
+func _animate_sprite(duck, on_ladder):
+	var length = velocity.length()
+	if length > 0.2:
 		$AnimatedSprite.play()
 	else:
 		$AnimatedSprite.play()
@@ -150,7 +185,7 @@ func _physics_process(delta):
 		$AnimatedSprite.flip_h = velocity.x < 0
 	elif (on_ladder):
 		$AnimatedSprite.animation = "climb"
-	elif (jumping):	
+	elif (_is_jump_state):	
 		$AnimatedSprite.animation = "jump"
 	elif (duck):
 		$AnimatedSprite.animation = "duck"
@@ -165,26 +200,28 @@ func _physics_process(delta):
 		$CollisionPolygon2D.disabled = false
 		$CollisionPolygon2DDuck.disabled = true		
 
-	on_air_time += delta
-	prev_jump_pressed = jump
-
+	
 func _on_WaitAfterIdle_timeout():
 	$WaitAfterIdle.stop()
-	play_idle_sound()
+	_play_idle_sound()
+
 
 func _on_RecoverTimer_timeout():
 	was_hit = false
 	$RecoverTimer.stop()
 
+
 const idle_sounds = ["ooooh","jippee","hmmm","ehhh"]
-func play_idle_sound():
+func _play_idle_sound():
 	get_node(idle_sounds[randi() % 4]).play()
 
+
 const hit_sounds = ["aj1","aj2","aj3"]
-func play_hit_sound():
+func _play_hit_sound():
 	get_node(hit_sounds[randi() % 3]).play()
 
-func get_tile_on_position(x,y):
+
+func _get_tile_on_position(x,y):
 	var tilemap = get_parent().get_node("TileMap")
 	if not tilemap == null:
 		var map_pos = tilemap.world_to_map(Vector2(x,y))
@@ -195,10 +232,11 @@ func get_tile_on_position(x,y):
 		else:
 			return ""
 
-func check_collision_with_stone_rounded():
+
+func _check_collision_with_box():
 	var x = position.x
 	var y = position.y - 50
-	if get_tile_on_position(x,y) == "box":
+	if _get_tile_on_position(x,y) == "box":
 		var tilemap = get_parent().get_node("TileMap")
 		if not tilemap == null:
 			var map_pos = tilemap.world_to_map(Vector2(x,y))
