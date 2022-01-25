@@ -107,7 +107,7 @@ func _apply_movement(cmd, on_ladder, delta):
 	if on_ladder:
 		_handle_ladder_movements(cmd.climb_up, cmd.climb_down)
 	else:
-		velocity = move_and_slide(velocity, Vector2(0, -1))
+		velocity = move_and_slide(velocity, Vector2(0, -1), false, 4,0.9,true)
 
 	_handle_jumping(on_ladder, cmd.jump, delta)
 	
@@ -173,7 +173,8 @@ func _get_horizontal_force(walk_left, walk_right, force, delta):
 
 func _animate_sprite(duck, on_ladder):
 	var length = velocity.length()
-	if length > 0.2:
+	if length > 1.0:
+		print(length)
 		$AnimatedSprite.play()
 	else:
 		$AnimatedSprite.play()
