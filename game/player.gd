@@ -39,7 +39,7 @@ func _physics_process(delta):
 	
 	_apply_movement(cmd, on_ladder, delta)	
 		
-	_animate_sprite(cmd.duck, on_ladder)
+	_animate_sprite(cmd, on_ladder)
 
 
 func _handle_hit_player():
@@ -50,13 +50,22 @@ func _handle_hit_player():
 		_play_hit_sound()
 
 	
+func _is_active(cmd):
+	return cmd.walk_left or cmd.walk_right or cmd.climb_up or cmd.climb_down or cmd.jump or cmd.duck
+
+
+func _player_makes_sound():
+	return $ooooh.playing or $jippee.playing or $hmmm.playing or $ehhh.playing
+
+
 func _handle_idle_timer(cmd, on_ladder):
-	var active = cmd.walk_left or cmd.walk_right or cmd.climb_up or cmd.climb_down or cmd.jump or cmd.duck
+	var active = _is_active(cmd)
 	if active or on_ladder:
 		$WaitAfterIdle.stop()
 	else:
 		if $WaitAfterIdle.is_stopped():
 			$WaitAfterIdle.start()
+	
 	
 func _get_movement_commands(on_ladder):
 	var ui_left = false
@@ -171,7 +180,7 @@ func _get_horizontal_force(walk_left, walk_right, force, delta):
 	return force
 
 
-func _animate_sprite(duck, on_ladder):
+func _animate_sprite(cmd, on_ladder):
 	var length = velocity.length()
 	if length > 1.0:
 		print(length)
@@ -188,11 +197,11 @@ func _animate_sprite(duck, on_ladder):
 		$AnimatedSprite.animation = "climb"
 	elif (_is_jump_state):	
 		$AnimatedSprite.animation = "jump"
-	elif (duck):
+	elif (cmd.duck):
 		$AnimatedSprite.animation = "duck"
 	
-	if not duck and ($ooooh.playing or $jippee.playing or $hmmm.playing or $ehhh.playing):
-		$AnimatedSprite.animation = "oh"
+	if !_is_active(cmd) and _player_makes_sound():
+		$AnimatedSprite.animation = "talk"
 
 	if ($AnimatedSprite.animation == "duck"):
 		$CollisionPolygon2D.disabled = true
