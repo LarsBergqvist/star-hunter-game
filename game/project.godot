@@ -15,13 +15,21 @@ _global_script_class_icons={
 [application]
 
 config/name="Star Hunter"
-run/main_scene="res://main.tscn"
+run/main_scene="res://TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [display]
 
 window/stretch/mode="2d"
 window/stretch/aspect="keep_width"
+
+[global]
+
+color=false
+
+[gui]
+
+theme/custom_font="res://fonts/MainFont.tres"
 
 [input]
 
