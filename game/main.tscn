@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://GUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gfx/menu.png" type="Texture" id=3]
 [ext_resource path="res://sounds/ping.ogg" type="AudioStream" id=4]
 [ext_resource path="res://sounds/pock.ogg" type="AudioStream" id=5]
 [ext_resource path="res://plugins/touchJoyPad/touchJoyPad.tscn" type="PackedScene" id=6]
@@ -12,6 +13,9 @@
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 80.0
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 475.5
 
 [node name="main" type="Node2D"]
 position = Vector2( 5.65686, 258.801 )
@@ -85,6 +89,15 @@ passby_press = true
 action = "jump"
 visibility_mode = 1
 
+[node name="Pause" type="TouchScreenButton" parent="HUD/ViewportContainer"]
+position = Vector2( 910, 3 )
+scale = Vector2( 0.123698, 0.114583 )
+normal = ExtResource( 3 )
+shape = SubResource( 5 )
+passby_press = true
+action = "pause"
+visibility_mode = 1
+
 [node name="ping" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 bus = "fx"
@@ -95,3 +108,4 @@ volume_db = 10.0
 bus = "fx"
 
 [connection signal="id_pressed" from="HUD/VBox/Menu" to="." method="_on_Menu_id_pressed"]
+[connection signal="pressed" from="HUD/ViewportContainer/Pause" to="." method="_on_Pause_pressed"]

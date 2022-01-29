@@ -188,3 +188,7 @@ func _on_Menu_id_pressed( ID ):
 		$HUD/VBox.hide()
 
 	pass # replace with function body
+
+
+func _on_Pause_pressed():
+	pass # Replace with function body.

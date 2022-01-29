@@ -21,11 +21,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Logo" type="TextureRect" parent="Menu"]
+[node name="HBox" type="HBoxContainer" parent="Menu"]
 margin_right = 793.0
+margin_bottom = 92.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="TextureRect" parent="Menu/HBox"]
+margin_right = 66.0
 margin_bottom = 92.0
 texture = ExtResource( 1 )
 stretch_mode = 4
+
+[node name="Title" type="Label" parent="Menu/HBox"]
+margin_left = 70.0
+margin_top = 21.0
+margin_right = 454.0
+margin_bottom = 70.0
+text = "Star Hunter Game"
 
 [node name="NewGame" type="ToolButton" parent="Menu"]
 margin_top = 96.0
