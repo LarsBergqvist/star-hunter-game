@@ -20,7 +20,7 @@ const level_config = {
 func _ready():
 	init_level(current_level_number)
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_pressed("pause"):
 		show_game_paused_menu()
 		get_tree().paused = true
@@ -130,7 +130,8 @@ const GO_TO_NEXT_LEVEL = 4
 const REPLAY_FROM_CURRENT_LEVEL = 5
 
 func show_game_paused_menu():
-	$HUD/VBox/Message.text = "Game paused"
+	$HUD/Message.text = "Game paused"
+	$HUD/Message.show()
 	$HUD/VBox/Menu.clear()
 	$HUD/VBox/Menu.add_item("Resume game", RESUME_GAME)	
 	$HUD/VBox/Menu.add_item("Start a new game", START_NEW_GAME)
@@ -138,25 +139,28 @@ func show_game_paused_menu():
 	$HUD/VBox.show()
 
 func show_game_over_menu():
-	$HUD/VBox/Message.text = "Game over..."
+	$HUD/Message.text = "Game over..."
+	$HUD/Message.show()
 	$HUD/VBox/Menu.clear()
-	$HUD/VBox/Menu.add_item("Replay from current level", REPLAY_FROM_CURRENT_LEVEL)	
+	$HUD/VBox/Menu.add_item("Replay level", REPLAY_FROM_CURRENT_LEVEL)	
 	$HUD/VBox/Menu.add_item("Start a new game", START_NEW_GAME)
 	$HUD/VBox/Menu.popup()
 	$HUD/VBox.show()
 
 func show_level_complete_menu():
-	$HUD/VBox/Message.text = "Level complete!"
+	$HUD/Message.text = "Level complete!"
+	$HUD/Message.show()
 	$HUD/VBox/Menu.clear()
 	$HUD/VBox/Menu.add_item("Go to next level", GO_TO_NEXT_LEVEL)
-	$HUD/VBox/Menu.add_item("Replay from current level", REPLAY_FROM_CURRENT_LEVEL)	
+	$HUD/VBox/Menu.add_item("Replay level", REPLAY_FROM_CURRENT_LEVEL)	
 	$HUD/VBox/Menu.popup()
 	$HUD/VBox.show()
 
 func show_game_complete_menu():
-	$HUD/VBox/Message.text = "Game complete!!!"
+	$HUD/Message.text = "Game complete!!!"
+	$HUD/Message.show()
 	$HUD/VBox/Menu.clear()
-	$HUD/VBox/Menu.add_item("Replay from current level", REPLAY_FROM_CURRENT_LEVEL)	
+	$HUD/VBox/Menu.add_item("Replay level", REPLAY_FROM_CURRENT_LEVEL)	
 	$HUD/VBox/Menu.add_item("Start a new game", START_NEW_GAME)
 	$HUD/VBox/Menu.popup()
 	$HUD/VBox.show()
@@ -165,18 +169,26 @@ func _on_Menu_id_pressed( ID ):
 	if ID == RESUME_GAME:
 		get_tree().paused = false
 		$HUD/VBox/Menu.hide()
+		$HUD/Message.hide()
 		$HUD/VBox.hide()
 	elif ID == START_NEW_GAME:
 		restart_game(1)
+		$HUD/Message.hide()
 		$HUD/VBox/Menu.hide()
 		$HUD/VBox.hide()
 	elif ID == REPLAY_FROM_CURRENT_LEVEL:
 		restart_game(current_level_number)
+		$HUD/Message.hide()
 		$HUD/VBox/Menu.hide()
 		$HUD/VBox.hide()
 	elif ID == GO_TO_NEXT_LEVEL:
 		next_level()
+		$HUD/Message.hide()
 		$HUD/VBox/Menu.hide()
 		$HUD/VBox.hide()
 
 	pass # replace with function body
+
+
+func _on_Pause_pressed():
+	pass # Replace with function body.
