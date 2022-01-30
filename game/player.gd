@@ -127,7 +127,7 @@ func _handle_jumping(on_ladder, jump, delta):
 	else:
 		_total_air_time += delta
 		
-	if _is_jump_state and velocity.y > 0:
+	if _is_jump_state and velocity.y >= 0:
 		# If falling, no longer jumping
 		_is_jump_state = false
 	
