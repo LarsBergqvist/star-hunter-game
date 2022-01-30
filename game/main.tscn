@@ -56,32 +56,35 @@ __meta__ = {
 }
 
 [node name="Menu" type="PopupMenu" parent="HUD/VBox"]
-margin_top = 665.0
-margin_right = 254.0
-margin_bottom = 859.0
+margin_right = 1024.0
+margin_bottom = 194.0
 custom_fonts/font = ExtResource( 8 )
 popup_exclusive = true
 items = [ "Item 0", null, 0, false, false, -1, 0, null, "", false, "Item 1", null, 0, false, false, -1, 0, null, "", false ]
-hide_on_item_selection = false
 hide_on_checkable_item_selection = false
 
 [node name="ViewportContainer" type="ViewportContainer" parent="HUD"]
-margin_right = 1025.0
-margin_bottom = 593.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 stretch = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="GamePad" parent="HUD/ViewportContainer" instance=ExtResource( 6 )]
-modulate = Color( 1, 1, 1, 0.462745 )
-position = Vector2( 171.634, 428.696 )
-scale = Vector2( 2, 2 )
-leftPadStyle = "JoyStick"
+[node name="Right" type="TextureButton" parent="HUD"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -386.0
+margin_top = -384.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="JumpButton" type="TouchScreenButton" parent="HUD/ViewportContainer"]
+[node name="JumpButton" type="TouchScreenButton" parent="HUD/Right"]
 modulate = Color( 1, 1, 1, 0.462745 )
-position = Vector2( 697.323, 266.053 )
+position = Vector2( 60, 50 )
 scale = Vector2( 2, 2 )
 normal = ExtResource( 7 )
 shape = SubResource( 4 )
@@ -89,8 +92,33 @@ passby_press = true
 action = "jump"
 visibility_mode = 1
 
-[node name="Pause" type="TouchScreenButton" parent="HUD/ViewportContainer"]
-position = Vector2( 910, 3 )
+[node name="Left" type="TextureButton" parent="HUD"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -384.0
+margin_right = 386.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GamePad" parent="HUD/Left" instance=ExtResource( 6 )]
+modulate = Color( 1, 1, 1, 0.462745 )
+position = Vector2( 165, 215 )
+scale = Vector2( 2, 2 )
+leftPadStyle = "JoyStick"
+
+[node name="TopRight" type="TextureButton" parent="HUD"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -146.0
+margin_top = -4.0
+margin_bottom = 116.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pause" type="TouchScreenButton" parent="HUD/TopRight"]
+position = Vector2( 32, 7 )
 scale = Vector2( 0.123698, 0.114583 )
 normal = ExtResource( 3 )
 shape = SubResource( 5 )
@@ -108,4 +136,4 @@ volume_db = 10.0
 bus = "fx"
 
 [connection signal="id_pressed" from="HUD/VBox/Menu" to="." method="_on_Menu_id_pressed"]
-[connection signal="pressed" from="HUD/ViewportContainer/Pause" to="." method="_on_Pause_pressed"]
+[connection signal="pressed" from="HUD/TopRight/Pause" to="." method="_on_Pause_pressed"]
