@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://alien/alienGreen_walk1.png" type="Texture" id=2]
@@ -53,27 +53,23 @@
 [ext_resource path="res://alien/p5/alienBlue_stand.png" type="Texture" id=51]
 [ext_resource path="res://alien/p5/alienBlue_duck.png" type="Texture" id=52]
 [ext_resource path="res://alien/p5/alienBlue_jump.png" type="Texture" id=53]
+[ext_resource path="res://alien/duck.png" type="Texture" id=54]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 22 ) ],
+"frames": [ ExtResource( 21 ) ],
 "loop": true,
-"name": "jump2",
+"name": "stop2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 32 ) ],
+"frames": [ ExtResource( 23 ), ExtResource( 24 ) ],
 "loop": true,
-"name": "stop3",
+"name": "climb2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 27 ) ],
+"frames": [ ExtResource( 51 ) ],
 "loop": true,
-"name": "duck3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 32 ) ],
-"loop": true,
-"name": "talk3",
+"name": "stop5",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 30 ) ],
@@ -81,64 +77,9 @@ animations = [ {
 "name": "hit3",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 45 ), ExtResource( 46 ) ],
+"frames": [ ExtResource( 32 ) ],
 "loop": true,
-"name": "climb5",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 18 ) ],
-"loop": true,
-"name": "talk2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 33 ), ExtResource( 34 ) ],
-"loop": true,
-"name": "walk3",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "climb1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "duck1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 25 ) ],
-"loop": true,
-"name": "hit2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 26 ) ],
-"loop": true,
-"name": "duck2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "stop1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 21 ) ],
-"loop": true,
-"name": "stop2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 19 ), ExtResource( 20 ) ],
-"loop": true,
-"name": "walk2",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 42 ), ExtResource( 40 ) ],
-"loop": true,
-"name": "climb4",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 43 ) ],
-"loop": true,
-"name": "duck4",
+"name": "stop3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
@@ -146,19 +87,39 @@ animations = [ {
 "name": "hit1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "talk1",
+"name": "jump1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 26 ) ],
 "loop": true,
-"name": "walk1",
+"name": "duck2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ), ExtResource( 34 ) ],
+"loop": true,
+"name": "walk3",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 23 ), ExtResource( 24 ) ],
+"frames": [ ExtResource( 22 ) ],
 "loop": true,
-"name": "climb2",
+"name": "jump2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "climb1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "walk2",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 32 ) ],
+"loop": true,
+"name": "talk3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 52 ) ],
@@ -166,24 +127,14 @@ animations = [ {
 "name": "duck5",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 47 ) ],
+"frames": [ ExtResource( 48 ) ],
 "loop": true,
-"name": "hit5",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 53 ) ],
-"loop": true,
-"name": "jump5",
+"name": "talk5",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 41 ) ],
 "loop": true,
-"name": "talk4",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 44 ) ],
-"loop": true,
-"name": "jump4",
+"name": "stop4",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 37 ), ExtResource( 38 ) ],
@@ -191,9 +142,39 @@ animations = [ {
 "name": "walk4",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 41 ) ],
+"frames": [ ExtResource( 45 ), ExtResource( 46 ) ],
 "loop": true,
-"name": "stop4",
+"name": "climb5",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 47 ) ],
+"loop": true,
+"name": "hit5",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 42 ), ExtResource( 40 ) ],
+"loop": true,
+"name": "climb4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 53 ) ],
+"loop": true,
+"name": "jump5",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "walk1",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 43 ) ],
+"loop": true,
+"name": "duck4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "duck3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 39 ) ],
@@ -201,9 +182,9 @@ animations = [ {
 "name": "hit4",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 29 ), ExtResource( 28 ) ],
 "loop": true,
-"name": "jump1",
+"name": "climb3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 31 ), ExtResource( 35 ), ExtResource( 36 ) ],
@@ -211,19 +192,39 @@ animations = [ {
 "name": "jump3",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 29 ), ExtResource( 28 ) ],
+"frames": [ ExtResource( 44 ) ],
 "loop": true,
-"name": "climb3",
+"name": "jump4",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 48 ) ],
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "talk5",
+"name": "duck1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 51 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "stop5",
+"name": "stop1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "hit2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "talk1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 41 ) ],
+"loop": true,
+"name": "talk4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "talk2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 49 ), ExtResource( 50 ) ],
@@ -270,7 +271,7 @@ speed_scale = 1.15
 explosiveness = 1.0
 randomness = 0.16
 process_material = SubResource( 6 )
-texture = ExtResource( 10 )
+texture = ExtResource( 54 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 rotating = true
