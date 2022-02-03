@@ -32,10 +32,11 @@ func _process(_delta):
 		get_tree().paused = true
 		
 	if stars_found == total_stars:
-		if (current_level_number == total_levels):
-			show_game_complete_menu()
-		else:
-			show_level_complete_menu()
+		show_level_complete_menu()
+#		if (current_level_number == total_levels):
+#			show_game_complete_menu()
+#		else:
+#			show_level_complete_menu()
 		get_tree().paused = true
 
 
@@ -57,6 +58,9 @@ func next_level():
 	current_level.queue_free()
 	get_tree().paused = false
 	current_level_number += 1
+	if current_level_number > total_levels:
+		# No more levels for now, restart...
+		current_level_number = 1
 	init_level(current_level_number)
 	
 func init_level(level_number):
