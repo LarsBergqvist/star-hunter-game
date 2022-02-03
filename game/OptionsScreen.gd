@@ -1,16 +1,17 @@
 extends Control
 
+const num_characters = 4
+const num_levels = 4
+
 func _ready():
-	$Menu/HBoxCharacters/Char1/Button.connect("pressed", self, "_on_CharButton_pressed", [1])
-	$Menu/HBoxCharacters/Char3/Button.connect("pressed", self, "_on_CharButton_pressed", [3])
-	$Menu/HBoxCharacters/Char4/Button.connect("pressed", self, "_on_CharButton_pressed", [4])
-	$Menu/HBoxCharacters/Char5/Button.connect("pressed", self, "_on_CharButton_pressed", [5])
+	for character in range(1, num_characters + 1):
+		var node = self.get_node("Menu/HBoxCharacters/Char" + str(character) + "/Button")
+		node.connect("pressed", self, "_on_CharButton_pressed", [character])
 
-	$Menu/HBoxLevels/Lev1.connect("pressed", self, "_on_LevelButton_pressed", [1])
-	$Menu/HBoxLevels/Lev2.connect("pressed", self, "_on_LevelButton_pressed", [2])
-	$Menu/HBoxLevels/Lev3.connect("pressed", self, "_on_LevelButton_pressed", [3])
-	$Menu/HBoxLevels/Lev4.connect("pressed", self, "_on_LevelButton_pressed", [4])
-
+	for level in range(1, num_levels + 1):
+		var node = self.get_node("Menu/HBoxLevels/Lev" + str(level))
+		node.connect("pressed", self, "_on_LevelButton_pressed", [level])
+		
 	$Menu/Back.connect("pressed", self, "_on_back_button_pressed")
 
 	var global = get_node("/root/global")
@@ -22,10 +23,8 @@ func _on_back_button_pressed():
 	get_tree().change_scene("res://TitleScreen.tscn")
 
 func _clear_all_level_selections():
-	$Menu/HBoxLevels/Lev1.self_modulate.a8 = 150
-	$Menu/HBoxLevels/Lev2.self_modulate.a8 = 150
-	$Menu/HBoxLevels/Lev3.self_modulate.a8 = 150
-	$Menu/HBoxLevels/Lev4.self_modulate.a8 = 150
+	for level in range(1, num_levels + 1):
+		self.get_node("Menu/HBoxLevels/Lev" + str(level)).self_modulate.a8 = 150
 
 func _on_LevelButton_pressed(level):
 	_clear_all_level_selections()
@@ -34,10 +33,8 @@ func _on_LevelButton_pressed(level):
 	global.startLevel = level
 	
 func _clear_all_character_selections():
-	$Menu/HBoxCharacters/Char1/Button.modulate.a8 = 0
-	$Menu/HBoxCharacters/Char3/Button.modulate.a8 = 0
-	$Menu/HBoxCharacters/Char4/Button.modulate.a8 = 0
-	$Menu/HBoxCharacters/Char5/Button.modulate.a8 = 0
+	for n in range(1, num_characters + 1):
+		self.get_node("Menu/HBoxCharacters/Char" + str(n) + "/Button").modulate.a8 = 0
 
 func _on_CharButton_pressed(character):
 	_clear_all_character_selections()

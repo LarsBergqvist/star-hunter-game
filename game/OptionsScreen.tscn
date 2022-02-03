@@ -87,11 +87,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Char3" type="TextureRect" parent="Menu/HBoxCharacters"]
+[node name="Char2" type="TextureRect" parent="Menu/HBoxCharacters"]
 margin_left = 328.0
 margin_right = 394.0
 margin_bottom = 92.0
 texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Menu/HBoxCharacters/Char2"]
+modulate = Color( 1, 1, 1, 0 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Char3" type="TextureRect" parent="Menu/HBoxCharacters"]
+margin_left = 398.0
+margin_right = 464.0
+margin_bottom = 92.0
+texture = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -106,24 +124,6 @@ __meta__ = {
 }
 
 [node name="Char4" type="TextureRect" parent="Menu/HBoxCharacters"]
-margin_left = 398.0
-margin_right = 464.0
-margin_bottom = 92.0
-texture = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="Menu/HBoxCharacters/Char4"]
-modulate = Color( 1, 1, 1, 0 )
-show_behind_parent = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Char5" type="TextureRect" parent="Menu/HBoxCharacters"]
 margin_left = 468.0
 margin_right = 534.0
 margin_bottom = 92.0
@@ -132,7 +132,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="Menu/HBoxCharacters/Char5"]
+[node name="Button" type="Button" parent="Menu/HBoxCharacters/Char4"]
 modulate = Color( 1, 1, 1, 0 )
 show_behind_parent = true
 anchor_right = 1.0
@@ -151,7 +151,7 @@ align = 1
 [node name="HBoxLevels" type="HBoxContainer" parent="Menu"]
 margin_top = 291.0
 margin_right = 793.0
-margin_bottom = 360.0
+margin_bottom = 346.0
 grow_horizontal = 0
 rect_min_size = Vector2( 400, 0 )
 alignment = 1
@@ -159,7 +159,7 @@ alignment = 1
 [node name="Lev1" type="Button" parent="Menu/HBoxLevels"]
 margin_left = 258.0
 margin_right = 324.0
-margin_bottom = 69.0
+margin_bottom = 55.0
 text = " 1 "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -168,7 +168,7 @@ __meta__ = {
 [node name="Lev2" type="Button" parent="Menu/HBoxLevels"]
 margin_left = 328.0
 margin_right = 394.0
-margin_bottom = 69.0
+margin_bottom = 55.0
 text = " 2 "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -177,7 +177,7 @@ __meta__ = {
 [node name="Lev3" type="Button" parent="Menu/HBoxLevels"]
 margin_left = 398.0
 margin_right = 464.0
-margin_bottom = 69.0
+margin_bottom = 55.0
 text = " 3 "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -186,7 +186,7 @@ __meta__ = {
 [node name="Lev4" type="Button" parent="Menu/HBoxLevels"]
 margin_left = 468.0
 margin_right = 534.0
-margin_bottom = 69.0
+margin_bottom = 55.0
 text = " 4 "
 __meta__ = {
 "_edit_use_anchors_": false
@@ -198,7 +198,7 @@ margin_right = 793.0
 margin_bottom = 443.0
 custom_fonts/font = ExtResource( 3 )
 action_mode = 0
-text = "<- Back"
+text = "OK"
 
 [node name="ColorRect" type="ColorRect" parent="Menu/Back"]
 show_behind_parent = true
