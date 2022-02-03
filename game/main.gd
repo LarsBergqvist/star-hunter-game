@@ -18,6 +18,8 @@ const level_config = {
 
 			
 func _ready():
+	var global = get_node("/root/global")
+	current_level_number = global.startLevel
 	init_level(current_level_number)
 
 func _process(_delta):
