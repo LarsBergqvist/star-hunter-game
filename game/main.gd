@@ -170,6 +170,7 @@ func _go_to_title_screen():
 		self.remove_child(n)
 		n.queue_free()
 	self.queue_free()
+	get_tree().paused = false
 	get_tree().change_scene("res://TitleScreen.tscn")
 
 func _on_Menu_id_pressed( ID ):
