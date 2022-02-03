@@ -15,13 +15,18 @@ const JUMP_SPEED = 600
 const JUMP_MAX_AIRBORNE_TIME = 0.2
 const CLIMB_SPEED = 3 # 2
 
+
+var characterId = 1
+
 var velocity = Vector2()
 var _total_air_time = 100
 var _is_jump_state = false
 
 	
 func _ready():
-	pass
+	var global = get_node("/root/global")
+	characterId = global.character
+	$AnimatedSprite.animation = "stop" + str(characterId)
 		
 func _physics_process(delta):
 	if was_hit:
@@ -43,7 +48,7 @@ func _physics_process(delta):
 
 
 func _handle_hit_player():
-	$AnimatedSprite.animation = "hit"
+	$AnimatedSprite.animation = "hit" + str(characterId)
 	$AnimatedSprite/trail.emitting = true
 	if $RecoverTimer.is_stopped():
 		$RecoverTimer.start()
@@ -187,23 +192,23 @@ func _animate_sprite(cmd, on_ladder):
 		$AnimatedSprite.play()
 	else:
 		$AnimatedSprite.play()
-		$AnimatedSprite.animation = "stop"
+		$AnimatedSprite.animation = "stop" + str(characterId)
 		
 	if velocity.x != 0:
-		$AnimatedSprite.animation = "right"
+		$AnimatedSprite.animation = "walk" + str(characterId)
 		$AnimatedSprite.flip_v = false
 		$AnimatedSprite.flip_h = velocity.x < 0
 	elif (on_ladder):
-		$AnimatedSprite.animation = "climb"
+		$AnimatedSprite.animation = "climb" + str(characterId)
 	elif (_is_jump_state):	
-		$AnimatedSprite.animation = "jump"
+		$AnimatedSprite.animation = "jump" + str(characterId)
 	elif (cmd.duck):
-		$AnimatedSprite.animation = "duck"
+		$AnimatedSprite.animation = "duck" + str(characterId)
 	
 	if !_is_active(cmd) and _player_makes_sound():
-		$AnimatedSprite.animation = "talk"
+		$AnimatedSprite.animation = "talk" + str(characterId)
 
-	if ($AnimatedSprite.animation == "duck"):
+	if ($AnimatedSprite.animation == ("duck" + str(characterId))):
 		$CollisionPolygon2D.disabled = true
 		$CollisionPolygon2DDuck.disabled = false
 	else:

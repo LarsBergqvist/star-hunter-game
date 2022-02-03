@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://alien/alienGreen_walk1.png" type="Texture" id=2]
@@ -17,43 +17,219 @@
 [ext_resource path="res://sounds/aj1.ogg" type="AudioStream" id=15]
 [ext_resource path="res://sounds/aj2.ogg" type="AudioStream" id=16]
 [ext_resource path="res://sounds/aj3.ogg" type="AudioStream" id=17]
+[ext_resource path="res://alien/p3/alienPink.png" type="Texture" id=18]
+[ext_resource path="res://alien/p2/alienYellow_walk1.png" type="Texture" id=19]
+[ext_resource path="res://alien/p2/alienYellow_walk2.png" type="Texture" id=20]
+[ext_resource path="res://alien/p2/alienYellow.png" type="Texture" id=21]
+[ext_resource path="res://alien/p2/alienYellow_jump.png" type="Texture" id=22]
+[ext_resource path="res://alien/p2/alienYellow_climb1.png" type="Texture" id=23]
+[ext_resource path="res://alien/p2/alienYellow_climb2.png" type="Texture" id=24]
+[ext_resource path="res://alien/p2/alienYellow_hurt.png" type="Texture" id=25]
+[ext_resource path="res://alien/p2/alienYellow_duck.png" type="Texture" id=26]
+[ext_resource path="res://alien/p3/alienPink_duck.png" type="Texture" id=27]
+[ext_resource path="res://alien/p3/alienPink_climb2.png" type="Texture" id=28]
+[ext_resource path="res://alien/p3/alienPink_climb1.png" type="Texture" id=29]
+[ext_resource path="res://alien/p3/alienPink_hurt.png" type="Texture" id=30]
+[ext_resource path="res://alien/p3/alienPink_jump.png" type="Texture" id=31]
+[ext_resource path="res://alien/p3/alienPink_stand.png" type="Texture" id=32]
+[ext_resource path="res://alien/p3/alienPink_walk1.png" type="Texture" id=33]
+[ext_resource path="res://alien/p3/alienPink_walk2.png" type="Texture" id=34]
+[ext_resource path="res://alien/p4/alienBeige_walk1.png" type="Texture" id=37]
+[ext_resource path="res://alien/p4/alienBeige_walk2.png" type="Texture" id=38]
+[ext_resource path="res://alien/p4/alienBeige_hurt.png" type="Texture" id=39]
+[ext_resource path="res://alien/p4/alienBeige_climb2.png" type="Texture" id=40]
+[ext_resource path="res://alien/p4/alienBeige_stand.png" type="Texture" id=41]
+[ext_resource path="res://alien/p4/alienBeige_climb1.png" type="Texture" id=42]
+[ext_resource path="res://alien/p4/alienBeige_duck.png" type="Texture" id=43]
+[ext_resource path="res://alien/p4/alienBeige_jump.png" type="Texture" id=44]
+[ext_resource path="res://alien/p5/alienBlue_climb1.png" type="Texture" id=45]
+[ext_resource path="res://alien/p5/alienBlue_climb2.png" type="Texture" id=46]
+[ext_resource path="res://alien/p5/alienBlue_hurt.png" type="Texture" id=47]
+[ext_resource path="res://alien/p5/alienBlue.png" type="Texture" id=48]
+[ext_resource path="res://alien/p5/alienBlue_walk1.png" type="Texture" id=49]
+[ext_resource path="res://alien/p5/alienBlue_walk2.png" type="Texture" id=50]
+[ext_resource path="res://alien/p5/alienBlue_stand.png" type="Texture" id=51]
+[ext_resource path="res://alien/p5/alienBlue_duck.png" type="Texture" id=52]
+[ext_resource path="res://alien/p5/alienBlue_jump.png" type="Texture" id=53]
+[ext_resource path="res://alien/duck.png" type="Texture" id=54]
+[ext_resource path="res://alien/p4/alienBeige.png" type="Texture" id=55]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 21 ) ],
 "loop": true,
-"name": "stop",
+"name": "stop2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 23 ), ExtResource( 24 ) ],
 "loop": true,
-"name": "right",
-"speed": 8.0
+"name": "climb2",
+"speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 51 ) ],
 "loop": true,
-"name": "climb",
+"name": "stop5",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ) ],
+"loop": true,
+"name": "hit3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 32 ) ],
+"loop": true,
+"name": "stop3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "hit",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "talk",
+"name": "hit1",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "jump",
+"name": "jump1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ) ],
+"loop": true,
+"name": "duck2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ), ExtResource( 34 ) ],
+"loop": true,
+"name": "walk3",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "jump2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "climb1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "walk2",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "talk3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 52 ) ],
+"loop": true,
+"name": "duck5",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 48 ) ],
+"loop": true,
+"name": "talk5",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 41 ) ],
+"loop": true,
+"name": "stop4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 37 ), ExtResource( 38 ) ],
+"loop": true,
+"name": "walk4",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 45 ), ExtResource( 46 ) ],
+"loop": true,
+"name": "climb5",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 47 ) ],
+"loop": true,
+"name": "hit5",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 42 ), ExtResource( 40 ) ],
+"loop": true,
+"name": "climb4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 53 ) ],
+"loop": true,
+"name": "jump5",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "walk1",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 43 ) ],
+"loop": true,
+"name": "duck4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "duck3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 39 ) ],
+"loop": true,
+"name": "hit4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "climb3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 31 ) ],
+"loop": true,
+"name": "jump3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 44 ) ],
+"loop": true,
+"name": "jump4",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "duck",
+"name": "duck1",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "stop1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "hit2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "talk1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 55 ) ],
+"loop": true,
+"name": "talk4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "talk2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 49 ), ExtResource( 50 ) ],
+"loop": true,
+"name": "walk5",
+"speed": 8.0
 } ]
 
 [sub_resource type="Gradient" id=2]
@@ -76,6 +252,8 @@ initial_velocity = 1.0
 angular_velocity = 1.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
+radial_accel = 100.0
+radial_accel_random = 0.63
 scale_curve = SubResource( 5 )
 color_ramp = SubResource( 3 )
 
@@ -84,7 +262,7 @@ script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "talk"
+animation = "walk5"
 
 [node name="trail" type="Particles2D" parent="AnimatedSprite"]
 emitting = false
@@ -94,7 +272,7 @@ speed_scale = 1.15
 explosiveness = 1.0
 randomness = 0.16
 process_material = SubResource( 6 )
-texture = ExtResource( 10 )
+texture = ExtResource( 54 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 rotating = true

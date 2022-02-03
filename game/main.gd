@@ -18,6 +18,8 @@ const level_config = {
 
 			
 func _ready():
+	var global = get_node("/root/global")
+	current_level_number = global.startLevel
 	init_level(current_level_number)
 
 func _process(_delta):
@@ -30,10 +32,11 @@ func _process(_delta):
 		get_tree().paused = true
 		
 	if stars_found == total_stars:
-		if (current_level_number == total_levels):
-			show_game_complete_menu()
-		else:
-			show_level_complete_menu()
+		show_level_complete_menu()
+#		if (current_level_number == total_levels):
+#			show_game_complete_menu()
+#		else:
+#			show_level_complete_menu()
 		get_tree().paused = true
 
 
@@ -55,6 +58,9 @@ func next_level():
 	current_level.queue_free()
 	get_tree().paused = false
 	current_level_number += 1
+	if current_level_number > total_levels:
+		# No more levels for now, restart...
+		current_level_number = 1
 	init_level(current_level_number)
 	
 func init_level(level_number):
@@ -165,6 +171,14 @@ func show_game_complete_menu():
 	$HUD/VBox/Menu.popup()
 	$HUD/VBox.show()
 
+func _go_to_title_screen():
+	for n in self.get_children():
+		self.remove_child(n)
+		n.queue_free()
+	self.queue_free()
+	get_tree().paused = false
+	get_tree().change_scene("res://TitleScreen.tscn")
+
 func _on_Menu_id_pressed( ID ):
 	if ID == RESUME_GAME:
 		get_tree().paused = false
@@ -172,10 +186,11 @@ func _on_Menu_id_pressed( ID ):
 		$HUD/Message.hide()
 		$HUD/VBox.hide()
 	elif ID == START_NEW_GAME:
-		restart_game(1)
-		$HUD/Message.hide()
-		$HUD/VBox/Menu.hide()
-		$HUD/VBox.hide()
+		_go_to_title_screen()
+#		restart_game(1)
+#		$HUD/Message.hide()
+#		$HUD/VBox/Menu.hide()
+#		$HUD/VBox.hide()
 	elif ID == REPLAY_FROM_CURRENT_LEVEL:
 		restart_game(current_level_number)
 		$HUD/Message.hide()
