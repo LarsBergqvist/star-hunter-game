@@ -16,7 +16,7 @@ const JUMP_MAX_AIRBORNE_TIME = 0.2
 const CLIMB_SPEED = 3 # 2
 
 
-var characterId = 3
+var characterId = 1
 
 var velocity = Vector2()
 var _total_air_time = 100
@@ -24,6 +24,8 @@ var _is_jump_state = false
 
 	
 func _ready():
+	var global = get_node("/root/global")
+	characterId = global.character
 	$AnimatedSprite.animation = "stop" + str(characterId)
 		
 func _physics_process(delta):

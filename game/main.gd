@@ -165,6 +165,13 @@ func show_game_complete_menu():
 	$HUD/VBox/Menu.popup()
 	$HUD/VBox.show()
 
+func _go_to_title_screen():
+	for n in self.get_children():
+		self.remove_child(n)
+		n.queue_free()
+	self.queue_free()
+	get_tree().change_scene("res://TitleScreen.tscn")
+
 func _on_Menu_id_pressed( ID ):
 	if ID == RESUME_GAME:
 		get_tree().paused = false
@@ -172,10 +179,11 @@ func _on_Menu_id_pressed( ID ):
 		$HUD/Message.hide()
 		$HUD/VBox.hide()
 	elif ID == START_NEW_GAME:
-		restart_game(1)
-		$HUD/Message.hide()
-		$HUD/VBox/Menu.hide()
-		$HUD/VBox.hide()
+		_go_to_title_screen()
+#		restart_game(1)
+#		$HUD/Message.hide()
+#		$HUD/VBox/Menu.hide()
+#		$HUD/VBox.hide()
 	elif ID == REPLAY_FROM_CURRENT_LEVEL:
 		restart_game(current_level_number)
 		$HUD/Message.hide()

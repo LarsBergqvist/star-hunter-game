@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://alien/alienGreen_stand_oh.png" type="Texture" id=1]
 [ext_resource path="res://TitleScreen.gd" type="Script" id=2]
 [ext_resource path="res://fonts/LargeFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://fonts/SmallFont.tres" type="DynamicFont" id=4]
@@ -45,35 +44,53 @@ __meta__ = {
 }
 
 [node name="HBox" type="HBoxContainer" parent="Menu"]
-anchor_right = 1.0
 margin_right = 793.0
-margin_bottom = 92.0
+margin_bottom = 85.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Logo" type="TextureRect" parent="Menu/HBox"]
-margin_right = 66.0
-margin_bottom = 92.0
-texture = ExtResource( 1 )
-stretch_mode = 4
-
 [node name="Title" type="Label" parent="Menu/HBox"]
-margin_left = 70.0
-margin_top = 21.0
-margin_right = 330.0
-margin_bottom = 70.0
+margin_right = 793.0
+margin_bottom = 85.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
 text = " Star Hunter"
+align = 1
 
 [node name="NewGame" type="ToolButton" parent="Menu"]
-margin_top = 96.0
+margin_top = 89.0
 margin_right = 793.0
-margin_bottom = 189.0
+margin_bottom = 182.0
 custom_fonts/font = ExtResource( 3 )
 action_mode = 0
 text = "New Game"
 
 [node name="ColorRect" type="ColorRect" parent="Menu/NewGame"]
+show_behind_parent = true
+anchor_left = 0.23
+anchor_top = 0.416
+anchor_right = 0.75
+anchor_bottom = 0.623
+margin_left = -20.39
+margin_top = -19.688
+margin_right = 26.25
+margin_bottom = 20.061
+mouse_filter = 2
+color = Color( 0.181653, 0.367188, 0.299906, 0.513726 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="ToolButton" parent="Menu"]
+margin_top = 186.0
+margin_right = 793.0
+margin_bottom = 279.0
+custom_fonts/font = ExtResource( 3 )
+action_mode = 0
+text = "Options"
+
+[node name="ColorRect" type="ColorRect" parent="Menu/Options"]
 show_behind_parent = true
 anchor_left = 0.23
 anchor_top = 0.416
