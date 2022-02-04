@@ -18,9 +18,12 @@ export (int) var num_bats = 0
 export (int) var num_ghosts = 0
 export (int) var num_bees = 0
 export (int) var num_flies = 0
-
 export (bool) var do_physics_process = false
+
+var rng = RandomNumberGenerator.new()
+
 func _ready():
+	rng.randomize()
 	do_physics_process = true
 	var pos_curve = $ItemPositions.get_curve()
 	total_stars = pos_curve.get_point_count()
@@ -67,12 +70,13 @@ func _ready():
 	$bg_music.play()
 
 func on_box_opened(player_pos, tile_pos):
-	var gem = Gem.instance()
-	gem.position = $TileMap.map_to_world(tile_pos)
-	gem.position.x += 35
-	gem.position.y += 35
-	gem.connect("gem_taken", self, "on_gem_taken")
-	add_child(gem)
+	if (rng.randf_range(0, 1) > 0.5):
+		var gem = Gem.instance()
+		gem.position = $TileMap.map_to_world(tile_pos)
+		gem.position.x += 35
+		gem.position.y += 35
+		gem.connect("gem_taken", self, "on_gem_taken")
+		add_child(gem)
 
 func on_gem_taken():
 	emit_signal("gem_was_taken")
