@@ -195,7 +195,10 @@ func _animate_sprite(cmd, on_ladder):
 		$AnimatedSprite.animation = "stop" + str(characterId)
 		
 	if velocity.x != 0:
-		$AnimatedSprite.animation = "walk" + str(characterId)
+		if (_is_jump_state):
+			$AnimatedSprite.animation = "swim" + str(characterId)
+		else:
+			$AnimatedSprite.animation = "walk" + str(characterId)
 		$AnimatedSprite.flip_v = false
 		$AnimatedSprite.flip_h = velocity.x < 0
 	elif (on_ladder):
