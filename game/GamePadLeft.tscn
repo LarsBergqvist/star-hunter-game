@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://plugins/touchJoyPad/touchJoyPad.tscn" type="PackedScene" id=2]
+
+[node name="Left" type="TextureButton"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -384.0
+margin_right = 386.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GamePad" parent="." instance=ExtResource( 2 )]
+modulate = Color( 1, 1, 1, 0.462745 )
+position = Vector2( 165, 215 )
+scale = Vector2( 2, 2 )
+leftPadStyle = "JoyStick"

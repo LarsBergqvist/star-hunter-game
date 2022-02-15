@@ -1,18 +1,13 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://GUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gfx/menu.png" type="Texture" id=3]
 [ext_resource path="res://sounds/ping.ogg" type="AudioStream" id=4]
 [ext_resource path="res://sounds/pock.ogg" type="AudioStream" id=5]
-[ext_resource path="res://plugins/touchJoyPad/touchJoyPad.tscn" type="PackedScene" id=6]
-[ext_resource path="res://plugins/touchJoyPad/analog/big_circle.png" type="Texture" id=7]
 [ext_resource path="res://fonts/LargeFont.tres" type="DynamicFont" id=8]
 
 [sub_resource type="Theme" id=1]
-
-[sub_resource type="CircleShape2D" id=4]
-radius = 80.0
 
 [sub_resource type="CircleShape2D" id=5]
 radius = 475.5
@@ -70,42 +65,6 @@ stretch = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Right" type="TextureButton" parent="HUD"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -386.0
-margin_top = -384.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="JumpButton" type="TouchScreenButton" parent="HUD/Right"]
-modulate = Color( 1, 1, 1, 0.462745 )
-position = Vector2( 60, 50 )
-scale = Vector2( 2, 2 )
-normal = ExtResource( 7 )
-shape = SubResource( 4 )
-passby_press = true
-action = "jump"
-visibility_mode = 1
-
-[node name="Left" type="TextureButton" parent="HUD"]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_top = -384.0
-margin_right = 386.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GamePad" parent="HUD/Left" instance=ExtResource( 6 )]
-modulate = Color( 1, 1, 1, 0.462745 )
-position = Vector2( 165, 215 )
-scale = Vector2( 2, 2 )
-leftPadStyle = "JoyStick"
 
 [node name="TopRight" type="TextureButton" parent="HUD"]
 anchor_left = 1.0

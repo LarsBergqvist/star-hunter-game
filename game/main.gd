@@ -8,6 +8,8 @@ var max_health = 100
 var health = 100
 var current_level_number = 1
 const total_levels = 4
+var gamePadLeft = null
+var jumpButton = null
 
 const level_config = { 
 	1: { "num_bats": 10, "num_ghosts": 0, "num_bees": 0, "num_flies": 0 },
@@ -75,6 +77,8 @@ func init_level(level_number):
 	level.num_flies = level_config[level_number].num_flies
 	
 	add_child(level)
+	
+	_add_game_buttons()
 	
 	init_from_current_level()
 	
@@ -204,6 +208,20 @@ func _on_Menu_id_pressed( ID ):
 
 	pass # replace with function body
 
+func _add_game_buttons():
+	var hud = get_node("HUD")
+
+	if (gamePadLeft != null):
+		hud.remove_child(gamePadLeft)
+	var gamePadLeftScene = load("res://GamePadLeft.tscn")
+	gamePadLeft = gamePadLeftScene.instance()
+	hud.add_child(gamePadLeft)
+
+	if (jumpButton != null):
+		hud.remove_child(jumpButton)
+	var jumpButtonScene = load("res://JumpButton.tscn")
+	jumpButton = jumpButtonScene.instance()
+	hud.add_child(jumpButton)
 
 func _on_Pause_pressed():
 	pass # Replace with function body.
