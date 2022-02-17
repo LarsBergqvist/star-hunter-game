@@ -66,7 +66,7 @@ func _ready():
 			add_child(fly)
 
 	$player.connect("box_opened", self, "on_box_opened")
-	
+
 	$bg_music.play()
 
 func on_box_opened(player_pos, tile_pos):
@@ -78,8 +78,10 @@ func on_box_opened(player_pos, tile_pos):
 		gem.connect("gem_taken", self, "on_gem_taken")
 		add_child(gem)
 
+
 func on_gem_taken():
 	emit_signal("gem_was_taken")
+
 
 func _physics_process(delta):
 	if not do_physics_process:
@@ -88,15 +90,18 @@ func _physics_process(delta):
 	if $player.position.y > 1500:
 		$player.was_hit = true
 		emit_signal("player_was_hit")
-		
+
+
 func on_player_hit():
 	$player.was_hit = true
 	emit_signal("player_was_hit")
-	
+
+
 func on_star_taken():
 	stars_found += 1
 	emit_signal("star_was_taken")
-	
+
+
 func on_enemy_hit():
 	emit_signal("enemy_was_hit")
 

@@ -27,6 +27,12 @@ func _ready():
 	var global = get_node("/root/global")
 	characterId = global.character
 	$AnimatedSprite.animation = "stop" + str(characterId)
+	var parent = get_parent()
+	if (parent != null):
+		parent.connect("gem_was_taken", self, "on_gem_was_taken")
+		parent.connect("star_was_taken", self, "on_star_was_taken")
+		parent.connect("enemy_was_hit", self, "on_enemy_was_hit")
+
 		
 func _physics_process(delta):
 	if was_hit:
@@ -48,6 +54,7 @@ func _physics_process(delta):
 
 
 func _handle_hit_player():
+	_show_emote("hit", 0.7)
 	$AnimatedSprite.animation = "hit" + str(characterId)
 	$AnimatedSprite/trail.emitting = true
 	if $RecoverTimer.is_stopped():
@@ -186,6 +193,9 @@ func _get_horizontal_force(walk_left, walk_right, force, delta):
 
 
 func _animate_sprite(cmd, on_ladder):
+#	if (_is_active(cmd)):
+#		_hide_emote()
+
 	var length = velocity.length()
 	if length > 1.0:
 		print(length)
@@ -210,6 +220,8 @@ func _animate_sprite(cmd, on_ladder):
 	
 	if !_is_active(cmd) and _player_makes_sound():
 		$AnimatedSprite.animation = "talk" + str(characterId)
+#	else:
+#		_hide_emote()
 
 	if ($AnimatedSprite.animation == ("duck" + str(characterId))):
 		$CollisionPolygon2D.disabled = true
@@ -218,8 +230,20 @@ func _animate_sprite(cmd, on_ladder):
 		$CollisionPolygon2D.disabled = false
 		$CollisionPolygon2DDuck.disabled = true		
 
-	
+
+func _hide_emote():
+	$AnimatedSprite/emote.visible = false
+
+
+func _show_emote(name, time):
+	$EmoteTimer.wait_time = time
+	$EmoteTimer.start()
+	$AnimatedSprite/emote.animation = name
+	$AnimatedSprite/emote.visible = true
+
+
 func _on_WaitAfterIdle_timeout():
+	_show_emote("question", 2)
 	$WaitAfterIdle.stop()
 	_play_idle_sound()
 
@@ -227,6 +251,23 @@ func _on_WaitAfterIdle_timeout():
 func _on_RecoverTimer_timeout():
 	was_hit = false
 	$RecoverTimer.stop()
+
+
+func _on_EmoteTimer_timeout():
+	_hide_emote()
+	$EmoteTimer.stop()
+
+
+func on_gem_was_taken():
+	_show_emote("money", 0.5)
+
+	
+func on_star_was_taken():
+	_show_emote("star", 0.5)
+
+
+func on_enemy_was_hit():
+	_show_emote("haha", 0.5)
 
 
 const idle_sounds = ["ooooh","jippee","hmmm","ehhh"]
