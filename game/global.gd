@@ -1,5 +1,5 @@
 extends Node
 
-var character = 2
-var startLevel = 1
+var character = 4
+var startLevel = 5
 

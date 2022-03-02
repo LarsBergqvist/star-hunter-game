@@ -1,7 +1,7 @@
 extends Control
 
 const num_characters = 4
-const num_levels = 4
+const num_levels = 5
 
 func _ready():
 	for character in range(1, num_characters + 1):

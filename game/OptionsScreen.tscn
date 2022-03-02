@@ -157,8 +157,8 @@ rect_min_size = Vector2( 400, 0 )
 alignment = 1
 
 [node name="Lev1" type="Button" parent="Menu/HBoxLevels"]
-margin_left = 258.0
-margin_right = 324.0
+margin_left = 223.0
+margin_right = 289.0
 margin_bottom = 55.0
 text = " 1 "
 __meta__ = {
@@ -166,8 +166,8 @@ __meta__ = {
 }
 
 [node name="Lev2" type="Button" parent="Menu/HBoxLevels"]
-margin_left = 328.0
-margin_right = 394.0
+margin_left = 293.0
+margin_right = 359.0
 margin_bottom = 55.0
 text = " 2 "
 __meta__ = {
@@ -175,8 +175,8 @@ __meta__ = {
 }
 
 [node name="Lev3" type="Button" parent="Menu/HBoxLevels"]
-margin_left = 398.0
-margin_right = 464.0
+margin_left = 363.0
+margin_right = 429.0
 margin_bottom = 55.0
 text = " 3 "
 __meta__ = {
@@ -184,10 +184,19 @@ __meta__ = {
 }
 
 [node name="Lev4" type="Button" parent="Menu/HBoxLevels"]
-margin_left = 468.0
-margin_right = 534.0
+margin_left = 433.0
+margin_right = 499.0
 margin_bottom = 55.0
 text = " 4 "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lev5" type="Button" parent="Menu/HBoxLevels"]
+margin_left = 503.0
+margin_right = 569.0
+margin_bottom = 55.0
+text = " 5 "
 __meta__ = {
 "_edit_use_anchors_": false
 }
