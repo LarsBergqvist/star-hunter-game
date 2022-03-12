@@ -13,7 +13,7 @@ func _ready():
 	# Initialization here
 	pass
 
-func _process(delta):
+func _process(_delta):
 	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 	$HBox/VSplit/HSplit2/Score.text = "Score: " + str(score)

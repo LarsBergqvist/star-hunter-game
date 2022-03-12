@@ -33,32 +33,32 @@ func _ready():
 		star.position = pos_curve.get_point_position(i)
 		star.connect("star_taken", self, "on_star_taken")
 
-	if not $BatPath == null:
-		for i in range(0,num_bats):
+	if get_node_or_null("BatPath") != null:
+		for _i in range(0,num_bats):
 			var bat = Bat.instance()
 			bat.path = $BatPath/PathFollow2D
 			bat.connect("player_hit", self, "on_player_hit")
 			bat.connect("enemy_hit", self, "on_enemy_hit")
 			add_child(bat)
 
-	if not $GhostPath == null:
-		for i in range(0,num_ghosts):
+	if get_node_or_null("GhostPath") != null:
+		for _i in range(0,num_ghosts):
 			var ghost = Ghost.instance()
 			ghost.path = $GhostPath/PathFollow2D
 			ghost.connect("player_hit", self, "on_player_hit")
 			ghost.connect("enemy_hit", self, "on_enemy_hit")
 			add_child(ghost)
 
-	if not $BeePath == null:
-		for i in range(0,num_bees):
+	if get_node_or_null("BeePath") != null:
+		for _i in range(0,num_bees):
 			var bee = Bee.instance()
 			bee.path = $BeePath/PathFollow2D
 			bee.connect("player_hit", self, "on_player_hit")
 			bee.connect("enemy_hit", self, "on_enemy_hit")
 			add_child(bee)
 
-	if not $FlyPath == null:
-		for i in range(0,num_flies):
+	if get_node_or_null("FlyPath") != null:
+		for _i in range(0,num_flies):
 			var fly = Fly.instance()
 			fly.path = $FlyPath/PathFollow2D
 			fly.connect("player_hit", self, "on_player_hit")
@@ -69,7 +69,7 @@ func _ready():
 
 	$bg_music.play()
 
-func on_box_opened(player_pos, tile_pos):
+func on_box_opened(_player_pos, tile_pos):
 	if (rng.randf_range(0, 1) > 0.5):
 		var gem = Gem.instance()
 		gem.position = $TileMap.map_to_world(tile_pos)
@@ -83,7 +83,7 @@ func on_gem_taken():
 	emit_signal("gem_was_taken")
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if not do_physics_process:
 		return
 		

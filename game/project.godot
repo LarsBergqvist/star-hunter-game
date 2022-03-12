@@ -22,6 +22,10 @@ config/icon="res://icon.png"
 
 global="*res://global.gd"
 
+[debug]
+
+gdscript/warnings/return_value_discarded=false
+
 [display]
 
 window/size/height=640
