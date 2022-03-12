@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://Transition.tscn" type="PackedScene" id=1]
 [ext_resource path="res://TitleScreen.gd" type="Script" id=2]
 [ext_resource path="res://fonts/LargeFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://fonts/SmallFont.tres" type="DynamicFont" id=4]
@@ -62,6 +63,7 @@ align = 1
 margin_top = 89.0
 margin_right = 793.0
 margin_bottom = 182.0
+focus_mode = 0
 custom_fonts/font = ExtResource( 3 )
 action_mode = 0
 text = "New Game"
@@ -86,6 +88,7 @@ __meta__ = {
 margin_top = 186.0
 margin_right = 793.0
 margin_bottom = 279.0
+focus_mode = 0
 custom_fonts/font = ExtResource( 3 )
 action_mode = 0
 text = "Options"
@@ -117,3 +120,6 @@ stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SceneTransitionRect" parent="." instance=ExtResource( 1 )]
+visible = false
