@@ -23,7 +23,7 @@ var _total_air_time = 100
 var _is_jump_state = false
 
 	
-func _ready():
+func _ready()->void:
 	var global = get_node("/root/global")
 	characterId = global.character
 	$AnimatedSprite.animation = "stop" + str(characterId)
@@ -34,7 +34,7 @@ func _ready():
 		parent.connect("enemy_was_hit", self, "on_enemy_was_hit")
 
 		
-func _physics_process(delta):
+func _physics_process(delta: float)->void:
 	if was_hit:
 		_handle_hit_player()
 		return
@@ -44,7 +44,7 @@ func _physics_process(delta):
 	var on_ladder = _get_tile_on_position(position.x, position.y+35) == "ladder"
 	_check_collision_with_box()
 			
-	var cmd = _get_movement_commands(on_ladder)
+	var cmd: Dictionary = _get_movement_commands(on_ladder)
 
 	_handle_idle_timer(cmd, on_ladder)
 	
@@ -53,7 +53,7 @@ func _physics_process(delta):
 	_animate_sprite(cmd, on_ladder)
 
 
-func _handle_hit_player():
+func _handle_hit_player()->void:
 	_show_emote("hit", 0.7)
 	$AnimatedSprite.animation = "hit" + str(characterId)
 	$AnimatedSprite/trail.emitting = true
@@ -62,15 +62,15 @@ func _handle_hit_player():
 		_play_hit_sound()
 
 	
-func _is_active(cmd):
+func _is_active(cmd)->bool:
 	return cmd.walk_left or cmd.walk_right or cmd.climb_up or cmd.climb_down or cmd.jump or cmd.duck
 
 
-func _player_makes_sound():
+func _player_makes_sound()->bool:
 	return $ooooh.playing or $jippee.playing or $hmmm.playing or $ehhh.playing
 
 
-func _handle_idle_timer(cmd, on_ladder):
+func _handle_idle_timer(cmd: Dictionary, on_ladder: bool)->void:
 	var active = _is_active(cmd)
 	if active or on_ladder:
 		$WaitAfterIdle.stop()
@@ -79,7 +79,7 @@ func _handle_idle_timer(cmd, on_ladder):
 			$WaitAfterIdle.start()
 	
 	
-func _get_movement_commands(on_ladder):
+func _get_movement_commands(on_ladder: bool)->Dictionary:
 	var ui_left = false
 	var ui_right = false
 	var ui_up = false
@@ -120,7 +120,7 @@ func _get_movement_commands(on_ladder):
 			"duck": duck}
 	
 	
-func _apply_movement(cmd, on_ladder, delta):
+func _apply_movement(cmd: Dictionary, on_ladder: bool, delta: float)->void:
 	var force = Vector2(0, GRAVITY)
 	force = _get_horizontal_force(cmd.walk_left, cmd.walk_right, force, delta)
 	velocity += force * delta	
@@ -133,7 +133,7 @@ func _apply_movement(cmd, on_ladder, delta):
 	_handle_jumping(on_ladder, cmd.jump, delta)
 	
 	
-func _handle_jumping(on_ladder, jump, delta):
+func _handle_jumping(on_ladder: bool, jump: bool, delta)->void:
 	if is_on_floor() or on_ladder:
 		_total_air_time = 0
 	else:
@@ -150,7 +150,7 @@ func _handle_jumping(on_ladder, jump, delta):
 		_is_jump_state = true
 
 	
-func _handle_ladder_movements(climb_up, climb_down):
+func _handle_ladder_movements(climb_up: bool, climb_down: bool)->void:
 		if climb_up:
 			var pos = get_position()
 			pos.y = pos.y - CLIMB_SPEED
@@ -167,7 +167,7 @@ func _handle_ladder_movements(climb_up, climb_down):
 			velocity = move_and_slide(velocity, Vector2(0, -1))
 
 	
-func _get_horizontal_force(walk_left, walk_right, force, delta):
+func _get_horizontal_force(walk_left: bool, walk_right: bool, force: Vector2, delta: float)->Vector2:
 	var stop = true
 	
 	if walk_left:
@@ -192,7 +192,7 @@ func _get_horizontal_force(walk_left, walk_right, force, delta):
 	return force
 
 
-func _animate_sprite(cmd, on_ladder):
+func _animate_sprite(cmd: Dictionary, on_ladder: bool)->void:
 #	if (_is_active(cmd)):
 #		_hide_emote()
 
@@ -231,42 +231,42 @@ func _animate_sprite(cmd, on_ladder):
 		$CollisionPolygon2DDuck.disabled = true		
 
 
-func _hide_emote():
+func _hide_emote()->void:
 	$AnimatedSprite/emote.visible = false
 
 
-func _show_emote(name, time):
+func _show_emote(name: String, time: float)->void:
 	$EmoteTimer.wait_time = time
 	$EmoteTimer.start()
 	$AnimatedSprite/emote.animation = name
 	$AnimatedSprite/emote.visible = true
 
 
-func _on_WaitAfterIdle_timeout():
+func _on_WaitAfterIdle_timeout()->void:
 	_show_emote("question", 2)
 	$WaitAfterIdle.stop()
 	_play_idle_sound()
 
 
-func _on_RecoverTimer_timeout():
+func _on_RecoverTimer_timeout()->void:
 	was_hit = false
 	$RecoverTimer.stop()
 
 
-func _on_EmoteTimer_timeout():
+func _on_EmoteTimer_timeout()->void:
 	_hide_emote()
 	$EmoteTimer.stop()
 
 
-func on_gem_was_taken():
+func on_gem_was_taken()->void:
 	_show_emote("money", 0.5)
 
 	
-func on_star_was_taken():
+func on_star_was_taken()->void:
 	_show_emote("star", 0.5)
 
 
-func on_enemy_was_hit():
+func on_enemy_was_hit()->void:
 	_show_emote("haha", 0.5)
 
 
