@@ -1,5 +1,17 @@
 extends AnimatedSprite
 
+func animate_stop(characterId: int)->void:
+	animation = "stop" + str(characterId)
+
+
+func animate_talk(characterId: int)->void:
+	animation = "talk" + str(characterId)
+
+
+func animate_duck(characterId: int)->void:
+	animation = "duck" + str(characterId)
+	
+
 func animate(cmd: Dictionary, playerState: PlayerState)->void:
 	var characterId = playerState.characterId
 	var length = playerState.velocity.length()
@@ -22,3 +34,24 @@ func animate(cmd: Dictionary, playerState: PlayerState)->void:
 		animation = "jump" + str(characterId)
 	elif (cmd.duck):
 		animation = "duck" + str(characterId)
+
+func show_emote(name: String, time: float)->void:
+	$EmoteTimer.wait_time = time
+	$EmoteTimer.start()
+	$emote.animation = name
+	$emote.visible = true
+		
+func hide_emote()->void:
+	$emote.visible = false
+
+func on_EmoteTimer_timeout()->void:
+	hide_emote()
+	$EmoteTimer.stop()
+
+func animate_hit_player(playerState: PlayerState)->void:
+	show_emote("hit", 0.7)
+	animation = "hit" + str(playerState.characterId)
+	$trail.emitting = true
+
+func stop_animating_hit()->void:
+	$trail.emitting = false

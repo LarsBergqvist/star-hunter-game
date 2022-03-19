@@ -25,7 +25,7 @@ func get_velocity():
 func _ready()->void:
 	var global = get_node("/root/global")
 	playerState.characterId = global.character
-	$PlayerSprite.animation = "stop" + str(playerState.characterId)
+	$PlayerSprite.animate_stop(playerState.characterId)
 	var parent = get_parent()
 	if (parent != null):
 		parent.connect("gem_was_taken", self, "on_gem_was_taken")
@@ -39,7 +39,7 @@ func _physics_process(delta: float)->void:
 		_handle_hit_player()
 		return
 	else:
-		$PlayerSprite/trail.emitting = false
+		$PlayerSprite.stop_animating_hit()
 	
 	playerState.on_ladder = _get_tile_on_position(position.x, position.y+35) == "ladder"
 	_check_collision_with_box()
@@ -54,9 +54,7 @@ func _physics_process(delta: float)->void:
 
 
 func _handle_hit_player()->void:
-	_show_emote("hit", 0.7)
-	$PlayerSprite.animation = "hit" + str(playerState.characterId)
-	$PlayerSprite/trail.emitting = true
+	$PlayerSprite.animate_hit_player(playerState)
 	if $RecoverTimer.is_stopped():
 		$RecoverTimer.start()
 		_play_hit_sound()
@@ -196,29 +194,18 @@ func _animate_sprite(cmd: Dictionary)->void:
 	$PlayerSprite.animate(cmd, playerState)
 	
 	if !_is_active(cmd) and _player_makes_sound():
-		$PlayerSprite.animation = "talk" + str(playerState.characterId)
+		$PlayerSprite.animate_talk(playerState.characterId)
 
-	if ($PlayerSprite.animation == ("duck" + str(playerState.characterId))):
-		$CollisionPolygon2D.disabled = true
-		$CollisionPolygon2DDuck.disabled = false
-	else:
-		$CollisionPolygon2D.disabled = false
-		$CollisionPolygon2DDuck.disabled = true		
-
-
-func _hide_emote()->void:
-	$PlayerSprite/emote.visible = false
-
-
-func _show_emote(name: String, time: float)->void:
-	$EmoteTimer.wait_time = time
-	$EmoteTimer.start()
-	$PlayerSprite/emote.animation = name
-	$PlayerSprite/emote.visible = true
+	# if ($PlayerSprite.animat == ("duck" + str(playerState.characterId))):
+	# 	$CollisionPolygon2D.disabled = true
+	# 	$CollisionPolygon2DDuck.disabled = false
+	# else:
+	# 	$CollisionPolygon2D.disabled = false
+	# 	$CollisionPolygon2DDuck.disabled = true		
 
 
 func _on_WaitAfterIdle_timeout()->void:
-	_show_emote("question", 2)
+	$PlayerSprite.show_emote("question", 2)
 	$WaitAfterIdle.stop()
 	_play_idle_sound()
 
@@ -228,17 +215,12 @@ func _on_RecoverTimer_timeout()->void:
 	$RecoverTimer.stop()
 
 
-func _on_EmoteTimer_timeout()->void:
-	_hide_emote()
-	$EmoteTimer.stop()
-
-
 func on_gem_was_taken()->void:
-	_show_emote("money", 0.5)
+	$PlayerSprite.show_emote("money", 0.5)
 
 	
 func on_star_was_taken()->void:
-	_show_emote("star", 0.5)
+	$PlayerSprite.show_emote("star", 0.5)
 
 
 func on_player_was_hit()->void:
@@ -246,7 +228,7 @@ func on_player_was_hit()->void:
 
 
 func on_enemy_was_hit()->void:
-	_show_emote("haha", 0.5)
+	$PlayerSprite.show_emote("haha", 0.5)
 
 
 const idle_sounds = ["ooooh","jippee","hmmm","ehhh"]
