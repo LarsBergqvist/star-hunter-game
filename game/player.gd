@@ -1,7 +1,7 @@
 extends KinematicBody2D
+class_name Player
 
 export (bool) var is_player = true
-export (bool) var was_hit = false
 
 signal box_opened
 
@@ -15,48 +15,48 @@ const JUMP_SPEED = 600
 const JUMP_MAX_AIRBORNE_TIME = 0.2
 const CLIMB_SPEED = 3 # 2
 
+var playerState = PlayerState.new()
 
-var characterId = 1
 
-var velocity = Vector2()
-var _total_air_time = 100
-var _is_jump_state = false
+func get_velocity():
+	return playerState.velocity
 
-	
+
 func _ready()->void:
 	var global = get_node("/root/global")
-	characterId = global.character
-	$AnimatedSprite.animation = "stop" + str(characterId)
+	playerState.characterId = global.character
+	$PlayerSprite.animation = "stop" + str(playerState.characterId)
 	var parent = get_parent()
 	if (parent != null):
 		parent.connect("gem_was_taken", self, "on_gem_was_taken")
 		parent.connect("star_was_taken", self, "on_star_was_taken")
 		parent.connect("enemy_was_hit", self, "on_enemy_was_hit")
+		parent.connect("player_was_hit", self, "on_player_was_hit")
 
 		
 func _physics_process(delta: float)->void:
-	if was_hit:
+	if playerState.is_hit:
 		_handle_hit_player()
 		return
 	else:
-		$AnimatedSprite/trail.emitting = false
+		$PlayerSprite/trail.emitting = false
 	
-	var on_ladder = _get_tile_on_position(position.x, position.y+35) == "ladder"
+	playerState.on_ladder = _get_tile_on_position(position.x, position.y+35) == "ladder"
 	_check_collision_with_box()
 			
-	var cmd: Dictionary = _get_movement_commands(on_ladder)
+	var cmd: Dictionary = _get_movement_commands()
 
-	_handle_idle_timer(cmd, on_ladder)
+	_handle_idle_timer(cmd)
 	
-	_apply_movement(cmd, on_ladder, delta)	
+	_apply_movement(cmd, delta)	
 		
-	_animate_sprite(cmd, on_ladder)
+	_animate_sprite(cmd)
 
 
 func _handle_hit_player()->void:
 	_show_emote("hit", 0.7)
-	$AnimatedSprite.animation = "hit" + str(characterId)
-	$AnimatedSprite/trail.emitting = true
+	$PlayerSprite.animation = "hit" + str(playerState.characterId)
+	$PlayerSprite/trail.emitting = true
 	if $RecoverTimer.is_stopped():
 		$RecoverTimer.start()
 		_play_hit_sound()
@@ -70,16 +70,16 @@ func _player_makes_sound()->bool:
 	return $ooooh.playing or $jippee.playing or $hmmm.playing or $ehhh.playing
 
 
-func _handle_idle_timer(cmd: Dictionary, on_ladder: bool)->void:
+func _handle_idle_timer(cmd: Dictionary)->void:
 	var active = _is_active(cmd)
-	if active or on_ladder:
+	if active or playerState.on_ladder:
 		$WaitAfterIdle.stop()
 	else:
 		if $WaitAfterIdle.is_stopped():
 			$WaitAfterIdle.start()
 	
 	
-func _get_movement_commands(on_ladder: bool)->Dictionary:
+func _get_movement_commands()->Dictionary:
 	var ui_left = false
 	var ui_right = false
 	var ui_up = false
@@ -96,19 +96,19 @@ func _get_movement_commands(on_ladder: bool)->Dictionary:
 	var walk_left = ui_left
 	var walk_right = ui_right
 	var climb_up = false
-	if !_is_jump_state:
+	if !playerState.is_jump_state:
 		climb_up = ui_up
 	var down = ui_down
 	var jump = Input.is_action_pressed("jump")
 	
 	var climb_down = false
 	var duck = false
-	if on_ladder:
+	if playerState.on_ladder:
 		climb_down = down
 	else:
 		duck = down
 	
-	if abs(velocity.y) > 0 and on_ladder == false:
+	if abs(playerState.velocity.y) > 0 and playerState.on_ladder == false:
 		climb_up = false
 		climb_down = false
 
@@ -120,110 +120,85 @@ func _get_movement_commands(on_ladder: bool)->Dictionary:
 			"duck": duck}
 	
 	
-func _apply_movement(cmd: Dictionary, on_ladder: bool, delta: float)->void:
+func _apply_movement(cmd: Dictionary, delta: float)->void:
 	var force = Vector2(0, GRAVITY)
 	force = _get_horizontal_force(cmd.walk_left, cmd.walk_right, force, delta)
-	velocity += force * delta	
+	playerState.velocity += force * delta	
 	
-	if on_ladder:
+	if playerState.on_ladder:
 		_handle_ladder_movements(cmd.climb_up, cmd.climb_down)
 	else:
-		velocity = move_and_slide(velocity, Vector2(0, -1), false, 4,0.9,true)
+		playerState.velocity = move_and_slide(playerState.velocity, Vector2(0, -1), false, 4,0.9,true)
 
-	_handle_jumping(on_ladder, cmd.jump, delta)
+	_handle_jumping(playerState.on_ladder, cmd.jump, delta)
 	
 	
 func _handle_jumping(on_ladder: bool, jump: bool, delta)->void:
 	if is_on_floor() or on_ladder:
-		_total_air_time = 0
+		playerState.total_air_time = 0
 	else:
-		_total_air_time += delta
+		playerState.total_air_time += delta
 		
-	if _is_jump_state and velocity.y >= 0:
+	if playerState.is_jump_state and playerState.velocity.y >= 0:
 		# If falling, no longer jumping
-		_is_jump_state = false
+		playerState.is_jump_state = false
 	
-	if _total_air_time < JUMP_MAX_AIRBORNE_TIME and jump and !_is_jump_state:
+	if playerState.total_air_time < JUMP_MAX_AIRBORNE_TIME and jump and !playerState.is_jump_state:
 		# Jump must also be allowed to happen if the character left the floor a little while ago.
 		# Makes controls more snappy.
-		velocity.y = -JUMP_SPEED
-		_is_jump_state = true
+		playerState.velocity.y = -JUMP_SPEED
+		playerState.is_jump_state = true
 
 	
 func _handle_ladder_movements(climb_up: bool, climb_down: bool)->void:
-		if climb_up:
-			var pos = get_position()
-			pos.y = pos.y - CLIMB_SPEED
-			set_position(pos)
-		elif climb_down and not is_on_floor():
-			var pos = get_position()
-			pos.y = pos.y + CLIMB_SPEED
-			set_position(pos)
-		elif !_is_jump_state:
-			var v = velocity
-			v.y = 0
-			velocity = move_and_slide(v, Vector2(0, 0))
-		else:
-			velocity = move_and_slide(velocity, Vector2(0, -1))
+	if climb_up:
+		var pos = get_position()
+		pos.y = pos.y - CLIMB_SPEED
+		set_position(pos)
+	elif climb_down and not is_on_floor():
+		var pos = get_position()
+		pos.y = pos.y + CLIMB_SPEED
+		set_position(pos)
+	elif !playerState.is_jump_state:
+		var v = playerState.velocity
+		v.y = 0
+		playerState.velocity = move_and_slide(v, Vector2(0, 0))
+	else:
+		playerState.velocity = move_and_slide(playerState.velocity, Vector2(0, -1))
 
 	
 func _get_horizontal_force(walk_left: bool, walk_right: bool, force: Vector2, delta: float)->Vector2:
 	var stop = true
 	
 	if walk_left:
-		if velocity.x <= WALK_MIN_SPEED and velocity.x > -WALK_MAX_SPEED:
+		if playerState.velocity.x <= WALK_MIN_SPEED and playerState.velocity.x > -WALK_MAX_SPEED:
 			force.x -= WALK_FORCE
 			stop = false
 	elif walk_right:
-		if velocity.x >= -WALK_MIN_SPEED and velocity.x < WALK_MAX_SPEED:
+		if playerState.velocity.x >= -WALK_MIN_SPEED and playerState.velocity.x < WALK_MAX_SPEED:
 			force.x += WALK_FORCE
 			stop = false
 	
 	if stop:
-		var vsign = sign(velocity.x)
-		var vlen = abs(velocity.x)
+		var vsign = sign(playerState.velocity.x)
+		var vlen = abs(playerState.velocity.x)
 		
 		vlen -= STOP_FORCE * delta
 		if vlen < 0:
 			vlen = 0
 		
-		velocity.x = vlen * vsign
+		playerState.velocity.x = vlen * vsign
 
 	return force
 
 
-func _animate_sprite(cmd: Dictionary, on_ladder: bool)->void:
-#	if (_is_active(cmd)):
-#		_hide_emote()
-
-	var length = velocity.length()
-	if length > 1.0:
-		print(length)
-		$AnimatedSprite.play()
-	else:
-		$AnimatedSprite.play()
-		$AnimatedSprite.animation = "stop" + str(characterId)
-		
-	if velocity.x != 0:
-		if (_is_jump_state):
-			$AnimatedSprite.animation = "swim" + str(characterId)
-		else:
-			$AnimatedSprite.animation = "walk" + str(characterId)
-		$AnimatedSprite.flip_v = false
-		$AnimatedSprite.flip_h = velocity.x < 0
-	elif (on_ladder):
-		$AnimatedSprite.animation = "climb" + str(characterId)
-	elif (_is_jump_state):	
-		$AnimatedSprite.animation = "jump" + str(characterId)
-	elif (cmd.duck):
-		$AnimatedSprite.animation = "duck" + str(characterId)
+func _animate_sprite(cmd: Dictionary)->void:
+	$PlayerSprite.animate(cmd, playerState)
 	
 	if !_is_active(cmd) and _player_makes_sound():
-		$AnimatedSprite.animation = "talk" + str(characterId)
-#	else:
-#		_hide_emote()
+		$PlayerSprite.animation = "talk" + str(playerState.characterId)
 
-	if ($AnimatedSprite.animation == ("duck" + str(characterId))):
+	if ($PlayerSprite.animation == ("duck" + str(playerState.characterId))):
 		$CollisionPolygon2D.disabled = true
 		$CollisionPolygon2DDuck.disabled = false
 	else:
@@ -232,14 +207,14 @@ func _animate_sprite(cmd: Dictionary, on_ladder: bool)->void:
 
 
 func _hide_emote()->void:
-	$AnimatedSprite/emote.visible = false
+	$PlayerSprite/emote.visible = false
 
 
 func _show_emote(name: String, time: float)->void:
 	$EmoteTimer.wait_time = time
 	$EmoteTimer.start()
-	$AnimatedSprite/emote.animation = name
-	$AnimatedSprite/emote.visible = true
+	$PlayerSprite/emote.animation = name
+	$PlayerSprite/emote.visible = true
 
 
 func _on_WaitAfterIdle_timeout()->void:
@@ -249,7 +224,7 @@ func _on_WaitAfterIdle_timeout()->void:
 
 
 func _on_RecoverTimer_timeout()->void:
-	was_hit = false
+	playerState.is_hit = false
 	$RecoverTimer.stop()
 
 
@@ -264,6 +239,10 @@ func on_gem_was_taken()->void:
 	
 func on_star_was_taken()->void:
 	_show_emote("star", 0.5)
+
+
+func on_player_was_hit()->void:
+	playerState.is_hit = true
 
 
 func on_enemy_was_hit()->void:
