@@ -13,7 +13,7 @@ const WALK_MAX_SPEED = 300 # 200
 const STOP_FORCE = 1300
 const JUMP_SPEED = 600
 const JUMP_MAX_AIRBORNE_TIME = 0.2
-const CLIMB_SPEED = 3 # 2
+const CLIMB_SPEED = 3
 
 var playerState = PlayerState.new()
 
@@ -44,7 +44,7 @@ func _physics_process(delta: float)->void:
 	playerState.on_ladder = _get_tile_on_position(position.x, position.y+35) == "ladder"
 	_check_collision_with_box()
 			
-	var cmd: Dictionary = _get_movement_commands()
+	var cmd: Commands.CommandStates = Commands.get_commands(playerState)
 
 	_handle_idle_timer(cmd)
 	
@@ -59,66 +59,21 @@ func _handle_hit_player()->void:
 		$RecoverTimer.start()
 		_play_hit_sound()
 
-	
-func _is_active(cmd)->bool:
-	return cmd.walk_left or cmd.walk_right or cmd.climb_up or cmd.climb_down or cmd.jump or cmd.duck
-
 
 func _player_makes_sound()->bool:
 	return $ooooh.playing or $jippee.playing or $hmmm.playing or $ehhh.playing
 
 
-func _handle_idle_timer(cmd: Dictionary)->void:
-	var active = _is_active(cmd)
+func _handle_idle_timer(cmd: Commands.CommandStates)->void:
+	var active = Commands.is_active(cmd)
 	if active or playerState.on_ladder:
 		$WaitAfterIdle.stop()
 	else:
 		if $WaitAfterIdle.is_stopped():
 			$WaitAfterIdle.start()
-	
-	
-func _get_movement_commands()->Dictionary:
-	var ui_left = false
-	var ui_right = false
-	var ui_up = false
-	var ui_down = false
-	if Input.is_action_pressed("ui_left"):
-		ui_left = true
-	elif Input.is_action_pressed("ui_right"):
-		ui_right = true
-	elif Input.is_action_pressed("ui_up"):
-		ui_up = true
-	elif Input.is_action_pressed("ui_down"):
-		ui_down = true
 		
-	var walk_left = ui_left
-	var walk_right = ui_right
-	var climb_up = false
-	if !playerState.is_jump_state:
-		climb_up = ui_up
-	var down = ui_down
-	var jump = Input.is_action_pressed("jump")
 	
-	var climb_down = false
-	var duck = false
-	if playerState.on_ladder:
-		climb_down = down
-	else:
-		duck = down
-	
-	if abs(playerState.velocity.y) > 0 and playerState.on_ladder == false:
-		climb_up = false
-		climb_down = false
-
-	return {"walk_left": walk_left,
-			"walk_right":walk_right,
-			"climb_up": climb_up,
-			"climb_down": climb_down,
-			"jump": jump,
-			"duck": duck}
-	
-	
-func _apply_movement(cmd: Dictionary, delta: float)->void:
+func _apply_movement(cmd: Commands.CommandStates, delta: float)->void:
 	var force = Vector2(0, GRAVITY)
 	force = _get_horizontal_force(cmd.walk_left, cmd.walk_right, force, delta)
 	playerState.velocity += force * delta	
@@ -190,13 +145,13 @@ func _get_horizontal_force(walk_left: bool, walk_right: bool, force: Vector2, de
 	return force
 
 
-func _animate_sprite(cmd: Dictionary)->void:
+func _animate_sprite(cmd: Commands.CommandStates)->void:
 	$PlayerSprite.animate(cmd, playerState)
 	
-	if !_is_active(cmd) and _player_makes_sound():
-		$PlayerSprite.animate_talk(playerState.characterId)
+	if !Commands.is_active(cmd) and _player_makes_sound():
+		$PlayerSprite.animate_talking(playerState.characterId)
 
-	if ($PlayerSprite.is_animating_duck(playerState.characterId)):
+	if ($PlayerSprite.is_animating_ducking(playerState.characterId)):
 		$CollisionPolygon2D.disabled = true
 		$CollisionPolygon2DDuck.disabled = false
 	else:
