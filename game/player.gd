@@ -196,12 +196,12 @@ func _animate_sprite(cmd: Dictionary)->void:
 	if !_is_active(cmd) and _player_makes_sound():
 		$PlayerSprite.animate_talk(playerState.characterId)
 
-	# if ($PlayerSprite.animat == ("duck" + str(playerState.characterId))):
-	# 	$CollisionPolygon2D.disabled = true
-	# 	$CollisionPolygon2DDuck.disabled = false
-	# else:
-	# 	$CollisionPolygon2D.disabled = false
-	# 	$CollisionPolygon2DDuck.disabled = true		
+	if ($PlayerSprite.is_animating_duck(playerState.characterId)):
+		$CollisionPolygon2D.disabled = true
+		$CollisionPolygon2DDuck.disabled = false
+	else:
+		$CollisionPolygon2D.disabled = false
+		$CollisionPolygon2DDuck.disabled = true		
 
 
 func _on_WaitAfterIdle_timeout()->void:

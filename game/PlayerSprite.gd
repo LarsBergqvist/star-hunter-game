@@ -8,8 +8,8 @@ func animate_talk(characterId: int)->void:
 	animation = "talk" + str(characterId)
 
 
-func animate_duck(characterId: int)->void:
-	animation = "duck" + str(characterId)
+func is_animating_duck(characterId: int)->bool:
+	return animation == ("duck" + str(characterId))
 	
 
 func animate(cmd: Dictionary, playerState: PlayerState)->void:
