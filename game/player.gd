@@ -58,7 +58,6 @@ func _handle_hit_player()->void:
 	$PlayerSprite.animate_hit_player(playerState)
 	if $RecoverTimer.is_stopped():
 		$RecoverTimer.start()
-		$PlayerSounds.play_hit_sound()
 
 
 func _handle_idle_timer(cmd: Commands.CommandStates)->void:
@@ -144,7 +143,7 @@ func _get_horizontal_force(walk_left: bool, walk_right: bool, force: Vector2, de
 
 
 func _animate_sprite(cmd: Commands.CommandStates)->void:
-	$PlayerSprite.animate(cmd, playerState, $PlayerSounds.player_makes_idle_sound())
+	$PlayerSprite.animate(cmd, playerState)
 	
 	if ($PlayerSprite.is_animating_ducking(playerState.characterId)):
 		$CollisionPolygon2D.disabled = true
@@ -155,9 +154,8 @@ func _animate_sprite(cmd: Commands.CommandStates)->void:
 
 
 func _on_WaitAfterIdle_timeout()->void:
-	$PlayerSprite.show_emote("question", 2)
+	$PlayerSprite.show_idle_emote()
 	$WaitAfterIdle.stop()
-	$PlayerSounds.play_idle_sound()
 
 
 func _on_RecoverTimer_timeout()->void:

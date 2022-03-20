@@ -312,7 +312,9 @@ position = Vector2( 0, -80 )
 scale = Vector2( 1.5, 1.5 )
 z_index = 1
 frames = SubResource( 6 )
-animation = "haha"
+animation = "New Anim"
+
+[node name="PlayerSounds" parent="PlayerSprite" instance=ExtResource( 11 )]
 
 [node name="EmoteTimer" type="Timer" parent="PlayerSprite"]
 
@@ -336,8 +338,6 @@ wait_time = 5.0
 one_shot = true
 
 [node name="RecoverTimer" type="Timer" parent="."]
-
-[node name="PlayerSounds" parent="." instance=ExtResource( 11 )]
 
 [connection signal="timeout" from="PlayerSprite/EmoteTimer" to="PlayerSprite" method="on_EmoteTimer_timeout"]
 [connection signal="timeout" from="WaitAfterIdle" to="." method="_on_WaitAfterIdle_timeout"]
