@@ -8,8 +8,8 @@ signal box_opened
 const GRAVITY = 1000.0 # pixels/second/second
 
 const WALK_FORCE = 600
-const WALK_MIN_SPEED = 1 # 10
-const WALK_MAX_SPEED = 300 # 200
+const WALK_MIN_SPEED = 1
+const WALK_MAX_SPEED = 300
 const STOP_FORCE = 1300
 const JUMP_SPEED = 600
 const JUMP_MAX_AIRBORNE_TIME = 0.2
@@ -42,6 +42,7 @@ func _physics_process(delta: float)->void:
 		$PlayerSprite.stop_animating_hit()
 	
 	playerState.on_ladder = _get_tile_on_position(position.x, position.y+35) == "ladder"
+
 	_check_collision_with_box()
 			
 	var cmd: Commands.CommandStates = Commands.get_commands(playerState)
@@ -92,15 +93,15 @@ func _handle_jumping(on_ladder: bool, jump: bool, delta)->void:
 	else:
 		playerState.total_air_time += delta
 		
-	if playerState.is_jump_state and playerState.velocity.y >= 0:
+	if playerState.is_jumping and playerState.velocity.y >= 0:
 		# If falling, no longer jumping
-		playerState.is_jump_state = false
+		playerState.is_jumping = false
 	
-	if playerState.total_air_time < JUMP_MAX_AIRBORNE_TIME and jump and !playerState.is_jump_state:
+	if playerState.total_air_time < JUMP_MAX_AIRBORNE_TIME and jump and !playerState.is_jumping:
 		# Jump must also be allowed to happen if the character left the floor a little while ago.
 		# Makes controls more snappy.
 		playerState.velocity.y = -JUMP_SPEED
-		playerState.is_jump_state = true
+		playerState.is_jumping = true
 
 	
 func _handle_ladder_movements(climb_up: bool, climb_down: bool)->void:
@@ -112,7 +113,7 @@ func _handle_ladder_movements(climb_up: bool, climb_down: bool)->void:
 		var pos = get_position()
 		pos.y = pos.y + CLIMB_SPEED
 		set_position(pos)
-	elif !playerState.is_jump_state:
+	elif !playerState.is_jumping:
 		var v = playerState.velocity
 		v.y = 0
 		playerState.velocity = move_and_slide(v, Vector2(0, 0))

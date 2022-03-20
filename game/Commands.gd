@@ -34,7 +34,7 @@ static func get_commands(playerState: PlayerState)->CommandStates:
 	var walk_left = ui_left
 	var walk_right = ui_right
 	var climb_up = false
-	if !playerState.is_jump_state:
+	if !playerState.is_jumping:
 		climb_up = ui_up
 	var down = ui_down
 	var jump = Input.is_action_pressed("jump")

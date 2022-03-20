@@ -22,7 +22,7 @@ func animate(cmd: Commands.CommandStates, playerState: PlayerState)->void:
 		animation = "stop" + str(characterId)
 		
 	if playerState.velocity.x != 0:
-		if (playerState.is_jump_state):
+		if (playerState.is_jumping):
 			animation = "swim" + str(characterId)
 		else:
 			animation = "walk" + str(characterId)
@@ -30,7 +30,7 @@ func animate(cmd: Commands.CommandStates, playerState: PlayerState)->void:
 		flip_h = playerState.velocity.x < 0
 	elif (playerState.on_ladder):
 		animation = "climb" + str(characterId)
-	elif (playerState.is_jump_state):	
+	elif (playerState.is_jumping):	
 		animation = "jump" + str(characterId)
 	elif (cmd.duck):
 		animation = "duck" + str(characterId)
