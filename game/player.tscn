@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://alien/alienGreen_walk1.png" type="Texture" id=2]
@@ -10,13 +10,7 @@
 [ext_resource path="res://alien/alienGreen_stand_oh.png" type="Texture" id=8]
 [ext_resource path="res://alien/alienGreen_jump.png" type="Texture" id=9]
 [ext_resource path="res://alien/alienGreen_duck.png" type="Texture" id=10]
-[ext_resource path="res://sounds/jippee1.ogg" type="AudioStream" id=11]
-[ext_resource path="res://sounds/ooooooh.ogg" type="AudioStream" id=12]
-[ext_resource path="res://sounds/ehhh.ogg" type="AudioStream" id=13]
-[ext_resource path="res://sounds/hmmm.ogg" type="AudioStream" id=14]
-[ext_resource path="res://sounds/aj1.ogg" type="AudioStream" id=15]
-[ext_resource path="res://sounds/aj2.ogg" type="AudioStream" id=16]
-[ext_resource path="res://sounds/aj3.ogg" type="AudioStream" id=17]
+[ext_resource path="res://PlayerSounds.tscn" type="PackedScene" id=11]
 [ext_resource path="res://alien/p3/alienPink.png" type="Texture" id=18]
 [ext_resource path="res://alien/p3/alienPink_swim1.png" type="Texture" id=19]
 [ext_resource path="res://alien/p3/alienPink_swim2.png" type="Texture" id=20]
@@ -226,15 +220,15 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.379395 ), 0.0, 0.0, 0, 
 offsets = PoolRealArray( 0, 0.00514139, 0.989717 )
 colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 0, 0.0154242, 0.0154242, 0.0154242, 0.5 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=7]
 flags = 4
 atlas = ExtResource( 35 )
-region = Rect2( 224, 38, 32, 38 )
+region = Rect2( 256, 0, 32, 38 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=8]
 flags = 4
 atlas = ExtResource( 35 )
-region = Rect2( 288, 0, 32, 38 )
+region = Rect2( 96, 38, 32, 38 )
 
 [sub_resource type="AtlasTexture" id=11]
 flags = 4
@@ -246,26 +240,26 @@ flags = 4
 atlas = ExtResource( 35 )
 region = Rect2( 96, 76, 32, 38 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 35 )
-region = Rect2( 96, 38, 32, 38 )
+region = Rect2( 288, 0, 32, 38 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=9]
 flags = 4
 atlas = ExtResource( 35 )
-region = Rect2( 256, 0, 32, 38 )
+region = Rect2( 224, 38, 32, 38 )
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ SubResource( 9 ) ],
+"frames": [ SubResource( 7 ) ],
 "loop": true,
-"name": "star",
+"name": "hit",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 5 ) ],
+"frames": [ SubResource( 8 ) ],
 "loop": true,
-"name": "question",
+"name": "happy",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 11 ) ],
@@ -278,14 +272,14 @@ animations = [ {
 "name": "money",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 8 ) ],
+"frames": [ SubResource( 5 ) ],
 "loop": true,
-"name": "happy",
+"name": "question",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 7 ) ],
+"frames": [ SubResource( 9 ) ],
 "loop": true,
-"name": "hit",
+"name": "star",
 "speed": 5.0
 } ]
 
@@ -337,42 +331,13 @@ position = Vector2( 0, 12.25 )
 polygon = PoolVector2Array( 14.241, 22.5, 19.491, 22.5, 24.241, 22.75, 23.3702, 12.5903, 29.4157, 4.43583, 33.3648, -10.6288, 26.491, -30.75, 11.991, -43.75, -3.009, -44.75, -14.759, -42, -26.509, -30.75, -31.964, -10.9204, -27.1029, 6.26355, -22.3227, 14.5586, -18.509, 22.5, -9.259, 23.25, 5.741, 23.25 )
 disabled = true
 
-[node name="jippee" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 11 )
-bus = "talk"
-
-[node name="ooooh" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 12 )
-bus = "talk"
-
-[node name="ehhh" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 13 )
-bus = "talk"
-
-[node name="hmmm" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 14 )
-bus = "talk"
-
 [node name="WaitAfterIdle" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
 
 [node name="RecoverTimer" type="Timer" parent="."]
 
-[node name="aj1" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 15 )
-volume_db = -5.0
-bus = "talk"
-
-[node name="aj2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 16 )
-volume_db = -5.0
-bus = "talk"
-
-[node name="aj3" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 17 )
-volume_db = -5.0
-bus = "talk"
+[node name="PlayerSounds" parent="." instance=ExtResource( 11 )]
 
 [connection signal="timeout" from="PlayerSprite/EmoteTimer" to="PlayerSprite" method="on_EmoteTimer_timeout"]
 [connection signal="timeout" from="WaitAfterIdle" to="." method="_on_WaitAfterIdle_timeout"]

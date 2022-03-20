@@ -4,16 +4,18 @@ func animate_stop(characterId: int)->void:
 	animation = "stop" + str(characterId)
 
 
-func animate_talking(characterId: int)->void:
-	animation = "talk" + str(characterId)
-
-
 func is_animating_ducking(characterId: int)->bool:
 	return animation == ("duck" + str(characterId))
 	
 
-func animate(cmd: Commands.CommandStates, playerState: PlayerState)->void:
+func animate(cmd: Commands.CommandStates, playerState: PlayerState, is_talking: bool)->void:
 	var characterId = playerState.characterId
+
+	if (is_talking && !Commands.is_active(cmd)):
+		animation = "talk" + str(characterId)
+		play()
+		return
+
 	var length = playerState.velocity.length()
 	if length > 1.0:
 		play()

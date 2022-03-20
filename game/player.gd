@@ -58,11 +58,7 @@ func _handle_hit_player()->void:
 	$PlayerSprite.animate_hit_player(playerState)
 	if $RecoverTimer.is_stopped():
 		$RecoverTimer.start()
-		_play_hit_sound()
-
-
-func _player_makes_sound()->bool:
-	return $ooooh.playing or $jippee.playing or $hmmm.playing or $ehhh.playing
+		$PlayerSounds.play_hit_sound()
 
 
 func _handle_idle_timer(cmd: Commands.CommandStates)->void:
@@ -123,19 +119,20 @@ func _handle_ladder_movements(climb_up: bool, climb_down: bool)->void:
 	
 func _get_horizontal_force(walk_left: bool, walk_right: bool, force: Vector2, delta: float)->Vector2:
 	var stop = true
+	var x = playerState.velocity.x;
 	
 	if walk_left:
-		if playerState.velocity.x <= WALK_MIN_SPEED and playerState.velocity.x > -WALK_MAX_SPEED:
+		if x <= WALK_MIN_SPEED and x > -WALK_MAX_SPEED:
 			force.x -= WALK_FORCE
 			stop = false
 	elif walk_right:
-		if playerState.velocity.x >= -WALK_MIN_SPEED and playerState.velocity.x < WALK_MAX_SPEED:
+		if x >= -WALK_MIN_SPEED and x < WALK_MAX_SPEED:
 			force.x += WALK_FORCE
 			stop = false
 	
 	if stop:
-		var vsign = sign(playerState.velocity.x)
-		var vlen = abs(playerState.velocity.x)
+		var vsign = sign(x)
+		var vlen = abs(x)
 		
 		vlen -= STOP_FORCE * delta
 		if vlen < 0:
@@ -147,11 +144,8 @@ func _get_horizontal_force(walk_left: bool, walk_right: bool, force: Vector2, de
 
 
 func _animate_sprite(cmd: Commands.CommandStates)->void:
-	$PlayerSprite.animate(cmd, playerState)
+	$PlayerSprite.animate(cmd, playerState, $PlayerSounds.player_makes_idle_sound())
 	
-	if !Commands.is_active(cmd) and _player_makes_sound():
-		$PlayerSprite.animate_talking(playerState.characterId)
-
 	if ($PlayerSprite.is_animating_ducking(playerState.characterId)):
 		$CollisionPolygon2D.disabled = true
 		$CollisionPolygon2DDuck.disabled = false
@@ -163,7 +157,7 @@ func _animate_sprite(cmd: Commands.CommandStates)->void:
 func _on_WaitAfterIdle_timeout()->void:
 	$PlayerSprite.show_emote("question", 2)
 	$WaitAfterIdle.stop()
-	_play_idle_sound()
+	$PlayerSounds.play_idle_sound()
 
 
 func _on_RecoverTimer_timeout()->void:
@@ -185,16 +179,6 @@ func on_player_was_hit()->void:
 
 func on_enemy_was_hit()->void:
 	$PlayerSprite.show_emote("haha", 0.5)
-
-
-const idle_sounds = ["ooooh","jippee","hmmm","ehhh"]
-func _play_idle_sound():
-	get_node(idle_sounds[randi() % 4]).play()
-
-
-const hit_sounds = ["aj1","aj2","aj3"]
-func _play_hit_sound():
-	get_node(hit_sounds[randi() % 3]).play()
 
 
 func _get_tile_on_position(x,y):
