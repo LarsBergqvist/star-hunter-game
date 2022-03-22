@@ -19,6 +19,7 @@ func _ready():
 
 func _process(delta):
 	if is_dead:
+		self.rotation += 0.1
 		$AnimatedSprite.animation = "dead"
 		position.y += fall_dead_speed*delta
 		if position.y > 1500:
