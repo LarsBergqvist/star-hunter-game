@@ -61,12 +61,11 @@ func on_EmoteTimer_timeout()->void:
 	$EmoteTimer.stop()
 
 func animate_hit_player(playerState: PlayerState)->void:
-	if !$PlayerSounds.hit_sound_playing():
-		$PlayerSounds.play_hit_sound()
-	
-	show_emote("hit", 0.7)
-	animation = "hit" + str(playerState.characterId)
-	$trail.emitting = true
+	if !(animation == "hit" + str(playerState.characterId)):
+		$PlayerSounds.play_hit_sound()	
+		show_emote("hit", 0.7)
+		animation = "hit" + str(playerState.characterId)
+		$trail.emitting = true
 
 func stop_animating_hit()->void:
 	$trail.emitting = false
