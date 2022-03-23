@@ -7,7 +7,7 @@ const CACHE_VERSION = "1";
 const CACHE_NAME = "index-cache";
 const OFFLINE_URL = "index.offline.html";
 // Files that will be cached on load.
-const CACHED_FILES = ["index.html","index.js","index.wasm","index.pck","index.offline.html","index.icon.png","index.apple-touch-icon.png","index.side.wasm"];
+const CACHED_FILES = ["index.html","index.js","index.wasm","index.pck","index.offline.html","index.icon.png","index.apple-touch-icon.png"];
 // Files that we might not want the user to preload, and will only be cached on first load.
 const CACHABLE_FILES = [];
 const FULL_CACHE = CACHED_FILES.concat(CACHABLE_FILES);
