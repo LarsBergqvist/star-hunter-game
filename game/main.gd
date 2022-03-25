@@ -128,10 +128,12 @@ func on_star_was_taken():
 	stars_found = current_level.stars_found
 	update_HUD()
 
-func on_gem_was_taken():
+func on_gem_was_taken(gemType):
 	$ping.play()
-	score = score + 5
-	health = min(100,health+10)
+	if gemType == GemType.Heart:
+		health = min(100,health+10)
+	elif gemType == GemType.Diamond:
+		score = score + 5
 	update_HUD()
 
 

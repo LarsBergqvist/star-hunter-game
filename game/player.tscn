@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://alien/alienGreen_walk1.png" type="Texture" id=2]
@@ -52,14 +52,119 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 43 ) ],
+"loop": true,
+"name": "duck3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 41 ) ],
+"loop": true,
+"name": "stop3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 39 ) ],
+"loop": true,
+"name": "hit3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 26 ) ],
+"loop": true,
+"name": "swim4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "swim2",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 55 ) ],
+"loop": true,
+"name": "talk3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "duck2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 37 ), ExtResource( 38 ) ],
+"loop": true,
+"name": "walk3",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 53 ) ],
+"loop": true,
+"name": "jump4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 49 ), ExtResource( 50 ) ],
+"loop": true,
+"name": "walk4",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "swim3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "walk1",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "climb1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 42 ), ExtResource( 40 ) ],
+"loop": true,
+"name": "climb3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ) ],
+"loop": true,
+"name": "hit2",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 32 ) ],
 "loop": true,
 "name": "stop2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 55 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "talk3",
+"name": "talk1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 48 ) ],
+"loop": true,
+"name": "talk4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ), ExtResource( 34 ) ],
+"loop": true,
+"name": "walk2",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "duck1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "talk2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "swim1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 51 ) ],
+"loop": true,
+"name": "stop4",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 29 ), ExtResource( 28 ) ],
@@ -67,14 +172,29 @@ animations = [ {
 "name": "climb2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 53 ) ],
-"loop": true,
-"name": "jump4",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 52 ) ],
 "loop": true,
 "name": "duck4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "stop1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 45 ), ExtResource( 46 ) ],
+"loop": true,
+"name": "climb4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 44 ) ],
+"loop": true,
+"name": "jump3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "hit1",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 47 ) ],
@@ -87,129 +207,9 @@ animations = [ {
 "name": "jump1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ), ExtResource( 22 ) ],
-"loop": true,
-"name": "swim1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 33 ), ExtResource( 34 ) ],
-"loop": true,
-"name": "walk2",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "hit1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 27 ) ],
-"loop": true,
-"name": "duck2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 48 ) ],
-"loop": true,
-"name": "talk4",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 49 ), ExtResource( 50 ) ],
-"loop": true,
-"name": "walk4",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 23 ), ExtResource( 26 ) ],
-"loop": true,
-"name": "swim4",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 18 ) ],
-"loop": true,
-"name": "talk2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "climb1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 19 ), ExtResource( 20 ) ],
-"loop": true,
-"name": "swim2",
-"speed": 4.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "stop1",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 31 ) ],
 "loop": true,
 "name": "jump2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 51 ) ],
-"loop": true,
-"name": "stop4",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 30 ) ],
-"loop": true,
-"name": "hit2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "walk1",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 41 ) ],
-"loop": true,
-"name": "stop3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 42 ), ExtResource( 40 ) ],
-"loop": true,
-"name": "climb3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 39 ) ],
-"loop": true,
-"name": "hit3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 44 ) ],
-"loop": true,
-"name": "jump3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 43 ) ],
-"loop": true,
-"name": "duck3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 24 ), ExtResource( 25 ) ],
-"loop": true,
-"name": "swim3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 37 ), ExtResource( 38 ) ],
-"loop": true,
-"name": "walk3",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "talk1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "duck1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 45 ), ExtResource( 46 ) ],
-"loop": true,
-"name": "climb4",
 "speed": 5.0
 } ]
 
@@ -220,30 +220,35 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.379395 ), 0.0, 0.0, 0, 
 offsets = PoolRealArray( 0, 0.00514139, 0.989717 )
 colors = PoolColorArray( 0, 0, 0, 1, 1, 1, 1, 0, 0.0154242, 0.0154242, 0.0154242, 0.5 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=12]
 flags = 4
 atlas = ExtResource( 35 )
-region = Rect2( 288, 0, 32, 38 )
-
-[sub_resource type="AtlasTexture" id=8]
-flags = 4
-atlas = ExtResource( 35 )
-region = Rect2( 96, 38, 32, 38 )
-
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = ExtResource( 35 )
-region = Rect2( 256, 0, 32, 38 )
+region = Rect2( 192, 0, 32, 38 )
 
 [sub_resource type="AtlasTexture" id=10]
 flags = 4
 atlas = ExtResource( 35 )
 region = Rect2( 96, 76, 32, 38 )
 
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 35 )
+region = Rect2( 288, 0, 32, 38 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 35 )
+region = Rect2( 256, 0, 32, 38 )
+
 [sub_resource type="AtlasTexture" id=11]
 flags = 4
 atlas = ExtResource( 35 )
 region = Rect2( 256, 76, 32, 38 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 35 )
+region = Rect2( 96, 38, 32, 38 )
 
 [sub_resource type="AtlasTexture" id=9]
 flags = 4
@@ -252,19 +257,9 @@ region = Rect2( 224, 38, 32, 38 )
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ SubResource( 5 ) ],
+"frames": [ SubResource( 12 ) ],
 "loop": true,
-"name": "question",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 8 ) ],
-"loop": true,
-"name": "happy",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 7 ) ],
-"loop": true,
-"name": "hit",
+"name": "heart",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 10 ) ],
@@ -272,9 +267,24 @@ animations = [ {
 "name": "money",
 "speed": 5.0
 }, {
+"frames": [ SubResource( 5 ) ],
+"loop": true,
+"name": "question",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 7 ) ],
+"loop": true,
+"name": "hit",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 11 ) ],
 "loop": true,
 "name": "haha",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ) ],
+"loop": true,
+"name": "happy",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 9 ) ],
@@ -312,6 +322,7 @@ position = Vector2( 0, -80 )
 scale = Vector2( 1.5, 1.5 )
 z_index = 1
 frames = SubResource( 6 )
+animation = "heart"
 
 [node name="PlayerSounds" parent="PlayerSprite" instance=ExtResource( 11 )]
 

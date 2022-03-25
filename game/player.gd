@@ -163,9 +163,11 @@ func _on_RecoverTimer_timeout()->void:
 	$RecoverTimer.stop()
 
 
-func on_gem_was_taken()->void:
-	$PlayerSprite.show_emote("money", 0.5)
-
+func on_gem_was_taken(gemType)->void:
+	if gemType == GemType.Diamond:
+		$PlayerSprite.show_emote("money", 0.5)
+	elif gemType == GemType.Heart:
+		$PlayerSprite.show_emote("heart", 0.5)
 	
 func on_star_was_taken()->void:
 	$PlayerSprite.show_emote("star", 0.5)

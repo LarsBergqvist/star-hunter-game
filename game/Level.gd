@@ -79,8 +79,8 @@ func on_box_opened(_player_pos, tile_pos):
 		add_child(gem)
 
 
-func on_gem_taken():
-	emit_signal("gem_was_taken")
+func on_gem_taken(gemType):
+	emit_signal("gem_was_taken", gemType)
 
 
 func _physics_process(_delta):
