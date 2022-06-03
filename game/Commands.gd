@@ -1,13 +1,14 @@
 class_name Commands
 
 class CommandStates:
-	func _init(wl, wr, cu, cd, j, d):
+	func _init(wl, wr, cu, cd, j, d, s):
 		walk_left = wl
 		walk_right = wr
 		climb_up = cu
 		climb_down = cd
 		jump = j
 		duck = d
+		shoot = s
 
 	var walk_left: bool = false
 	var walk_right: bool = false
@@ -15,6 +16,7 @@ class CommandStates:
 	var climb_down: bool = false
 	var jump: bool = false
 	var duck: bool = false
+	var shoot: bool = false
 
 
 static func get_commands(playerState: PlayerState)->CommandStates:
@@ -22,6 +24,7 @@ static func get_commands(playerState: PlayerState)->CommandStates:
 	var ui_right = false
 	var ui_up = false
 	var ui_down = false
+	var shoot = Input.is_action_just_pressed("shoot")
 	if Input.is_action_pressed("ui_left"):
 		ui_left = true
 	elif Input.is_action_pressed("ui_right"):
@@ -50,7 +53,7 @@ static func get_commands(playerState: PlayerState)->CommandStates:
 		climb_up = false
 		climb_down = false
 
-	return CommandStates.new(walk_left, walk_right, climb_up, climb_down, jump, duck)
+	return CommandStates.new(walk_left, walk_right, climb_up, climb_down, jump, duck, shoot)
 	
 static func is_active(cmd: CommandStates)->bool:
 	return cmd.walk_left or cmd.walk_right or cmd.climb_up or cmd.climb_down or cmd.jump or cmd.duck

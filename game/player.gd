@@ -47,12 +47,30 @@ func _physics_process(delta: float)->void:
 			
 	var cmd: Commands.CommandStates = Commands.get_commands(playerState)
 
+	_handle_shooting(cmd)
+	
 	_handle_idle_timer(cmd)
 	
-	_apply_movement(cmd, delta)	
-		
+	_apply_movement(cmd, delta)
+
+	if (playerState.velocity.x < 0):
+		playerState.lastDirection = PlayerState.Direction.Left
+	elif (playerState.velocity.x > 0):
+		playerState.lastDirection = PlayerState.Direction.Right
+
 	_animate_sprite(cmd)
 
+func _handle_shooting(cmd: Commands.CommandStates):
+	if (cmd.shoot):
+		var bullet = preload("res://weapons/Ball.tscn").instance()
+		bullet._setAnimation(playerState.characterId)
+		var bulletForce = 1000;
+		if (playerState.lastDirection == PlayerState.Direction.Left):
+			bulletForce = -bulletForce
+		var force = Vector2(bulletForce, 0)
+		bullet.applied_force = force
+		bullet.position = position
+		get_parent().add_child(bullet)
 
 func _handle_hit_player()->void:
 	$PlayerSprite.animate_hit_player(playerState)
