@@ -32,7 +32,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "PlayerState",
 "language": "GDScript",
-"path": "res://PlayerState.gd"
+"path": "res://player_state.gd"
 } ]
 _global_script_class_icons={
 "Commands": "",

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://PlayerSounds.gd" type="Script" id=1]
+[ext_resource path="res://player_sounds.gd" type="Script" id=1]
 [ext_resource path="res://sounds/jippee1.ogg" type="AudioStream" id=2]
 [ext_resource path="res://sounds/ooooooh.ogg" type="AudioStream" id=3]
 [ext_resource path="res://sounds/ehhh.ogg" type="AudioStream" id=4]
