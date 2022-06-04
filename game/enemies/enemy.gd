@@ -50,4 +50,8 @@ func _on_body_entered( body ):
 			emit_signal("enemy_hit")
 		else:
 			emit_signal("player_hit")
+	elif (not body.get("is_bullet") == null):
+			is_dead = true
+			emit_signal("enemy_hit")
+		
 

@@ -70,14 +70,13 @@ func _ready():
 	$bg_music.play()
 
 func on_box_opened(_player_pos, tile_pos):
-	if (rng.randf_range(0, 1) > 0.5):
+	if (rng.randf_range(0, 1) > 0.6):
 		var gem = Gem.instance()
 		gem.position = $TileMap.map_to_world(tile_pos)
 		gem.position.x += 35
 		gem.position.y += 35
 		gem.connect("gem_taken", self, "on_gem_taken")
 		add_child(gem)
-
 
 func on_gem_taken(gemType):
 	emit_signal("gem_was_taken", gemType)
