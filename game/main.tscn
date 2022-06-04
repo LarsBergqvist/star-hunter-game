@@ -23,7 +23,8 @@ layer = 10
 [node name="GUI" parent="HUD" instance=ExtResource( 2 )]
 margin_left = 7.0
 margin_top = 10.0
-margin_right = 726.0
+margin_right = 357.0
+margin_bottom = 235.0
 theme = SubResource( 1 )
 
 [node name="Message" type="Label" parent="HUD"]

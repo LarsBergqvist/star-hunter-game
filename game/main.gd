@@ -6,6 +6,7 @@ var total_stars = 0
 var current_level
 var max_health = 100
 var health = 100
+var balls = 8
 var current_level_number = 1
 const total_levels = 5
 var gamePadLeft = null
@@ -111,6 +112,7 @@ func update_HUD():
 	$HUD/GUI.health = health
 	$HUD/GUI.max_health = max_health
 	$HUD/GUI.level = current_level_number
+	$HUD/GUI.balls = balls
 
 func on_enemy_was_hit():
 	$enemy_hit_sound.play()
@@ -120,7 +122,7 @@ func on_enemy_was_hit():
 func on_player_was_hit():
 	health = max(0,health-10)
 	update_HUD()
-	
+
 func on_star_was_taken():
 	$ping.play()
 	score = score + 10
@@ -134,6 +136,8 @@ func on_gem_was_taken(gemType):
 		health = min(100,health+10)
 	elif gemType == GemType.Diamond:
 		score = score + 5
+	elif gemType == GemType.Ball:
+		global.balls = global.balls + 1
 	update_HUD()
 
 

@@ -1,3 +1,3 @@
 class_name GemType
 
-enum { Diamond, Heart }
+enum { Diamond, Heart, Ball }
