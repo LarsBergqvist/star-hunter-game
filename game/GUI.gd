@@ -7,7 +7,6 @@ export (int) var stars_found = 0
 export (int) var max_health = 0
 export (int) var health = 0
 export (int) var level = 1
-export (int) var balls = 10
 
 func _ready():
 	pass
@@ -20,4 +19,4 @@ func _process(_delta):
 	$Grid/Health.max_value = max_health
 	$Grid/Health.value = health
 	var global = get_node("/root/global")
-	$Grid/Balls.text = str(global.balls)
+	$Grid/Ammo.text = str(global.ammo)

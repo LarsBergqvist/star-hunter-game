@@ -63,9 +63,8 @@ func _physics_process(delta: float)->void:
 func _handle_shooting(cmd: Commands.CommandStates):
 	if (cmd.shoot):
 		var global = get_node("/root/global")
-		var numBalls = global.balls
-		if (numBalls > 0):
-			global.balls = numBalls - 1
+		if (global.ammo > 0):
+			global.ammo = global.ammo - 1
 			var bullet = preload("res://weapons/Ball.tscn").instance()
 			bullet._setAnimation(playerState.characterId)
 			var bulletForce = 1000;

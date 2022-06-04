@@ -6,11 +6,10 @@ var total_stars = 0
 var current_level
 var max_health = 100
 var health = 100
-var balls = 8
 var current_level_number = 1
 const total_levels = 5
 var gamePadLeft = null
-var jumpButton = null
+var actionButtons = null
 
 const level_config = { 
 	1: { "num_bats": 10, "num_ghosts": 0, "num_bees": 0, "num_flies": 0 },
@@ -103,6 +102,7 @@ func init_game_state():
 	total_stars = 1000
 	max_health = 100
 	health = 100
+	global.ammo = global.initial_ammo
 
 func update_HUD():
 	$HUD/GUI.score = score
@@ -112,7 +112,6 @@ func update_HUD():
 	$HUD/GUI.health = health
 	$HUD/GUI.max_health = max_health
 	$HUD/GUI.level = current_level_number
-	$HUD/GUI.balls = balls
 
 func on_enemy_was_hit():
 	$enemy_hit_sound.play()
@@ -137,7 +136,7 @@ func on_gem_was_taken(gemType):
 	elif gemType == GemType.Diamond:
 		score = score + 5
 	elif gemType == GemType.Ball:
-		global.balls = global.balls + 1
+		global.ammo = global.ammo + 1
 	update_HUD()
 
 
@@ -224,11 +223,11 @@ func _add_game_buttons():
 	gamePadLeft = gamePadLeftScene.instance()
 	hud.add_child(gamePadLeft)
 
-	if (jumpButton != null):
-		hud.remove_child(jumpButton)
-	var jumpButtonScene = load("res://JumpButton.tscn")
-	jumpButton = jumpButtonScene.instance()
-	hud.add_child(jumpButton)
+	if (actionButtons != null):
+		hud.remove_child(actionButtons)
+	var actionButtonsScene = load("res://ActionButtons.tscn")
+	actionButtons = actionButtonsScene.instance()
+	hud.add_child(actionButtons)
 
 func _on_Pause_pressed():
 	pass # Replace with function body.
