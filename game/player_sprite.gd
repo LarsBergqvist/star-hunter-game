@@ -11,7 +11,7 @@ func is_animating_ducking(characterId: int)->bool:
 func animate(cmd: Commands.CommandStates, playerState: PlayerState)->void:
 	var characterId = playerState.characterId
 
-	if ($PlayerSounds.player_makes_idle_sound() && !Commands.is_active(cmd)):
+	if $PlayerSounds.player_makes_idle_sound() and !Commands.is_active(cmd):
 		animation = "talk" + str(characterId)
 		play()
 		return
@@ -37,6 +37,7 @@ func animate(cmd: Commands.CommandStates, playerState: PlayerState)->void:
 	elif (cmd.duck):
 		animation = "duck" + str(characterId)
 
+
 const idle_emotes = ["question", "question", "question", "happy"]
 const idle_sounds = ["ooooh", "hmmm", "ehhh", "jippee"]
 func show_idle_emote():
@@ -45,6 +46,7 @@ func show_idle_emote():
 	var emote = idle_emotes[rnd]
 	show_emote(emote, 2)
 	$PlayerSounds.play_idle_sound(sound)
+
 
 func show_emote(name: String, time: float)->void:
 	$EmoteTimer.wait_time = time
@@ -56,9 +58,11 @@ func show_emote(name: String, time: float)->void:
 func hide_emote()->void:
 	$emote.visible = false
 
+
 func on_EmoteTimer_timeout()->void:
 	hide_emote()
 	$EmoteTimer.stop()
+
 
 func animate_hit_player(playerState: PlayerState)->void:
 	if !(animation == "hit" + str(playerState.characterId)):
@@ -66,6 +70,7 @@ func animate_hit_player(playerState: PlayerState)->void:
 		show_emote("hit", 0.7)
 		animation = "hit" + str(playerState.characterId)
 		$trail.emitting = true
+
 
 func stop_animating_hit()->void:
 	$trail.emitting = false

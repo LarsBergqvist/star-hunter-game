@@ -131,11 +131,11 @@ func on_star_was_taken():
 
 func on_gem_was_taken(gemType):
 	$ping.play()
-	if gemType == GemType.Heart:
+	if gemType == GemType.HEART:
 		health = min(100,health+10)
-	elif gemType == GemType.Diamond:
+	elif gemType == GemType.DIAMOND:
 		score = score + 5
-	elif gemType == GemType.Ball:
+	elif gemType == GemType.BALL:
 		global.ammo = global.ammo + 1
 	update_HUD()
 
