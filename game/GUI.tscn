@@ -22,7 +22,7 @@ columns = 2
 margin_right = 157.0
 margin_bottom = 37.0
 custom_fonts/font = SubResource( 1 )
-text = "Level: 1"
+text = "Level:"
 
 [node name="Level" type="Label" parent="Grid"]
 margin_left = 161.0
