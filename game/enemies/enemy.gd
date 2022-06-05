@@ -9,40 +9,47 @@ var _pathIdx = 0
 var _speed = 0
 var _direction = 0
 var _is_dead = false
+var _death_rotation = 0.1
 const FALL_DEAD_SPEED = 4*50
 
 
 func _ready():
 	_pathIdx = randi() % 10000
-	_speed = (randi() % 3 + 1)*50
+	_speed = (randi() % 3 + 1) * 55
 	_direction = randi() % 2
+	_death_rotation = (randf() - 0.5) * 0.3
 	connect("body_entered", self, "_on_body_entered")
 
 
-func _process(delta):
+func _process(delta: float)->void:
 	if _is_dead:
-		self.rotation += 0.1
-		$AnimatedSprite.animation = "dead"
-		position.y += FALL_DEAD_SPEED*delta
-		if position.y > 1500:
-			queue_free()
+		_animate_death(delta)
 	else:
-		if position.x > _prevX:
-			$AnimatedSprite.flip_h = true
-		else:
-			$AnimatedSprite.flip_h = false
-		_prevX = position.x
-		
-		if not path == null:
-			path.set_offset(_pathIdx)
-			position = path.position
-			if _direction == 0:
-				_pathIdx += _speed*delta	
-			else:
-				_pathIdx -= _speed*delta
+		_animate_movement(delta)
 	
 
-func _on_body_entered( body ):
+func _animate_movement(delta: float)->void:
+	$AnimatedSprite.flip_h = position.x > _prevX
+	_prevX = position.x
+	
+	if not path == null:
+		path.set_offset(_pathIdx)
+		position = path.position
+		if _direction == 0:
+			_pathIdx += _speed*delta	
+		else:
+			_pathIdx -= _speed*delta
+
+
+func _animate_death(delta: float)->void:
+	self.rotation += _death_rotation
+	$AnimatedSprite.animation = "dead"
+	position.y += FALL_DEAD_SPEED * delta
+	if position.y > 1500:
+		queue_free()
+
+
+func _on_body_entered(body: Node)->void:
 	if _is_dead:
 		return
 		

@@ -53,5 +53,4 @@ wait_time = 3.0
 one_shot = true
 autostart = true
 
-[connection signal="body_entered" from="." to="." method="_on_Bullet_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

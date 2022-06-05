@@ -8,8 +8,6 @@ export (int) var max_health = 0
 export (int) var health = 0
 export (int) var level = 1
 
-func _ready():
-	pass
 
 func _process(_delta):
 	$Grid/Score.text = str(score)

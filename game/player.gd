@@ -14,11 +14,13 @@ const STOP_FORCE = 1300
 const JUMP_SPEED = 600
 const JUMP_MAX_AIRBORNE_TIME = 0.2
 const CLIMB_SPEED = 3
+const BULLET_FORCE = 1000
+
 
 var _playerState = PlayerState.new()
 
 
-func get_velocity():
+func get_velocity()->Vector2:
 	return _playerState.velocity
 
 
@@ -61,18 +63,17 @@ func _physics_process(delta: float)->void:
 
 
 func _handle_shooting(cmd: Commands.CommandStates):
-	if (cmd.shoot):
-		if (global.ammo > 0):
-			global.ammo = global.ammo - 1
-			var bullet = preload("res://weapons/ball.tscn").instance()
-			bullet._setAnimation(_playerState.characterId)
-			var bulletForce = 1000;
-			if _playerState.lastDirection == PlayerState.Direction.LEFT:
-				bulletForce = -bulletForce
-			var force = Vector2(bulletForce, 0)
-			bullet.applied_force = force
-			bullet.position = position
-			get_parent().add_child(bullet)
+	if (cmd.shoot and global.ammo > 0):
+		global.ammo = global.ammo - 1
+		var bullet = preload("res://weapons/ball.tscn").instance()
+		bullet.position = position
+		bullet.setAnimation(_playerState.characterId)
+		var bulletForce = BULLET_FORCE;
+		if _playerState.lastDirection == PlayerState.Direction.LEFT:
+			bulletForce = -bulletForce
+		var force = Vector2(bulletForce, 0)
+		bullet.applied_force = force
+		get_parent().add_child(bullet)
 
 
 func _handle_hit_player()->void:
@@ -85,14 +86,13 @@ func _handle_idle_timer(cmd: Commands.CommandStates)->void:
 	var active = Commands.is_active(cmd)
 	if active or _playerState.on_ladder:
 		$WaitAfterIdle.stop()
-	else:
-		if $WaitAfterIdle.is_stopped():
-			$WaitAfterIdle.start()
+	elif $WaitAfterIdle.is_stopped():
+		$WaitAfterIdle.start()
 		
 	
 func _apply_movement(cmd: Commands.CommandStates, delta: float)->void:
-	var force = Vector2(0, GRAVITY)
-	force = _get_horizontal_force(cmd.walk_left, cmd.walk_right, force, delta)
+	var vertical_force = Vector2(0, GRAVITY)
+	var force = _add_horizontal_force(cmd.walk_left, cmd.walk_right, vertical_force, delta)
 	_playerState.velocity += force * delta	
 	
 	if _playerState.on_ladder:
@@ -137,7 +137,7 @@ func _handle_ladder_movements(climb_up: bool, climb_down: bool)->void:
 		_playerState.velocity = move_and_slide(_playerState.velocity, Vector2(0, -1))
 
 	
-func _get_horizontal_force(walk_left: bool, walk_right: bool, force: Vector2, delta: float)->Vector2:
+func _add_horizontal_force(walk_left: bool, walk_right: bool, force: Vector2, delta: float)->Vector2:
 	var stop = true
 	var x = _playerState.velocity.x;
 	

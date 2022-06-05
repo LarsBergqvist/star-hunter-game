@@ -1,5 +1,4 @@
 extends Area2D
-
 class_name Gem
 
 signal gem_taken
@@ -12,10 +11,10 @@ var rng = RandomNumberGenerator.new()
 func _ready():
 	rng.randomize()
 	var rand = rng.randf_range(0, 1)
-	if ( rand > 0.8):
+	if rand > 0.8:
 		gemType = GemType.HEART
 		$Sprite.texture = load("res://items/Heart.png")
-	elif ( rand > 0.6 and rand <= 0.8):
+	elif rand > 0.6 and rand <= 0.8:
 		gemType = GemType.DIAMOND
 		$Sprite.texture = load("res://items/gemRed.png")
 	else:
