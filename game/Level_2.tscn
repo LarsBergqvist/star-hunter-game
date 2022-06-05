@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Level.gd" type="Script" id=1]
+[ext_resource path="res://level.gd" type="Script" id=1]
 [ext_resource path="res://items/star.tscn" type="PackedScene" id=2]
 [ext_resource path="res://enemies/bat.tscn" type="PackedScene" id=3]
 [ext_resource path="res://items/Gem.tscn" type="PackedScene" id=4]
-[ext_resource path="res://TileSet.tres" type="TileSet" id=5]
+[ext_resource path="res://tileset_cave.tres" type="TileSet" id=5]
 [ext_resource path="res://player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://backgrounds/set2_tiles.png" type="Texture" id=7]
 [ext_resource path="res://sounds/star_hunter2.ogg" type="AudioStream" id=8]

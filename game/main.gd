@@ -78,7 +78,7 @@ func _next_level():
 func init_level(level_number):
 	_init_level_state()
 	
-	var levelscene = load("res://Level_" + str(level_number) + ".tscn")
+	var levelscene = load("res://level_" + str(level_number) + ".tscn")
 	var level = levelscene.instance()
 	current_level = level
 	level.num_bats = level_config[level_number].num_bats
@@ -201,7 +201,7 @@ func _go_to_title_screen():
 		n.queue_free()
 	self.queue_free()
 	get_tree().paused = false
-	get_tree().change_scene("res://TitleScreen.tscn")
+	get_tree().change_scene("res://title_screen.tscn")
 
 func _on_Menu_id_pressed( ID ):
 	if ID == RESUME_GAME:
@@ -234,12 +234,12 @@ func _add_game_buttons():
 
 	if (gamePadLeft != null):
 		hud.remove_child(gamePadLeft)
-	var gamePadLeftScene = load("res://GamePadLeft.tscn")
+	var gamePadLeftScene = load("res://gamepad_left.tscn")
 	gamePadLeft = gamePadLeftScene.instance()
 	hud.add_child(gamePadLeft)
 
 	if (actionButtons != null):
 		hud.remove_child(actionButtons)
-	var actionButtonsScene = load("res://ActionButtons.tscn")
+	var actionButtonsScene = load("res://action_buttons.tscn")
 	actionButtons = actionButtonsScene.instance()
 	hud.add_child(actionButtons)

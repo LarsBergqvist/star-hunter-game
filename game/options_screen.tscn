@@ -4,10 +4,10 @@
 [ext_resource path="res://alien/p5/alienBlue_stand.png" type="Texture" id=2]
 [ext_resource path="res://fonts/LargeFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://alien/alienGreen_stand.png" type="Texture" id=4]
-[ext_resource path="res://OptionsScreen.gd" type="Script" id=5]
+[ext_resource path="res://options_screen.gd" type="Script" id=5]
 [ext_resource path="res://alien/p3/alienPink_stand.png" type="Texture" id=6]
 [ext_resource path="res://alien/p4/alienBeige_stand.png" type="Texture" id=7]
-[ext_resource path="res://Transition.tscn" type="PackedScene" id=8]
+[ext_resource path="res://transition.tscn" type="PackedScene" id=8]
 
 [node name="OptionsScreen" type="Control"]
 anchor_right = 1.0

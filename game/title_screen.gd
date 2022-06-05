@@ -12,4 +12,4 @@ func _on_newgame_button_pressed()->void:
 
 
 func _on_options_button_pressed()->void:
-	_transition_rect.transition_to("res://OptionsScreen.tscn", self)
+	_transition_rect.transition_to("res://options_screen.tscn", self)

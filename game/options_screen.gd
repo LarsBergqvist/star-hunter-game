@@ -23,7 +23,7 @@ func _ready():
 
 
 func _on_back_button_pressed():
-	_transition_rect.transition_to("res://TitleScreen.tscn", self)
+	_transition_rect.transition_to("res://title_screen.tscn", self)
 
 
 func _clear_all_level_selections():

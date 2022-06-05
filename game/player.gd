@@ -64,7 +64,7 @@ func _handle_shooting(cmd: Commands.CommandStates):
 	if (cmd.shoot):
 		if (global.ammo > 0):
 			global.ammo = global.ammo - 1
-			var bullet = preload("res://weapons/Ball.tscn").instance()
+			var bullet = preload("res://weapons/ball.tscn").instance()
 			bullet._setAnimation(_playerState.characterId)
 			var bulletForce = 1000;
 			if _playerState.lastDirection == PlayerState.Direction.LEFT:

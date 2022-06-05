@@ -12,17 +12,17 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "Commands",
 "language": "GDScript",
-"path": "res://Commands.gd"
+"path": "res://commands.gd"
 }, {
 "base": "Area2D",
 "class": "Gem",
 "language": "GDScript",
-"path": "res://items/Gem.gd"
+"path": "res://items/gem.gd"
 }, {
 "base": "Reference",
 "class": "GemType",
 "language": "GDScript",
-"path": "res://items/GemType.gd"
+"path": "res://items/gem_type.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -45,7 +45,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Star Hunter"
-run/main_scene="res://TitleScreen.tscn"
+run/main_scene="res://title_screen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
