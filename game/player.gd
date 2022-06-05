@@ -45,8 +45,6 @@ func _physics_process(delta: float)->void:
 	_check_collision_with_box()
 			
 	var cmd: Commands.CommandStates = Commands.get_commands(_playerState)
-
-	_handle_shooting(cmd)
 	
 	_handle_idle_timer(cmd)
 	
@@ -58,6 +56,8 @@ func _physics_process(delta: float)->void:
 		_playerState.lastDirection = PlayerState.Direction.RIGHT
 
 	_animate_sprite(cmd)
+
+	_handle_shooting(cmd)
 
 
 func _handle_shooting(cmd: Commands.CommandStates):
