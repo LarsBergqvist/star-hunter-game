@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://weapons/ball.gd" type="Script" id=1]
+[ext_resource path="res://weapons/orb.gd" type="Script" id=1]
 [ext_resource path="res://weapons/ball1.png" type="Texture" id=2]
 [ext_resource path="res://weapons/ball2.png" type="Texture" id=3]
 [ext_resource path="res://weapons/ball4.png" type="Texture" id=4]
@@ -8,11 +8,6 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "ball2",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "ball3",
@@ -21,6 +16,11 @@ animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "ball4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "ball2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
@@ -32,7 +32,22 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=2]
 radius = 23.5277
 
-[node name="Ball" type="RigidBody2D"]
+[sub_resource type="Animation" id=3]
+resource_name = "shrink"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Orb" type="RigidBody2D"]
 collision_layer = 2
 collision_mask = 2
 mass = 1.86327
@@ -53,4 +68,8 @@ wait_time = 3.0
 one_shot = true
 autostart = true
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/shrink = SubResource( 3 )
+
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

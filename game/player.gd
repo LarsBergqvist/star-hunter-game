@@ -65,7 +65,7 @@ func _physics_process(delta: float)->void:
 func _handle_shooting(cmd: Commands.CommandStates):
 	if (cmd.shoot and global.ammo > 0):
 		global.ammo = global.ammo - 1
-		var bullet = preload("res://weapons/ball.tscn").instance()
+		var bullet = preload("res://weapons/orb.tscn").instance()
 		bullet.position = position
 		bullet.setAnimation(_playerState.characterId)
 		var bulletForce = BULLET_FORCE;
@@ -189,7 +189,7 @@ func on_gem_was_taken(gemType)->void:
 		$PlayerSprite.show_emote("money", 0.5)
 	elif gemType == GemType.HEART:
 		$PlayerSprite.show_emote("heart", 0.5)
-	elif gemType == GemType.BALL:
+	elif gemType == GemType.ORB:
 		$PlayerSprite.show_emote("happy", 0.5)
 
 

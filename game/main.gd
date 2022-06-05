@@ -145,7 +145,7 @@ func on_gem_was_taken(gemType):
 		health = min(100,health+10)
 	elif gemType == GemType.DIAMOND:
 		score = score + 5
-	elif gemType == GemType.BALL:
+	elif gemType == GemType.ORB:
 		global.ammo = global.ammo + 1
 	_update_HUD()
 

@@ -18,7 +18,7 @@ func _ready():
 		gemType = GemType.DIAMOND
 		$Sprite.texture = load("res://items/gemRed.png")
 	else:
-		gemType = GemType.BALL
+		gemType = GemType.ORB
 		$Sprite.texture = load("res://weapons/ball" + str(global.character) + ".png")
 
 
