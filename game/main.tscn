@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://gui.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gfx/menu.png" type="Texture" id=3]
 [ext_resource path="res://sounds/ping.ogg" type="AudioStream" id=4]
 [ext_resource path="res://sounds/pock.ogg" type="AudioStream" id=5]
+[ext_resource path="res://hud.gd" type="Script" id=6]
 [ext_resource path="res://fonts/LargeFont.tres" type="DynamicFont" id=8]
 
 [sub_resource type="Theme" id=1]
@@ -18,7 +19,9 @@ scale = Vector2( 0.75, 0.75 )
 script = ExtResource( 1 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
+pause_mode = 2
 layer = 10
+script = ExtResource( 6 )
 
 [node name="GUI" parent="HUD" instance=ExtResource( 2 )]
 margin_left = 7.0
@@ -39,9 +42,6 @@ size_flags_vertical = 12
 custom_colors/font_color = Color( 0.117647, 0.00784314, 0.00784314, 1 )
 custom_fonts/font = ExtResource( 8 )
 align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBox" type="VBoxContainer" parent="HUD"]
 pause_mode = 2
@@ -75,6 +75,7 @@ __meta__ = {
 }
 
 [node name="Pause" type="TouchScreenButton" parent="HUD/TopRight"]
+pause_mode = 2
 position = Vector2( 32, 7 )
 scale = Vector2( 0.123698, 0.114583 )
 normal = ExtResource( 3 )
@@ -95,5 +96,4 @@ bus = "fx"
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 bus = "bg_music"
 
-[connection signal="id_pressed" from="HUD/VBox/Menu" to="." method="_on_Menu_id_pressed"]
-[connection signal="pressed" from="HUD/TopRight/Pause" to="." method="_on_Pause_pressed"]
+[connection signal="id_pressed" from="HUD/VBox/Menu" to="HUD" method="_on_Menu_id_pressed"]
