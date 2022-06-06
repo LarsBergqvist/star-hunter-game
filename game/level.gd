@@ -67,8 +67,6 @@ func _ready():
 
 	$player.connect("box_opened", self, "on_box_opened")
 
-	$bg_music.play()
-
 func on_box_opened(_player_pos, tile_pos):
 	if (rng.randf_range(0, 1) > 0.6):
 		var gem = Gem.instance()

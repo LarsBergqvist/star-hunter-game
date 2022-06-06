@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://level.gd" type="Script" id=1]
 [ext_resource path="res://items/star.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://tileset_cave.tres" type="TileSet" id=5]
 [ext_resource path="res://player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://backgrounds/set2_tiles.png" type="Texture" id=7]
-[ext_resource path="res://sounds/star_hunter2.ogg" type="AudioStream" id=8]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -59,10 +58,6 @@ stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="bg_music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
-bus = "bg_music"
 
 [node name="BatPath" type="Path2D" parent="."]
 curve = SubResource( 2 )

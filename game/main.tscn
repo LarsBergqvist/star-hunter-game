@@ -92,5 +92,8 @@ stream = ExtResource( 5 )
 volume_db = 10.0
 bus = "fx"
 
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+bus = "bg_music"
+
 [connection signal="id_pressed" from="HUD/VBox/Menu" to="." method="_on_Menu_id_pressed"]
 [connection signal="pressed" from="HUD/TopRight/Pause" to="." method="_on_Pause_pressed"]

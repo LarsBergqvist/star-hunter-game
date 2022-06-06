@@ -12,11 +12,11 @@ var gamePadLeft = null
 var actionButtons = null
 
 const level_config = { 
-	1: { "num_bats": 10, "num_ghosts": 0, "num_bees": 0, "num_flies": 0 },
-	2: { "num_bats": 15, "num_ghosts": 0, "num_bees": 0, "num_flies": 0  },
-	3: { "num_bats": 5, "num_ghosts": 15, "num_bees": 0, "num_flies": 0  },
-	4: { "num_bats": 0, "num_ghosts": 0, "num_bees": 10, "num_flies": 20  },
-	5: { "num_bats": 10, "num_ghosts": 0, "num_bees": 10, "num_flies": 20  }
+	1: { "num_bats": 10, "num_ghosts": 0, "num_bees": 0, "num_flies": 0, "music": "res://sounds/star_hunter.ogg" },
+	2: { "num_bats": 15, "num_ghosts": 0, "num_bees": 0, "num_flies": 0, "music": "res://sounds/star_hunter2.ogg" },
+	3: { "num_bats": 5, "num_ghosts": 15, "num_bees": 0, "num_flies": 0, "music": "res://sounds/star_hunter3.ogg" },
+	4: { "num_bats": 0, "num_ghosts": 0, "num_bees": 10, "num_flies": 20, "music": "res://sounds/star_hunter4.ogg"  },
+	5: { "num_bats": 10, "num_ghosts": 0, "num_bees": 10, "num_flies": 20, "music": "res://sounds/star_hunter2.ogg"}
 	}
 
 			
@@ -81,10 +81,15 @@ func init_level(level_number):
 	var levelscene = load("res://level_" + str(level_number) + ".tscn")
 	var level = levelscene.instance()
 	current_level = level
-	level.num_bats = level_config[level_number].num_bats
-	level.num_ghosts = level_config[level_number].num_ghosts
-	level.num_bees = level_config[level_number].num_bees
-	level.num_flies = level_config[level_number].num_flies
+	
+	var config = level_config[level_number];
+	var stream = load(config.music)
+	$BackgroundMusic.set_stream(stream)
+	$BackgroundMusic.play()
+	level.num_bats = config.num_bats
+	level.num_ghosts = config.num_ghosts
+	level.num_bees = config.num_bees
+	level.num_flies = config.num_flies
 	
 	add_child(level)
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://level.gd" type="Script" id=1]
 [ext_resource path="res://items/star.tscn" type="PackedScene" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://tileset_snow.tres" type="TileSet" id=6]
 [ext_resource path="res://player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://backgrounds/bg_castle.png" type="Texture" id=8]
-[ext_resource path="res://sounds/star_hunter3.ogg" type="AudioStream" id=9]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -67,10 +66,6 @@ margin_bottom = 1024.0
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 2
-
-[node name="bg_music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
-bus = "bg_music"
 
 [node name="GhostPath" type="Path2D" parent="."]
 curve = SubResource( 2 )
