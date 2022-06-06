@@ -15,7 +15,18 @@ const FALL_DEAD_SPEED = 4*50
 
 func _ready():
 	_pathIdx = randi() % 10000
-	_speed = (randi() % 3 + 1) * 55
+	_speed = (randi() % 20 + 3) * 12
+	var speed_scale_offset = 0
+	if (_speed > 200):
+		speed_scale_offset = 0.8
+	elif (_speed > 150):
+		speed_scale_offset = 0.5
+	elif (_speed > 100):
+		speed_scale_offset = 0.25
+	elif (_speed > 50):
+		speed_scale_offset = 0.10
+
+	$AnimatedSprite.speed_scale += speed_scale_offset
 	_direction = randi() % 2
 	_death_rotation = (randf() - 0.5) * 0.3
 	connect("body_entered", self, "_on_body_entered")
