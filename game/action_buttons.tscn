@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://plugins/touchJoyPad/analog/big_circle.png" type="Texture" id=1]
+[ext_resource path="res://action_buttons.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 80.0
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -386.0
 margin_top = -384.0
+script = ExtResource( 2 )
 
 [node name="TextureButton" type="TextureButton" parent="."]
 anchor_left = 1.0
@@ -23,26 +25,49 @@ margin_top = -180.0
 
 [node name="JumpButton" type="TouchScreenButton" parent="TextureButton"]
 modulate = Color( 1, 1, 1, 0.462745 )
-position = Vector2( 20, 20 )
+position = Vector2( 14, -27 )
 normal = ExtResource( 1 )
 shape = SubResource( 4 )
 passby_press = true
 action = "jump"
 visibility_mode = 1
 
+[node name="Label" type="Label" parent="TextureButton/JumpButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -61.5
+margin_top = -24.5
+margin_right = 61.5
+margin_bottom = 24.5
+text = "Jump"
+
 [node name="TextureButton2" type="TextureButton" parent="."]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -360.0
+margin_left = -373.0
 margin_top = -180.0
+margin_right = -168.0
 
 [node name="ShootButton" type="TouchScreenButton" parent="TextureButton2"]
 modulate = Color( 1, 1, 1, 0.462745 )
-position = Vector2( 20, 20 )
+position = Vector2( 14, -27 )
 normal = ExtResource( 1 )
 shape = SubResource( 4 )
 passby_press = true
 action = "shoot"
 visibility_mode = 1
+
+[node name="Label" type="Label" parent="TextureButton2/ShootButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = -24.5
+margin_right = 64.0
+margin_bottom = 24.5
+text = "Shoot"
