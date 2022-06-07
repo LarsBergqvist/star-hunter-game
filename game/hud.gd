@@ -28,8 +28,28 @@ func init():
 	_actionButtons = actionButtonsScene.instance()
 	add_child(_actionButtons)
 	
+func _ready()->void:
+	$PauseMenu.connect("requested_resume_game", self, "_on_requested_resume_game")
+	$PauseMenu.connect("requested_start_new_game", self, "_on_requested_start_new_game")
+	$PauseMenu.connect("requested_replay_level", self, "_on_requested_replay_level")
+	$PauseMenu.connect("requested_goto_next_level", self, "_on_requested_goto_next_level")
 
+
+
+func _on_requested_goto_next_level():
+	get_parent().next_level()
+	
+func _on_requested_replay_level():
+	get_parent().restart_from_current_level()
+	
+func _on_requested_resume_game():
+	get_tree().paused = false
+
+func _on_requested_start_new_game():
+	get_parent().go_to_title_screen()
+	
 func _process(_delta):
+	pass
 	_processCount += 1
 	if Input.is_action_pressed("pause"):
 		if (_processCount - 20) < _processCountOnLastPausePress:
@@ -37,75 +57,16 @@ func _process(_delta):
 
 		_processCountOnLastPausePress = _processCount
 		if (get_tree().paused):
-			get_tree().paused = false
-			$VBox/Menu.hide()
-			$Message.hide()
-			$VBox.hide()
+			$PauseMenu.hide_menu()
+			_on_requested_resume_game()
 		else:
-			show_game_paused_menu()
+			$PauseMenu.show_game_paused_menu()
 			get_tree().paused = true
 
 
-const RESUME_GAME = 1
-const START_NEW_GAME = 2
-const GO_TO_NEXT_LEVEL = 4
-const REPLAY_FROM_CURRENT_LEVEL = 5
-func show_game_paused_menu():
-	$Message.text = "Game paused"
-	$Message.show()
-	$VBox/Menu.clear()
-	$VBox/Menu.add_item("Resume game", RESUME_GAME)	
-	$VBox/Menu.add_item("Start a new game", START_NEW_GAME)
-	$VBox/Menu.popup()
-	$VBox.show()
-
-
 func show_game_over_menu():
-	$Message.text = "Game over..."
-	$Message.show()
-	$VBox/Menu.clear()
-	$VBox/Menu.add_item("Replay level", REPLAY_FROM_CURRENT_LEVEL)	
-	$VBox/Menu.add_item("Start a new game", START_NEW_GAME)
-	$VBox/Menu.popup()
-	$VBox.show()
+	$PauseMenu.show_game_over_menu()
 
 
 func show_level_complete_menu():
-	$Message.text = "Level complete!"
-	$Message.show()
-	$VBox/Menu.clear()
-	$VBox/Menu.add_item("Go to next level", GO_TO_NEXT_LEVEL)
-	$VBox/Menu.add_item("Replay level", REPLAY_FROM_CURRENT_LEVEL)	
-	$VBox/Menu.popup()
-	$VBox.show()
-
-
-func show_game_complete_menu():
-	$Message.text = "Game complete!!!"
-	$Message.show()
-	$VBox/Menu.clear()
-	$VBox/Menu.add_item("Replay level", REPLAY_FROM_CURRENT_LEVEL)	
-	$VBox/Menu.add_item("Start a new game", START_NEW_GAME)
-	$VBox/Menu.popup()
-	$VBox.show()
-
-
-func _on_Menu_id_pressed( ID ):
-	if ID == RESUME_GAME:
-		get_tree().paused = false
-		$VBox/Menu.hide()
-		$Message.hide()
-		$VBox.hide()
-	elif ID == START_NEW_GAME:
-		get_parent().go_to_title_screen()
-	elif ID == REPLAY_FROM_CURRENT_LEVEL:
-		get_parent().restart_from_current_level()
-		$Message.hide()
-		$VBox/Menu.hide()
-		$VBox.hide()
-	elif ID == GO_TO_NEXT_LEVEL:
-		get_parent().next_level()
-		$Message.hide()
-		$VBox/Menu.hide()
-		$VBox.hide()
-	
+	$PauseMenu.show_level_complete_menu()

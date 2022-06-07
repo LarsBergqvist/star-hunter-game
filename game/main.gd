@@ -53,6 +53,7 @@ func _process(_delta):
 		get_tree().paused = true
 		
 	if stars_found == total_stars:
+		get_tree().paused = true
 		$HUD.show_level_complete_menu()
 
 

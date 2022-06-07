@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://pause_menu.gd" type="Script" id=1]
+[ext_resource path="res://fonts/LargeFont.tres" type="DynamicFont" id=2]
+
+[node name="PauseMenu" type="CanvasLayer"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="Message" type="Label" parent="."]
+visible = false
+margin_left = 251.0
+margin_top = 277.0
+margin_right = 773.0
+margin_bottom = 362.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "testingtesting"
+
+[node name="GameOverMenu" type="ItemList" parent="."]
+pause_mode = 2
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 323.0
+margin_top = -203.0
+margin_right = 751.0
+margin_bottom = 2.0
+items = [ "Replay level", null, false, "New game", null, false ]
+allow_reselect = true
+
+[node name="GamePausedMenu" type="ItemList" parent="."]
+pause_mode = 2
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 341.0
+margin_top = -221.0
+margin_right = 741.0
+margin_bottom = -12.0
+items = [ "Resume", null, false, "New game", null, false ]
+allow_reselect = true
+
+[node name="LevelCompleteMenu" type="ItemList" parent="."]
+pause_mode = 2
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 303.0
+margin_top = -216.0
+margin_right = 808.0
+margin_bottom = -2.0
+custom_constants/line_separation = 0
+items = [ "Next level", null, false, "Replay level", null, false ]
+allow_reselect = true
+
+[connection signal="item_selected" from="GameOverMenu" to="." method="_on_GameOverMenu_item_selected"]
+[connection signal="item_selected" from="GamePausedMenu" to="." method="_on_GamePausedMenu_item_selected"]
+[connection signal="item_selected" from="LevelCompleteMenu" to="." method="_on_LevelCompleteMenu_item_selected"]
