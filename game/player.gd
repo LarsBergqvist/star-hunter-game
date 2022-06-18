@@ -223,6 +223,7 @@ func _check_collision_with_box():
 	if _get_tile_on_position(x,y) == "box":
 		var tilemap = get_parent().get_node("TileMap")
 		if not tilemap == null:
+			_playerState.total_air_time = JUMP_MAX_AIRBORNE_TIME
 			var map_pos = tilemap.world_to_map(Vector2(x,y))
 			tilemap.set_cellv(map_pos, -1)
 			emit_signal("box_opened", Vector2(x,y), map_pos)
