@@ -30,7 +30,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 23.5277
+radius = 28.7772
 
 [sub_resource type="Animation" id=3]
 resource_name = "shrink"
@@ -55,7 +55,6 @@ gravity_scale = 5.52
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 1 )
 animation = "ball4"
 
