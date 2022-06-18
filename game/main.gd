@@ -10,11 +10,11 @@ var current_level_number = 1
 const total_levels = 5
 
 const level_config = { 
-	1: { "num_bats": 10, "num_ghosts": 0, "num_bees": 0, "num_flies": 0, "music": "res://sounds/star_hunter.ogg" },
-	2: { "num_bats": 15, "num_ghosts": 0, "num_bees": 0, "num_flies": 0, "music": "res://sounds/star_hunter2.ogg" },
-	3: { "num_bats": 5, "num_ghosts": 15, "num_bees": 0, "num_flies": 0, "music": "res://sounds/star_hunter3.ogg" },
-	4: { "num_bats": 0, "num_ghosts": 0, "num_bees": 10, "num_flies": 20, "music": "res://sounds/star_hunter4.ogg"  },
-	5: { "num_bats": 10, "num_ghosts": 0, "num_bees": 10, "num_flies": 20, "music": "res://sounds/star_hunter2.ogg"}
+	1: { "num_bats": 10, "num_ghosts": 0, "num_bees": 0, "num_flies": 0, "music": "res://sounds/star_hunter.ogg", "volume": 0 },
+	2: { "num_bats": 15, "num_ghosts": 0, "num_bees": 0, "num_flies": 0, "music": "res://sounds/star_hunter2.ogg", "volume": 0},
+	3: { "num_bats": 5, "num_ghosts": 15, "num_bees": 0, "num_flies": 0, "music": "res://sounds/star_hunter3.ogg", "volume": 0 },
+	4: { "num_bats": 0, "num_ghosts": 0, "num_bees": 10, "num_flies": 20, "music": "res://sounds/star_hunter4.ogg", "volume": 0 },
+	5: { "num_bats": 10, "num_ghosts": 0, "num_bees": 10, "num_flies": 20, "music": "res://sounds/star_hunter5.ogg", "volume": 8}
 	}
 
 func restart_from_current_level():
@@ -83,6 +83,7 @@ func _init_level(level_number):
 	var config = level_config[level_number];
 	var stream = load(config.music)
 	$BackgroundMusic.set_stream(stream)
+	$BackgroundMusic.volume_db = config.volume
 	$BackgroundMusic.play()
 	level.num_bats = config.num_bats
 	level.num_ghosts = config.num_ghosts
