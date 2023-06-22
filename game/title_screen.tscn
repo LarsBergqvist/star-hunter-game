@@ -120,3 +120,4 @@ __meta__ = {
 
 [node name="SceneTransitionRect" parent="." instance=ExtResource( 1 )]
 visible = false
+next_scene_path = null

@@ -1,12 +1,12 @@
 extends MarginContainer
 
-export (int) var score = 0
-export (int) var stars_remaining = 0
-export (int) var total_stars = 0
-export (int) var stars_found = 0
-export (int) var max_health = 0
-export (int) var health = 0
-export (int) var level = 1
+var score = 0
+var stars_remaining = 0
+var total_stars = 0
+var stars_found = 0
+var max_health = 0
+var health = 0
+var level = 1
 
 
 func _process(_delta):

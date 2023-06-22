@@ -4,7 +4,7 @@ signal star_taken
 
 
 func _on_Area2D_body_entered(body: Node)->void:
-	if (not body.get("is_player") == null):
+	if (body is Player):
 		hide()
 		emit_signal("star_taken")
 		queue_free()

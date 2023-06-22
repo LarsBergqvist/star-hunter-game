@@ -23,7 +23,7 @@ func _ready():
 
 
 func _on_RigidBody2D_body_entered( body ):
-	if (not body.get("is_player") == null):
+	if (body is Player):
 		emit_signal("gem_taken", gemType)
 		queue_free()
 

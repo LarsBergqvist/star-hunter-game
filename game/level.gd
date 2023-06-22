@@ -1,24 +1,24 @@
 extends Node2D
 
-export (PackedScene) var Star
-export (PackedScene) var Bat
-export (PackedScene) var Gem
-export (PackedScene) var Ghost
-export (PackedScene) var Bee
-export (PackedScene) var Fly
+var Star: PackedScene
+var Bat: PackedScene
+var Gem: PackedScene
+var Ghost: PackedScene
+var Bee: PackedScene
+var Fly: PackedScene
 
 signal star_was_taken
 signal player_was_hit
 signal enemy_was_hit
 signal gem_was_taken
 
-export (int) var total_stars = 0
-export (int) var stars_found = 0
-export (int) var num_bats = 0
-export (int) var num_ghosts = 0
-export (int) var num_bees = 0
-export (int) var num_flies = 0
-export (bool) var do_physics_process = false
+var total_stars = 0
+var stars_found = 0
+var num_bats = 0
+var num_ghosts = 0
+var num_bees = 0
+var num_flies = 0
+var do_physics_process = false
 
 var rng = RandomNumberGenerator.new()
 

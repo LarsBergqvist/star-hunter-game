@@ -64,7 +64,7 @@ func _on_body_entered(body: Node)->void:
 	if _is_dead:
 		return
 		
-	if (not body.get("is_player") == null):
+	if (body is Player):
 		if body.get_velocity().y > 200:
 			_is_dead = true
 			emit_signal("enemy_hit")

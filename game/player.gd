@@ -1,8 +1,6 @@
 extends KinematicBody2D
 class_name Player
 
-export (bool) var is_player = true
-
 signal box_opened
 
 const GRAVITY = 1000.0 # pixels/second/second
