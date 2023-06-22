@@ -201,7 +201,8 @@ func on_player_was_hit()->void:
 
 func on_enemy_was_hit()->void:
 	$PlayerSprite.show_emote("haha", 0.5)
-
+	_playerState.velocity.y = -JUMP_SPEED
+	_playerState.is_jumping = true
 
 func _get_tile_on_position(x,y):
 	var tilemap = get_parent().get_node("TileMap")
