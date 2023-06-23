@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-export (bool) var is_bullet = true
+var is_bullet = true
 
 
 func setAnimation(characterId: int):

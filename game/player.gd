@@ -1,8 +1,6 @@
 extends KinematicBody2D
 class_name Player
 
-export (bool) var is_player = true
-
 signal box_opened
 
 const GRAVITY = 1000.0 # pixels/second/second
@@ -12,6 +10,7 @@ const WALK_MIN_SPEED = 1
 const WALK_MAX_SPEED = 300
 const STOP_FORCE = 1300
 const JUMP_SPEED = 600
+const BOUNCE_SPEED = 100
 const JUMP_MAX_AIRBORNE_TIME = 0.2
 const CLIMB_SPEED = 3
 const BULLET_FORCE = 1000
@@ -201,9 +200,10 @@ func on_player_was_hit()->void:
 	_playerState.is_hit = true
 
 
-func on_enemy_was_hit()->void:
+func on_enemy_was_hit(bounce_factor)->void:
 	$PlayerSprite.show_emote("haha", 0.5)
-
+	_playerState.velocity.y = -bounce_factor * BOUNCE_SPEED
+	_playerState.is_jumping = true
 
 func _get_tile_on_position(x,y):
 	var tilemap = get_parent().get_node("TileMap")
