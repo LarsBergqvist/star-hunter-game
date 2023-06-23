@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://player_sounds.gd" type="Script" id=1]
 [ext_resource path="res://sounds/jippee1.ogg" type="AudioStream" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://sounds/aj2.ogg" type="AudioStream" id=6]
 [ext_resource path="res://sounds/aj3.ogg" type="AudioStream" id=7]
 [ext_resource path="res://sounds/hmmm.ogg" type="AudioStream" id=8]
+[ext_resource path="res://sounds/bounce.ogg" type="AudioStream" id=9]
 
 [node name="PlayerSounds" type="Node"]
 script = ExtResource( 1 )
@@ -42,3 +43,8 @@ bus = "talk"
 stream = ExtResource( 7 )
 volume_db = -5.0
 bus = "talk"
+
+[node name="bounce" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = 12
+bus = "fx"

@@ -2,6 +2,11 @@ extends Node
 
 const hit_sounds = ["aj1","aj2","aj3"]
 
+
+func play_bounce_sound()->void:
+	get_node("bounce").play()
+
+
 func play_idle_sound(idle_sound: String)->void:
 	get_node(idle_sound).play()
 

@@ -201,6 +201,7 @@ func on_player_was_hit()->void:
 
 
 func on_enemy_was_hit(bounce_factor)->void:
+	$PlayerSprite/PlayerSounds.play_bounce_sound()
 	$PlayerSprite.show_emote("haha", 0.5)
 	_playerState.velocity.y = -bounce_factor * BOUNCE_SPEED
 	_playerState.is_jumping = true
