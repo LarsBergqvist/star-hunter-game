@@ -103,6 +103,7 @@ func _init_level(level_number):
 	level.connect("player_was_hit", self, "on_player_was_hit")
 	level.connect("enemy_was_hit", self, "on_enemy_was_hit")
 	level.connect("gem_was_taken", self, "on_gem_was_taken")
+	level.connect("player_has_bounced_enemy", self, "on_player_has_bounced_enemy")
 
 
 func _init_level_state():
@@ -119,6 +120,11 @@ func on_enemy_was_hit():
 	score = score + 5
 	_update_HUD()
 	
+
+func on_player_has_bounced_enemy(bounce_factor):
+	score = score + bounce_factor
+	_update_HUD()
+
 
 func on_player_was_hit():
 	health = max(0,health-10)

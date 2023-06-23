@@ -2,6 +2,7 @@ extends Area2D
 
 signal player_hit
 signal enemy_hit
+signal player_bounced_enemy
 
 var path: PathFollow2D = null
 var _prevX = 0
@@ -67,10 +68,10 @@ func _on_body_entered(body: Node)->void:
 	if (body is Player):
 		if body.get_velocity().y > 200:
 			_is_dead = true
-			emit_signal("enemy_hit", bounce_factor)
+			emit_signal("player_bounced_enemy", bounce_factor)
 		else:
 			emit_signal("player_hit")
-	elif (not body.get("is_bullet") == null):
+	elif (body is Orb):
 			_is_dead = true
 			emit_signal("enemy_hit")
 		

@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://items/gem_type.gd"
 }, {
+"base": "RigidBody2D",
+"class": "Orb",
+"language": "GDScript",
+"path": "res://weapons/orb.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -38,6 +43,7 @@ _global_script_class_icons={
 "Commands": "",
 "Gem": "",
 "GemType": "",
+"Orb": "",
 "Player": "",
 "PlayerState": ""
 }

@@ -30,7 +30,7 @@ func _ready()->void:
 	if parent != null:
 		parent.connect("gem_was_taken", self, "on_gem_was_taken")
 		parent.connect("star_was_taken", self, "on_star_was_taken")
-		parent.connect("enemy_was_hit", self, "on_enemy_was_hit")
+		parent.connect("player_has_bounced_enemy", self, "on_player_has_bounced_enemy")
 		parent.connect("player_was_hit", self, "on_player_was_hit")
 
 		
@@ -200,7 +200,7 @@ func on_player_was_hit()->void:
 	_playerState.is_hit = true
 
 
-func on_enemy_was_hit(bounce_factor)->void:
+func on_player_has_bounced_enemy(bounce_factor)->void:
 	$PlayerSprite/PlayerSounds.play_bounce_sound()
 	$PlayerSprite.show_emote("haha", 0.5)
 	_playerState.velocity.y = -bounce_factor * BOUNCE_SPEED
