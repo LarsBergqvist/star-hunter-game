@@ -11,7 +11,7 @@ var _direction = 0
 var _is_dead = false
 var _death_rotation = 0.1
 const FALL_DEAD_SPEED = 4*50
-
+var bounce_factor = 0;
 
 func _ready():
 	_pathIdx = randi() % 10000
@@ -67,7 +67,7 @@ func _on_body_entered(body: Node)->void:
 	if (body is Player):
 		if body.get_velocity().y > 200:
 			_is_dead = true
-			emit_signal("enemy_hit")
+			emit_signal("enemy_hit", bounce_factor)
 		else:
 			emit_signal("player_hit")
 	elif (not body.get("is_bullet") == null):
