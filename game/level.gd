@@ -12,6 +12,7 @@ signal player_was_hit
 signal enemy_was_hit
 signal gem_was_taken
 signal player_has_bounced_enemy
+signal box_was_opened
 
 var total_stars = 0
 var stars_found = 0
@@ -77,6 +78,7 @@ func _ready():
 	$player.connect("box_opened", self, "on_box_opened")
 
 func on_box_opened(_player_pos, tile_pos):
+	emit_signal("box_was_opened")
 	if (rng.randf_range(0, 1) > 0.6):
 		var gem = Gem.instance()
 		gem.position = $TileMap.map_to_world(tile_pos)

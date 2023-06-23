@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://hud.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sounds/box-open.ogg" type="AudioStream" id=3]
 [ext_resource path="res://sounds/ping.ogg" type="AudioStream" id=4]
 [ext_resource path="res://sounds/pock.ogg" type="AudioStream" id=5]
 
@@ -24,3 +25,6 @@ bus = "fx"
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 bus = "bg_music"
+
+[node name="unboxing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
