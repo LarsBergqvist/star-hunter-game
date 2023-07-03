@@ -1,12 +1,6 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://level.gd" type="Script" id=1]
-[ext_resource path="res://items/star.tscn" type="PackedScene" id=2]
-[ext_resource path="res://enemies/bat.tscn" type="PackedScene" id=3]
-[ext_resource path="res://items/gem.tscn" type="PackedScene" id=4]
-[ext_resource path="res://enemies/ghost.tscn" type="PackedScene" id=5]
-[ext_resource path="res://enemies/bee.tscn" type="PackedScene" id=6]
-[ext_resource path="res://enemies/fly.tscn" type="PackedScene" id=7]
 [ext_resource path="res://tileset_candy.tres" type="TileSet" id=8]
 [ext_resource path="res://player.tscn" type="PackedScene" id=9]
 [ext_resource path="res://backgrounds/bg_castle.png" type="Texture" id=10]
@@ -28,12 +22,6 @@ _data = {
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
-Star = ExtResource( 2 )
-Bat = ExtResource( 3 )
-Gem = ExtResource( 4 )
-Ghost = ExtResource( 5 )
-Bee = ExtResource( 6 )
-Fly = ExtResource( 7 )
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( -1.79785, 0 )

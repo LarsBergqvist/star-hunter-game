@@ -1,12 +1,5 @@
 extends Node2D
 
-var Star: PackedScene
-var Bat: PackedScene
-var Gem: PackedScene
-var Ghost: PackedScene
-var Bee: PackedScene
-var Fly: PackedScene
-
 signal star_was_taken
 signal player_was_hit
 signal enemy_was_hit
@@ -30,14 +23,14 @@ func _ready():
 	var pos_curve = $ItemPositions.get_curve()
 	total_stars = pos_curve.get_point_count()
 	for i in range(0, total_stars):
-		var star = Star.instance()
+		var star = preload("res://items/star.tscn").instance()
 		add_child(star)
 		star.position = pos_curve.get_point_position(i)
 		star.connect("star_taken", self, "on_star_taken")
 
 	if get_node_or_null("BatPath") != null:
 		for _i in range(0,num_bats):
-			var bat = Bat.instance()
+			var bat = preload("res://enemies/bat.tscn").instance()
 			bat.path = $BatPath/PathFollow2D
 			bat.bounce_factor = 5
 			bat.connect("player_hit", self, "on_player_hit")
@@ -47,7 +40,7 @@ func _ready():
 
 	if get_node_or_null("GhostPath") != null:
 		for _i in range(0,num_ghosts):
-			var ghost = Ghost.instance()
+			var ghost = preload("res://enemies/ghost.tscn").instance()
 			ghost.bounce_factor = 8
 			ghost.path = $GhostPath/PathFollow2D
 			ghost.connect("player_hit", self, "on_player_hit")
@@ -57,7 +50,7 @@ func _ready():
 
 	if get_node_or_null("BeePath") != null:
 		for _i in range(0,num_bees):
-			var bee = Bee.instance()
+			var bee = preload("res://enemies/bee.tscn").instance()
 			bee.bounce_factor = 5
 			bee.path = $BeePath/PathFollow2D
 			bee.connect("player_hit", self, "on_player_hit")
@@ -67,7 +60,7 @@ func _ready():
 
 	if get_node_or_null("FlyPath") != null:
 		for _i in range(0,num_flies):
-			var fly = Fly.instance()
+			var fly = preload("res://enemies/fly.tscn").instance()
 			fly.bounce_factor = 5
 			fly.path = $FlyPath/PathFollow2D
 			fly.connect("player_hit", self, "on_player_hit")
@@ -80,7 +73,7 @@ func _ready():
 func on_box_opened(_player_pos, tile_pos):
 	emit_signal("box_was_opened")
 	if (rng.randf_range(0, 1) > 0.6):
-		var gem = Gem.instance()
+		var gem = preload("res://items/gem.tscn").instance()
 		gem.position = $TileMap.map_to_world(tile_pos)
 		gem.position.x += 35
 		gem.position.y += 35

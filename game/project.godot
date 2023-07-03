@@ -71,6 +71,7 @@ window/stretch/aspect="keep_height"
 [global]
 
 color=false
+resource=false
 
 [gui]
 
