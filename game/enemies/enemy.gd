@@ -13,8 +13,12 @@ var _is_dead = false
 var _death_rotation = 0.1
 const FALL_DEAD_SPEED = 4*50
 var bounce_factor = 0;
+var y_offset = 0;
+var x_offset = 0;
 
 func _ready():
+	y_offset = randi() % 200 - 100
+	x_offset = randi() % 400 - 200
 	_pathIdx = randi() % 10000
 	_speed = (randi() % 20 + 3) * 12
 	var speed_scale_offset = 0
@@ -47,6 +51,8 @@ func _animate_movement(delta: float)->void:
 	if not path == null:
 		path.set_offset(_pathIdx)
 		position = path.position
+		position.y = position.y + y_offset
+		position.x = position.x + x_offset
 		if _direction == 0:
 			_pathIdx += _speed*delta	
 		else:
