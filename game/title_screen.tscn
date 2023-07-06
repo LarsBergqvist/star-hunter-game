@@ -63,7 +63,7 @@ margin_bottom = 182.0
 focus_mode = 0
 custom_fonts/font = ExtResource( 3 )
 action_mode = 0
-text = "New Game"
+text = "Start"
 
 [node name="ColorRect" type="ColorRect" parent="Menu/NewGame"]
 show_behind_parent = true
