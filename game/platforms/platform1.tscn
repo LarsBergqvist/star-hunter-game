@@ -10,8 +10,8 @@ extents = Vector2( 37, 20 )
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 
-[node name="StaticBody2D" type="KinematicBody2D" parent="Sprite"]
+[node name="KinematicBody2D" type="KinematicBody2D" parent="Sprite"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/KinematicBody2D"]
 position = Vector2( -1, -14 )
 shape = SubResource( 1 )
