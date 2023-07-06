@@ -12,7 +12,7 @@ const total_levels = 5
 const level_config = { 
 	1: { "num_bats": 10, "num_ghosts": 0, "num_bees": 0, "num_flies": 0, "music": "res://sounds/star_hunter.ogg", "volume": 0 },
 	2: { "num_bats": 15, "num_ghosts": 0, "num_bees": 0, "num_flies": 0, "music": "res://sounds/star_hunter2.ogg", "volume": 0},
-	3: { "num_bats": 5, "num_ghosts": 15, "num_bees": 0, "num_flies": 0, "music": "res://sounds/star_hunter3.ogg", "volume": 0 },
+	3: { "num_bats": 10, "num_ghosts": 15, "num_bees": 0, "num_flies": 0, "music": "res://sounds/star_hunter3.ogg", "volume": 0 },
 	4: { "num_bats": 0, "num_ghosts": 0, "num_bees": 10, "num_flies": 20, "music": "res://sounds/star_hunter4.ogg", "volume": 0 },
 	5: { "num_bats": 10, "num_ghosts": 0, "num_bees": 10, "num_flies": 20, "music": "res://sounds/star_hunter5.ogg", "volume": 8}
 	}
