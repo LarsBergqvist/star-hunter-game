@@ -41,7 +41,7 @@ func _ready():
 	if get_node_or_null("GhostPath") != null:
 		for _i in range(0,num_ghosts):
 			var ghost = preload("res://enemies/ghost.tscn").instance()
-			ghost.bounce_factor = 8
+			ghost.bounce_factor = 7
 			ghost.path = $GhostPath/PathFollow2D
 			ghost.connect("player_hit", self, "on_player_hit")
 			ghost.connect("enemy_hit", self, "on_enemy_hit")
