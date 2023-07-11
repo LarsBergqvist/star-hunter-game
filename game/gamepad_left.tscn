@@ -13,4 +13,3 @@ modulate = Color( 1, 1, 1, 0.462745 )
 position = Vector2( 165, 215 )
 scale = Vector2( 2, 2 )
 leftPadStyle = "JoyStick"
-visibleOnlyTouchscreen = false
