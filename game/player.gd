@@ -13,15 +13,18 @@ const JUMP_SPEED = 600
 const BOUNCE_SPEED = 100
 const JUMP_MAX_AIRBORNE_TIME = 0.2
 const CLIMB_SPEED = 3
-const BULLET_FORCE = 1000
+const BULLET_FORCE = 800
 
 
 var _playerState = PlayerState.new()
+var _cmdStates = Commands.CommandStates.new(false, false, false, false, false, false, false)
 
 
 func get_velocity()->Vector2:
 	return _playerState.velocity
 
+func _input(_event):
+	_cmdStates = Commands.get_commands(_playerState)
 
 func _ready()->void:
 	_playerState.characterId = global.character
@@ -44,25 +47,24 @@ func _physics_process(delta: float)->void:
 	_playerState.on_ladder = _get_tile_on_position(position.x, position.y+35) == "ladder"
 
 	_check_collision_with_box()
-			
-	var cmd: Commands.CommandStates = Commands.get_commands(_playerState)
+				
+	_handle_idle_timer(_cmdStates)
 	
-	_handle_idle_timer(cmd)
-	
-	_apply_movement(cmd, delta)
+	_apply_movement(_cmdStates, delta)
 
 	if _playerState.velocity.x < 0:
 		_playerState.lastDirection = PlayerState.Direction.LEFT
 	elif _playerState.velocity.x > 0:
 		_playerState.lastDirection = PlayerState.Direction.RIGHT
 
-	_animate_sprite(cmd)
+	_animate_sprite(_cmdStates)
 
-	_handle_shooting(cmd)
+	_handle_shooting(_cmdStates)
 
 
 func _handle_shooting(cmd: Commands.CommandStates):
 	if (cmd.shoot and global.ammo > 0):
+		cmd.shoot = false
 		global.ammo = global.ammo - 1
 		var bullet = preload("res://weapons/orb.tscn").instance()
 		bullet.position = position
@@ -71,7 +73,8 @@ func _handle_shooting(cmd: Commands.CommandStates):
 		if _playerState.lastDirection == PlayerState.Direction.LEFT:
 			bulletForce = -bulletForce
 		var force = Vector2(bulletForce, 0)
-		bullet.applied_force = force
+#		bullet.applied_force = force
+		bullet.apply_impulse(Vector2(0,0), force)
 		get_parent().add_child(bullet)
 
 
