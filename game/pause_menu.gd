@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Node
 
 signal requested_resume_game
 signal requested_start_new_game
