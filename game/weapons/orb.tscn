@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://weapons/orb.gd" type="Script" id=1]
 [ext_resource path="res://weapons/ball1.png" type="Texture" id=2]
@@ -6,8 +6,22 @@
 [ext_resource path="res://weapons/ball4.png" type="Texture" id=4]
 [ext_resource path="res://weapons/ball3.png" type="Texture" id=5]
 
+[sub_resource type="PhysicsMaterial" id=4]
+friction = 0.77
+bounce = 0.26
+
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "ball1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "ball2",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "ball3",
@@ -16,16 +30,6 @@ animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "ball4",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "ball2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "ball1",
 "speed": 5.0
 } ]
 
@@ -51,6 +55,7 @@ tracks/0/keys = {
 collision_layer = 2
 collision_mask = 2
 mass = 1.86327
+physics_material_override = SubResource( 4 )
 gravity_scale = 5.52
 script = ExtResource( 1 )
 
