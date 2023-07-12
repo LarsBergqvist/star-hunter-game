@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://pause_menu.gd" type="Script" id=1]
 [ext_resource path="res://fonts/LargeFont.tres" type="DynamicFont" id=2]
-[ext_resource path="res://fonts/menu-font.tres" type="DynamicFont" id=3]
 
 [node name="PauseMenu" type="Node"]
 pause_mode = 2
@@ -17,46 +16,75 @@ margin_bottom = 268.0
 custom_fonts/font = ExtResource( 2 )
 text = "testingtesting"
 
-[node name="GamePausedMenu" type="ItemList" parent="."]
-pause_mode = 2
+[node name="LevelComplete" type="VBoxContainer" parent="."]
 visible = false
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 124.0
-margin_top = -288.0
-margin_right = 932.0
-margin_bottom = -4.0
-custom_fonts/font = ExtResource( 3 )
-items = [ "Resume game", null, false, "New game", null, false ]
-allow_reselect = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 40.0
+margin_bottom = 40.0
 
-[node name="GameOverMenu" type="ItemList" parent="."]
-pause_mode = 2
+[node name="NextLevel" type="Button" parent="LevelComplete"]
+margin_right = 272.0
+margin_bottom = 55.0
+action_mode = 0
+text = "Next level"
+
+[node name="Replay" type="Button" parent="LevelComplete"]
+margin_top = 59.0
+margin_right = 272.0
+margin_bottom = 114.0
+action_mode = 0
+text = "Replay level"
+
+[node name="GamePaused" type="VBoxContainer" parent="."]
 visible = false
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 175.0
-margin_top = -282.0
-margin_right = 919.0
-margin_bottom = -4.0
-custom_fonts/font = ExtResource( 3 )
-items = [ "Replay level", null, false, "New game", null, false ]
-allow_reselect = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 40.0
+margin_bottom = 40.0
 
-[node name="LevelCompleteMenu" type="ItemList" parent="."]
-pause_mode = 2
+[node name="Resume" type="Button" parent="GamePaused"]
+margin_right = 238.0
+margin_bottom = 55.0
+action_mode = 0
+text = "Resume"
+
+[node name="NewGame" type="Button" parent="GamePaused"]
+margin_top = 59.0
+margin_right = 238.0
+margin_bottom = 114.0
+action_mode = 0
+text = "New game"
+
+[node name="GameOver" type="VBoxContainer" parent="."]
 visible = false
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = 154.0
-margin_top = -312.0
-margin_right = 959.0
-margin_bottom = -2.0
-custom_constants/line_separation = 0
-custom_fonts/font = ExtResource( 3 )
-items = [ "Next level", null, false, "Replay level", null, false ]
-allow_reselect = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 40.0
+margin_bottom = 40.0
 
-[connection signal="item_selected" from="GamePausedMenu" to="." method="_on_GamePausedMenu_item_selected"]
-[connection signal="item_selected" from="GameOverMenu" to="." method="_on_GameOverMenu_item_selected"]
-[connection signal="item_selected" from="LevelCompleteMenu" to="." method="_on_LevelCompleteMenu_item_selected"]
+[node name="Replay" type="Button" parent="GameOver"]
+margin_right = 272.0
+margin_bottom = 55.0
+action_mode = 0
+text = "Replay level"
+
+[node name="NewGame" type="Button" parent="GameOver"]
+margin_top = 59.0
+margin_right = 272.0
+margin_bottom = 114.0
+action_mode = 0
+text = "New game"
+
+[connection signal="pressed" from="LevelComplete/NextLevel" to="." method="_on_NextLevel_pressed"]
+[connection signal="pressed" from="LevelComplete/Replay" to="." method="_on_Replay_pressed"]
+[connection signal="pressed" from="GamePaused/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="GamePaused/NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="pressed" from="GameOver/Replay" to="." method="_on_Replay_pressed"]
+[connection signal="pressed" from="GameOver/NewGame" to="." method="_on_NewGame_pressed"]

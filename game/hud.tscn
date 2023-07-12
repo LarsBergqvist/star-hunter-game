@@ -12,6 +12,7 @@ radius = 475.5
 
 [node name="HUD" type="CanvasLayer"]
 pause_mode = 2
+process_priority = -7
 layer = 10
 script = ExtResource( 4 )
 
