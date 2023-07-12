@@ -1,4 +1,4 @@
-extends Node
+extends Control
 
 signal requested_resume_game
 signal requested_start_new_game
