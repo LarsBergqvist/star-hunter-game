@@ -6,10 +6,10 @@
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -384.0
-margin_right = 386.0
+margin_right = 440.0
 
 [node name="GamePad" parent="." instance=ExtResource( 2 )]
 modulate = Color( 1, 1, 1, 0.462745 )
-position = Vector2( 165, 215 )
+position = Vector2( 248, 193 )
 scale = Vector2( 2, 2 )
-leftPadStyle = "JoyStick"
+leftPadStyle = "D-Pad"
