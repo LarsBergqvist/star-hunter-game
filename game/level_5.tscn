@@ -103,14 +103,14 @@ curve = SubResource( 2 )
 [node name="PathFollow2D" type="PathFollow2D" parent="BeePath"]
 visible = false
 position = Vector2( 1507.05, 1983.84 )
-rotation = -1.52332
+rotation = -2.98346
 
 [node name="FlyPath" type="Path2D" parent="."]
 curve = SubResource( 3 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="FlyPath"]
-position = Vector2( 740.029, -1242.02 )
-rotation = 0.531749
+position = Vector2( 1014, -974 )
+rotation = -0.590024
 
 [node name="PlatformAnims" type="AnimationPlayer" parent="."]
 autoplay = "platforms"
