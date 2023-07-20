@@ -33,7 +33,7 @@ margin_top = 438.0
 margin_right = 196.0
 margin_bottom = 438.0
 
-[node name="Right" parent="." instance=ExtResource( 6 )]
+[node name="ActionButtons" parent="." instance=ExtResource( 6 )]
 
 [node name="TopRight" type="TextureButton" parent="."]
 anchor_left = 1.0

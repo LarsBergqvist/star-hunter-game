@@ -5,7 +5,6 @@ You can try out the WASM/HTML-version here: https://larsbergqvist.github.io/star
 ```
 git clone https://github.com/LarsBergqvist/star-hunter-game.git
 cd star-hunter-game
-git submodule update --init --recursive
 ```
 Then, import game/project.godot in Godot 3.*  
 
@@ -14,8 +13,7 @@ Then, import game/project.godot in Godot 3.*
 
 <p>
 Use arrow- or WADX to move and space to jump. Use S to shoot orbs that kills enemies. Use ESC to pause. The goal is to gather all stars on each level.
-When using a touch-screen, an on-screen DPad joystick + an action button are used for movements. A secondary action button is used for shooting orbs.  
-The DPad implementation is an excellent plugin from https://github.com/shinneider/godot_touchJoyPad  
+When using a touch-screen, an on-screen DPad joystick + an action buttons are used for movements. A secondary action button is used for shooting orbs.  
 <p>
 Graphics by Kenney (www.kenney.nl)
 <p>

@@ -1,6 +1,8 @@
 extends TextureButton
 
+export var visibleOnlyTouchscreen = true
+
 func _ready():
-	var hasTouchScreen = true #OS.has_touchscreen_ui_hint()
-	$TextureButton.visible = hasTouchScreen
-	$TextureButton2.visible = hasTouchScreen
+	if visibleOnlyTouchscreen and not OS.has_touchscreen_ui_hint():
+		$TextureButton.visible = false
+		$TextureButton2.visible = false
