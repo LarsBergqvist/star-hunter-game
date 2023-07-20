@@ -8,7 +8,7 @@ cd star-hunter-game
 ```
 Then, import game/project.godot in Godot 3.*  
 
-![Alt text](https://github.com/LarsBergqvist/star_hunter_game/blob/master/screenshot.png?raw=true "Screenshot with touch screen buttons")
+![Alt text](https://github.com/LarsBergqvist/star_hunter_game/blob/master/screenshot_new.png?raw=true "Screenshot with touch screen buttons")
 
 
 <p>
