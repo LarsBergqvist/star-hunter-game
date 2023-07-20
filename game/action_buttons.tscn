@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://plugins/touchJoyPad/analog/big_circle.png" type="Texture" id=1]
+[ext_resource path="res://gfx/circle.png" type="Texture" id=1]
 [ext_resource path="res://action_buttons.gd" type="Script" id=2]
 [ext_resource path="res://gfx/x_button.png" type="Texture" id=3]
 [ext_resource path="res://gfx/x_button_pressed.png" type="Texture" id=4]
