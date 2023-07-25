@@ -7,6 +7,7 @@ var current_level
 var max_health = 100
 var health = 100
 var current_level_number = 1
+var levels_completed = 0
 const total_levels = 5
 
 const level_config = { 
@@ -34,6 +35,7 @@ func next_level():
 	current_level.queue_free()
 	get_tree().paused = false
 	current_level_number += 1
+	levels_completed += 1
 	if current_level_number > total_levels:
 		# No more levels for now, restart...
 		current_level_number = 1
@@ -65,6 +67,7 @@ func _init_game_data():
 	score = 0
 	health = 100
 	stars_found = 0
+	levels_completed = 0
 	global.ammo = global.initial_ammo
 
 
@@ -89,10 +92,11 @@ func _init_level(level_number):
 	$BackgroundMusic.set_stream(stream)
 	$BackgroundMusic.volume_db = config.volume
 	$BackgroundMusic.play()
-	level.num_bats = config.num_bats
-	level.num_ghosts = config.num_ghosts
-	level.num_bees = config.num_bees
-	level.num_flies = config.num_flies
+	var difficulty_factor = round((levels_completed + 1) / 5) + 1
+	level.num_bats = config.num_bats * difficulty_factor
+	level.num_ghosts = config.num_ghosts * difficulty_factor
+	level.num_bees = config.num_bees * difficulty_factor
+	level.num_flies = config.num_flies * difficulty_factor
 	
 	add_child(level)
 	

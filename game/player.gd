@@ -98,7 +98,7 @@ func _apply_movement(cmd: Commands.CommandStates, delta: float)->void:
 	_playerState.velocity += force * delta	
 	
 	if _playerState.on_ladder:
-		_handle_ladder_movements(cmd.climb_up, cmd.climb_down)
+		_handle_ladder_movements(cmd.climb_up, cmd.climb_down, delta)
 	else:
 		_playerState.velocity = move_and_slide(_playerState.velocity, Vector2(0, -1), false, 4,0.9,true)
 
@@ -118,18 +118,18 @@ func _handle_jumping(on_ladder: bool, jump: bool, delta)->void:
 	if _playerState.total_air_time < JUMP_MAX_AIRBORNE_TIME and jump and !_playerState.is_jumping:
 		# Jump must also be allowed to happen if the character left the floor a little while ago.
 		# Makes controls more snappy.
-		_playerState.velocity.y = -JUMP_SPEED
+		_playerState.velocity.y = -JUMP_SPEED*delta*60
 		_playerState.is_jumping = true
 
 	
-func _handle_ladder_movements(climb_up: bool, climb_down: bool)->void:
+func _handle_ladder_movements(climb_up: bool, climb_down: bool, delta)->void:
 	if climb_up:
 		var pos = get_position()
-		pos.y = pos.y - CLIMB_SPEED
+		pos.y = pos.y - CLIMB_SPEED*60*delta
 		set_position(pos)
 	elif climb_down and not is_on_floor():
 		var pos = get_position()
-		pos.y = pos.y + CLIMB_SPEED
+		pos.y = pos.y + CLIMB_SPEED*60*delta
 		set_position(pos)
 	elif !_playerState.is_jumping:
 		var v = _playerState.velocity
