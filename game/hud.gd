@@ -17,11 +17,6 @@ func update_HUD(score: int, total_stars: int, stars_found: int, health: int, max
 
 func init():
 	pass
-#	if (_actionButtons != null):
-#		remove_child(_actionButtons)
-#	var actionButtonsScene = load("res://action_buttons.tscn")
-#	_actionButtons = actionButtonsScene.instance()
-#	add_child(_actionButtons)
 	
 func _ready()->void:
 	$PauseMenu.connect("requested_resume_game", self, "_on_requested_resume_game")

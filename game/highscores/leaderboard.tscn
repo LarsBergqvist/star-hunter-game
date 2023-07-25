@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://transition.tscn" type="PackedScene" id=1]
+[ext_resource path="res://highscores/leaderboard.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -74.0
+mouse_filter = 1
+script = ExtResource( 2 )
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="SceneTransitionRect" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="Scroll" type="ScrollContainer" parent="."]
+anchor_left = 0.2
+anchor_top = 0.2
+anchor_right = 0.8
+anchor_bottom = 0.8
+margin_right = 12.0
+margin_bottom = 12.0
+rect_clip_content = false
+
+[node name="Leaderboard" type="VBoxContainer" parent="Scroll"]
+custom_constants/separation = 50
+
+[node name="Status" type="Label" parent="."]
+margin_right = 142.0
+margin_bottom = 49.0
+
+[node name="BackButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -46.0
+margin_top = -55.0
+margin_right = 46.0
+text = "Exit"
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -161.0
+margin_top = 50.0
+margin_right = 162.0
+margin_bottom = 49.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="Label" type="Label" parent="PanelContainer"]
+margin_right = 323.0
+margin_bottom = 49.0
+text = "  Leaderboard  "
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
