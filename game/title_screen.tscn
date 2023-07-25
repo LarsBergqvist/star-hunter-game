@@ -13,9 +13,9 @@ script = ExtResource( 2 )
 
 [node name="Credits" type="Label" parent="."]
 anchor_left = 0.5
-anchor_top = 0.863
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.863
+anchor_bottom = 1.0
 margin_left = -396.5
 margin_top = -59.0
 margin_right = 396.5
@@ -106,6 +106,48 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Leaderboard" type="ToolButton" parent="Menu"]
+margin_top = 283.0
+margin_right = 793.0
+margin_bottom = 376.0
+custom_fonts/font = ExtResource( 3 )
+action_mode = 0
+text = "Leaderboard"
+
+[node name="ColorRect" type="ColorRect" parent="Menu/Leaderboard"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -253.0
+margin_top = -29.5
+margin_right = 253.0
+margin_bottom = 29.5
+mouse_filter = 2
+color = Color( 0.181653, 0.367188, 0.299906, 0.513726 )
+
+[node name="Instructions" type="ToolButton" parent="Menu"]
+margin_top = 380.0
+margin_right = 793.0
+margin_bottom = 473.0
+custom_fonts/font = ExtResource( 3 )
+action_mode = 0
+text = "Instructions"
+
+[node name="ColorRect" type="ColorRect" parent="Menu/Instructions"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -253.0
+margin_top = -29.5
+margin_right = 253.0
+margin_bottom = 29.5
+mouse_filter = 2
+color = Color( 0.181653, 0.367188, 0.299906, 0.513726 )
+
 [node name="TextureRect" type="TextureRect" parent="."]
 show_behind_parent = true
 anchor_right = 1.0
@@ -114,9 +156,6 @@ mouse_filter = 2
 size_flags_horizontal = 0
 texture = ExtResource( 5 )
 stretch_mode = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="SceneTransitionRect" parent="." instance=ExtResource( 1 )]
 visible = false

@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://highscores/entername.tscn" type="PackedScene" id=1]
+[ext_resource path="res://highscores/gameover.gd" type="Script" id=2]
+[ext_resource path="res://transition.tscn" type="PackedScene" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[node name="GameOver" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="SceneTransitionRect" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -216.0
+margin_top = -110.5
+margin_right = 216.0
+margin_bottom = 110.5
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBox" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 428.0
+margin_bottom = 225.0
+
+[node name="HBox1" type="HBoxContainer" parent="PanelContainer/VBox"]
+margin_right = 424.0
+margin_bottom = 49.0
+
+[node name="Label" type="Label" parent="PanelContainer/VBox/HBox1"]
+margin_right = 240.0
+margin_bottom = 49.0
+text = "Your score:"
+
+[node name="Score" type="Label" parent="PanelContainer/VBox/HBox1"]
+margin_left = 244.0
+margin_right = 244.0
+margin_bottom = 49.0
+
+[node name="Entername" parent="PanelContainer/VBox" instance=ExtResource( 1 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 53.0
+margin_right = 424.0
+margin_bottom = 221.0
