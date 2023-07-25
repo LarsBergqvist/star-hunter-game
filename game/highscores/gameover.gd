@@ -2,6 +2,7 @@ extends Control
 
 func _ready():
 	$PanelContainer/VBox/HBox1/Score.text = str(global.last_score)
+	$PanelContainer/VBox/Entername.connect("to_title_screen", self, "go_to_title_screen")
 	
 	
 func go_to_title_screen():

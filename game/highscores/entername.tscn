@@ -49,5 +49,11 @@ margin_right = 1010.0
 margin_bottom = 55.0
 text = "Cancel"
 
+[node name="Status" type="Label" parent="."]
+margin_left = 7.0
+margin_top = 59.0
+margin_right = 1017.0
+margin_bottom = 108.0
+
 [connection signal="pressed" from="VBox/Controls/Save" to="." method="_on_Save_pressed"]
 [connection signal="pressed" from="VBox/Controls/Cancel" to="." method="_on_Cancel_pressed"]

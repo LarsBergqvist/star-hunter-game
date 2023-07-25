@@ -34,7 +34,7 @@ custom_styles/panel = SubResource( 1 )
 margin_left = 4.0
 margin_top = 4.0
 margin_right = 428.0
-margin_bottom = 217.0
+margin_bottom = 225.0
 
 [node name="HBox1" type="HBoxContainer" parent="PanelContainer/VBox"]
 margin_right = 424.0
@@ -58,4 +58,4 @@ anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 53.0
 margin_right = 424.0
-margin_bottom = 185.0
+margin_bottom = 221.0
