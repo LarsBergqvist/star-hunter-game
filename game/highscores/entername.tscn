@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://highscores/enterresult.gd" type="Script" id=1]
+[ext_resource path="res://highscores/entername.gd" type="Script" id=1]
 
 [node name="Entername" type="PanelContainer"]
 anchor_left = 0.5
@@ -19,32 +19,32 @@ script = ExtResource( 1 )
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1017.0
-margin_bottom = 67.0
+margin_bottom = 125.0
 
 [node name="Name" type="LineEdit" parent="VBox"]
 margin_right = 1010.0
-margin_bottom = 24.0
+margin_bottom = 59.0
 max_length = 20
 placeholder_text = "Your name"
 caret_blink = true
 caret_blink_speed = 0.5
 
 [node name="Controls" type="HBoxContainer" parent="VBox"]
-margin_top = 28.0
+margin_top = 63.0
 margin_right = 1010.0
-margin_bottom = 48.0
+margin_bottom = 118.0
 alignment = 2
 
 [node name="Save" type="Button" parent="VBox/Controls"]
-margin_left = 911.0
-margin_right = 952.0
-margin_bottom = 20.0
+margin_left = 731.0
+margin_right = 852.0
+margin_bottom = 55.0
 text = "Save"
 
 [node name="Cancel" type="Button" parent="VBox/Controls"]
-margin_left = 956.0
+margin_left = 856.0
 margin_right = 1010.0
-margin_bottom = 20.0
+margin_bottom = 55.0
 text = "Cancel"
 
 [connection signal="pressed" from="VBox/Controls/Save" to="." method="_on_Save_pressed"]

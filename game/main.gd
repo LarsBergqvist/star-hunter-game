@@ -49,7 +49,11 @@ func _ready():
 
 func _process(_delta):
 	if health <= 0:
-		$HUD.show_game_over_menu()
+		global.last_score = score
+		if score > 0 and global.apikey.length() > 0:
+			get_tree().change_scene("res://highscores/gameover.tscn")
+		else:
+			$HUD.show_game_over_menu()
 		get_tree().paused = true
 		
 	if stars_found == total_stars:

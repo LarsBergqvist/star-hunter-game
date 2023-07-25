@@ -23,9 +23,10 @@ anchor_right = 0.8
 anchor_bottom = 0.8
 margin_right = 12.0
 margin_bottom = 12.0
+rect_clip_content = false
 
 [node name="Leaderboard" type="VBoxContainer" parent="Scroll"]
-custom_constants/separation = 200
+custom_constants/separation = 50
 
 [node name="Status" type="Label" parent="."]
 margin_right = 142.0

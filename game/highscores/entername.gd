@@ -3,7 +3,9 @@ extends PanelContainer
 var saving = false
 
 func _ready():
-	pass
+	$VBox/Name.text = global.last_name
+	
+	
 func _process(_delta):
 	if $VBox/Name.text.length() < 3:
 		$VBox/Controls/Save.disabled = true
@@ -17,7 +19,7 @@ func _on_Save_pressed():
 	saving = true
 	var data_to_send = {
 		"userName": $VBox/Name.text,
-		"score": 678
+		"score": global.last_score
 	}
 	
 	var global = get_node("/root/global")	
@@ -31,11 +33,11 @@ func _on_Save_pressed():
 	
 
 func _on_Cancel_pressed():
-	get_tree().change_scene("res://main.tscn")
+	get_parent().get_parent().get_parent().go_to_title_screen()
 	
 func _on_request_completed(result, response_code, headers, body):
 	var json = JSON.parse(body.get_string_from_utf8())
 	if json.error != OK:
 		print("Failure!")
-	get_tree().change_scene("res://main.tscn")
+	get_parent().get_parent().get_parent().go_to_title_screen()
 		

@@ -17,6 +17,10 @@ func _ready():
 		
 	$Menu/Back.connect("pressed", self, "_on_back_button_pressed")
 
+	if global.testing:
+		$Menu/Label2.visible = true
+		$Menu/HBoxLevels.visible = true
+		
 	var global = get_node("/root/global")
 	_on_CharButton_pressed(global.character)
 	_on_LevelButton_pressed(global.startLevel)

@@ -29,8 +29,8 @@ func _on_request_completed(result, response_code, headers, body):
 			instance.set_Name(res.userName)
 			instance.set_Score(str(res.score))
 			$Scroll/Leaderboard.add_child(instance)
-#			print(res.userName)
-#			print(str(res.score))
+			print(res.userName)
+			print(str(res.score))
 #	print(json.result.results)
 
 
