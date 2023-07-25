@@ -19,7 +19,8 @@ script = ExtResource( 1 )
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 1017.0
-margin_bottom = 125.0
+margin_bottom = 161.0
+custom_constants/separation = 40
 
 [node name="Name" type="LineEdit" parent="VBox"]
 margin_right = 1010.0
@@ -30,14 +31,15 @@ caret_blink = true
 caret_blink_speed = 0.5
 
 [node name="Controls" type="HBoxContainer" parent="VBox"]
-margin_top = 63.0
+margin_top = 99.0
 margin_right = 1010.0
-margin_bottom = 118.0
+margin_bottom = 154.0
+custom_constants/separation = 20
 alignment = 2
 
 [node name="Save" type="Button" parent="VBox/Controls"]
-margin_left = 731.0
-margin_right = 852.0
+margin_left = 715.0
+margin_right = 836.0
 margin_bottom = 55.0
 text = "Save"
 

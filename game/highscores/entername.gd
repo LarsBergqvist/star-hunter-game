@@ -29,8 +29,7 @@ func _on_Save_pressed():
 	var url = "https://highscore-service-lb-api.azurewebsites.net/highscore-lists/{gameid}/game-results".format({"gameid": global.gameid})
 	$HTTPRequest.connect("request_completed", self, "_on_request_completed")
 	var error = $HTTPRequest.request(url, headers, use_ssl, HTTPClient.METHOD_POST, query)
-	pass	
-	
+
 
 func _on_Cancel_pressed():
 	get_parent().get_parent().get_parent().go_to_title_screen()
