@@ -6,6 +6,6 @@ var initial_ammo = 10
 var last_score = 0
 var last_name = ""
 var testing = false
-var highscore_api = "https://highscore-service-lb-api.azurewebsites.net"
+var highscore_api = ""
 var apikey = ""
 var gameid = ""
