@@ -2,26 +2,24 @@
 
 [ext_resource path="res://highscores/scoretemplate.gd" type="Script" id=1]
 
-[node name="ScoreTemplate" type="Panel"]
+[node name="ScoreTemplate" type="MarginContainer"]
 anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -272.0
-margin_top = -62.6
-margin_right = 272.0
-margin_bottom = 62.6
+anchor_right = 0.5
+margin_left = -512.0
+margin_right = 512.0
+margin_bottom = 63.0
 script = ExtResource( 1 )
 
 [node name="Name" type="Label" parent="."]
-margin_top = 13.0
-margin_right = 544.0
-margin_bottom = 50.0
-text = "apa"
+margin_top = 7.0
+margin_right = 692.0
+margin_bottom = 56.0
+size_flags_horizontal = 0
+text = "apa123243445345539999999s"
 
 [node name="Score" type="Label" parent="."]
-margin_top = 13.0
-margin_right = 544.0
-margin_bottom = 50.0
-text = "apan"
+margin_top = 7.0
+margin_right = 1024.0
+margin_bottom = 56.0
+text = "apan12344"
 align = 2

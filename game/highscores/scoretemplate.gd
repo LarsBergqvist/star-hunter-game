@@ -1,4 +1,4 @@
-extends Panel
+extends MarginContainer
 
 
 func _ready():
