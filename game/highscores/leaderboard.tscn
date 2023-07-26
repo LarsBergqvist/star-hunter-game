@@ -8,7 +8,6 @@
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = -74.0
 mouse_filter = 1
 script = ExtResource( 2 )
 
@@ -16,22 +15,6 @@ script = ExtResource( 2 )
 
 [node name="SceneTransitionRect" parent="." instance=ExtResource( 1 )]
 visible = false
-
-[node name="Scroll" type="ScrollContainer" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -313.2
-margin_top = -175.8
-margin_right = 313.2
-margin_bottom = 175.8
-rect_clip_content = false
-
-[node name="Leaderboard" type="VBoxContainer" parent="Scroll"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_constants/separation = 50
 
 [node name="Status" type="Label" parent="."]
 margin_right = 142.0
@@ -63,5 +46,21 @@ custom_styles/panel = SubResource( 1 )
 margin_right = 323.0
 margin_bottom = 49.0
 text = "  Leaderboard  "
+
+[node name="Scroll" type="ScrollContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -412.0
+margin_top = -225.0
+margin_right = 412.0
+margin_bottom = 209.0
+
+[node name="Leaderboard" type="VBoxContainer" parent="Scroll"]
+margin_right = 824.0
+size_flags_horizontal = 7
+size_flags_vertical = 4
+custom_constants/separation = 5
 
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
