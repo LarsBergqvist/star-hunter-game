@@ -58,7 +58,6 @@ margin_right = 412.0
 margin_bottom = 209.0
 
 [node name="Leaderboard" type="VBoxContainer" parent="Scroll"]
-margin_right = 824.0
 size_flags_horizontal = 7
 size_flags_vertical = 4
 custom_constants/separation = 5

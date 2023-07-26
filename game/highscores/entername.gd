@@ -43,11 +43,6 @@ func _on_request_completed(result, _response_code, _headers, body):
 		saving_failed()
 		return
 
-	var json = JSON.parse(body.get_string_from_utf8())
-	if json.error != OK:
-		saving_failed()
-		return
-
 	$Status.text = ""
 	
 	emit_signal("to_title_screen")
