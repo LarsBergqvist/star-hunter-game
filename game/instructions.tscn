@@ -22,9 +22,10 @@ stretch_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -396.5
-margin_right = 396.5
-margin_bottom = 300.0
+margin_left = -313.0
+margin_top = 47.0
+margin_right = 480.0
+margin_bottom = 347.0
 text = "Catch all stars on each level!
 * Move: arrow left/right  or A/D
 * Jump: space

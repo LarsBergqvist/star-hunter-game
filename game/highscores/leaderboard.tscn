@@ -8,7 +8,6 @@
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = -74.0
 mouse_filter = 1
 script = ExtResource( 2 )
 
@@ -54,9 +53,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -412.0
-margin_top = -171.5
+margin_top = -225.0
 margin_right = 412.0
-margin_bottom = 171.5
+margin_bottom = 209.0
 
 [node name="Leaderboard" type="VBoxContainer" parent="Scroll"]
 margin_right = 824.0
