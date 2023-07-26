@@ -2,7 +2,7 @@
 
 [ext_resource path="res://highscores/scoretemplate.gd" type="Script" id=1]
 
-[node name="ScoreTemplate" type="MarginContainer"]
+[node name="ScoreTemplate" type="HBoxContainer"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -512.0
@@ -18,8 +18,10 @@ size_flags_horizontal = 0
 text = "apa123243445345539999999s"
 
 [node name="Score" type="Label" parent="."]
+margin_left = 696.0
 margin_top = 7.0
 margin_right = 1024.0
 margin_bottom = 56.0
+size_flags_horizontal = 3
 text = "apan12344"
 align = 2
