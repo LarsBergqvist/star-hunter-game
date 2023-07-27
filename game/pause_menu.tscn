@@ -41,13 +41,6 @@ margin_bottom = 91.0
 action_mode = 0
 text = "Next level"
 
-[node name="Replay" type="Button" parent="LevelComplete"]
-margin_top = 95.0
-margin_right = 463.0
-margin_bottom = 186.0
-action_mode = 0
-text = "Replay level"
-
 [node name="GamePaused" type="VBoxContainer" parent="."]
 pause_mode = 2
 visible = false
@@ -79,12 +72,6 @@ margin_left = -231.5
 margin_right = 231.5
 margin_bottom = 186.0
 
-[node name="Replay" type="Button" parent="GameOver"]
-margin_right = 463.0
-margin_bottom = 91.0
-action_mode = 0
-text = "Replay level"
-
 [node name="NewGame" type="Button" parent="GameOver"]
 margin_top = 95.0
 margin_right = 463.0
@@ -93,8 +80,6 @@ action_mode = 0
 text = "New game"
 
 [connection signal="pressed" from="LevelComplete/NextLevel" to="." method="_on_NextLevel_pressed"]
-[connection signal="pressed" from="LevelComplete/Replay" to="." method="_on_Replay_pressed"]
 [connection signal="pressed" from="GamePaused/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="GamePaused/NewGame" to="." method="_on_NewGame_pressed"]
-[connection signal="pressed" from="GameOver/Replay" to="." method="_on_Replay_pressed"]
 [connection signal="pressed" from="GameOver/NewGame" to="." method="_on_NewGame_pressed"]

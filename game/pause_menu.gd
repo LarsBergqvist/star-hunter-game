@@ -30,13 +30,11 @@ func hide_menu():
 func _on_Replay_pressed():
 	hide_menu()
 	emit_signal("requested_replay_level")
-	pass # Replace with function body.
 
 
 func _on_NextLevel_pressed():
 	hide_menu()
 	emit_signal("requested_goto_next_level")
-	pass # Replace with function body.
 
 
 func _on_Resume_pressed():
