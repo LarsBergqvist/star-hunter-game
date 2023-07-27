@@ -35,6 +35,7 @@ func _ready()->void:
 		parent.connect("star_was_taken", self, "on_star_was_taken")
 		parent.connect("player_has_bounced_enemy", self, "on_player_has_bounced_enemy")
 		parent.connect("player_was_hit", self, "on_player_was_hit")
+		parent.connect("enemy_was_hit", self, "on_enemy_was_hit")
 
 		
 func _physics_process(delta: float)->void:
@@ -208,6 +209,11 @@ func on_player_has_bounced_enemy(bounce_factor)->void:
 	$PlayerSprite.show_emote("haha", 0.5)
 	_playerState.velocity.y = -bounce_factor * BOUNCE_SPEED
 	_playerState.is_jumping = true
+
+
+func on_enemy_was_hit()->void:
+		$PlayerSprite.show_emote("haha", 0.5)
+
 
 func _get_tile_on_position(x,y):
 	var tilemap = get_parent().get_node("TileMap")
