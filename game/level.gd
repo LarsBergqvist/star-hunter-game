@@ -32,7 +32,7 @@ func _ready():
 		for _i in range(0,num_bats):
 			var bat = preload("res://enemies/bat.tscn").instance()
 			bat.path = $BatPath/PathFollow2D
-			bat.bounce_factor = 5
+			bat.bounce_factor = 2
 			bat.connect("player_hit", self, "on_player_hit")
 			bat.connect("enemy_hit", self, "on_enemy_hit")
 			bat.connect("player_bounced_enemy", self, "on_player_bounced_enemy")
@@ -41,7 +41,7 @@ func _ready():
 	if get_node_or_null("GhostPath") != null:
 		for _i in range(0,num_ghosts):
 			var ghost = preload("res://enemies/ghost.tscn").instance()
-			ghost.bounce_factor = 7
+			ghost.bounce_factor = 4
 			ghost.path = $GhostPath/PathFollow2D
 			ghost.connect("player_hit", self, "on_player_hit")
 			ghost.connect("enemy_hit", self, "on_enemy_hit")
@@ -51,7 +51,7 @@ func _ready():
 	if get_node_or_null("BeePath") != null:
 		for _i in range(0,num_bees):
 			var bee = preload("res://enemies/bee.tscn").instance()
-			bee.bounce_factor = 5
+			bee.bounce_factor = 3
 			bee.path = $BeePath/PathFollow2D
 			bee.connect("player_hit", self, "on_player_hit")
 			bee.connect("enemy_hit", self, "on_enemy_hit")
@@ -61,7 +61,7 @@ func _ready():
 	if get_node_or_null("FlyPath") != null:
 		for _i in range(0,num_flies):
 			var fly = preload("res://enemies/fly.tscn").instance()
-			fly.bounce_factor = 5
+			fly.bounce_factor = 4
 			fly.path = $FlyPath/PathFollow2D
 			fly.connect("player_hit", self, "on_player_hit")
 			fly.connect("enemy_hit", self, "on_enemy_hit")
