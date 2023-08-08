@@ -7,7 +7,9 @@ func _ready():
 	$HTTPRequest.connect("request_completed", self, "_on_request_completed")
 	var headers = ["ApiKey: {apikey}".format({"apikey": global.apikey})]
 	$Status.text = "Loading..."
-	$HTTPRequest.request("{endpoint}/highscore-lists/{gameid}".format({"endpoint" : global.highscore_api, "gameid": global.gameid}), headers)
+	var res = $HTTPRequest.request("{endpoint}/highscore-lists/{gameid}".format({"endpoint" : global.highscore_api, "gameid": global.gameid}), headers)
+	if res != OK:
+		loading_failed()
 
 
 func _on_back_button_pressed():
@@ -27,11 +29,13 @@ func _on_request_completed(result, _response_code, _headers, body):
 	$Status.text = ""
 		
 	if json.result.results != null:
+		var pos = 1
 		for res in json.result.results:
 			var instance = preload("scoretemplate.tscn").instance()
-			instance.set_Name(res.userName)
+			instance.set_Name(str(pos) + ". " + res.userName)
 			instance.set_Score(str(res.score))
 			$Scroll/Leaderboard.add_child(instance)
+			pos = pos + 1
 
 
 func loading_failed():

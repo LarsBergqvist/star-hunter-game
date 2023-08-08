@@ -336,7 +336,10 @@ process_mode = 0
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
-smoothing_speed = 1.0
+drag_margin_left = 0.5
+drag_margin_top = 0.5
+drag_margin_right = 0.5
+drag_margin_bottom = 0.5
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 11.5252, 46.7609, 18.4863, 46.053, 22.9484, 29.7427, 23.3702, 12.5903, 29.4157, 4.43583, 33.3648, -10.6288, 29.8375, -32.6809, 14.3722, -46.1779, -1.65544, -47.865, -15.1524, -44.7719, -28.9306, -31.8373, -31.964, -10.9204, -27.1029, 6.26355, -22.3227, 14.5586, -21.7603, 27.6338, -19.8586, 46.5249, -4.7566, 47.2328 )

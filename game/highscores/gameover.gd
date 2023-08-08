@@ -1,6 +1,10 @@
 extends Control
 
 func _ready():
+	if global.last_score == 0 or global.apikey.length() == 0 or global.highscore_api.length() == 0:
+		go_to_title_screen()
+		return
+		
 	$PanelContainer/VBox/HBox1/Score.text = str(global.last_score)
 	$PanelContainer/VBox/Entername.connect("to_title_screen", self, "go_to_title_screen")
 	

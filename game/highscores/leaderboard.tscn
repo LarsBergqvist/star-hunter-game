@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://transition.tscn" type="PackedScene" id=1]
 [ext_resource path="res://highscores/leaderboard.gd" type="Script" id=2]
+[ext_resource path="res://fonts/SmallFont.tres" type="DynamicFont" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -19,6 +20,7 @@ visible = false
 [node name="Status" type="Label" parent="."]
 margin_right = 142.0
 margin_bottom = 49.0
+custom_fonts/font = ExtResource( 3 )
 
 [node name="BackButton" type="Button" parent="."]
 anchor_left = 0.5
@@ -58,6 +60,7 @@ margin_right = 412.0
 margin_bottom = 209.0
 
 [node name="Leaderboard" type="VBoxContainer" parent="Scroll"]
+margin_right = 824.0
 size_flags_horizontal = 7
 size_flags_vertical = 4
 custom_constants/separation = 5

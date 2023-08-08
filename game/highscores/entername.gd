@@ -30,8 +30,10 @@ func _on_Save_pressed():
 	var use_ssl = true
 	var url = "{endpoint}/highscore-lists/{gameid}/game-results".format({"endpoint" : global.highscore_api, "gameid": global.gameid})
 	$HTTPRequest.connect("request_completed", self, "_on_request_completed")
-	$HTTPRequest.request(url, headers, use_ssl, HTTPClient.METHOD_POST, query)
 	$Status.text = "Saving..."
+	var res = $HTTPRequest.request(url, headers, use_ssl, HTTPClient.METHOD_POST, query)
+	if res != OK:
+		saving_failed()
 
 
 func _on_Cancel_pressed():
