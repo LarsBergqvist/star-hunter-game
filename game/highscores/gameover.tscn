@@ -19,6 +19,14 @@ script = ExtResource( 2 )
 [node name="SceneTransitionRect" parent="." instance=ExtResource( 3 )]
 visible = false
 
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -116.0
+margin_right = 116.0
+margin_bottom = 49.0
+text = "Game over"
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -59,3 +67,5 @@ margin_left = 0.0
 margin_top = 53.0
 margin_right = 424.0
 margin_bottom = 221.0
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
